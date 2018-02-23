@@ -1,4 +1,2 @@
-gh-pages branch に テキストを書き出す
-`ghp-import output`
-repository に push する
-`git push -f origin gh-pages:master`
+ghp-import output #gh-pages branch に テキストを書き出す
+git push -f origin gh-pages:master #repository に push する

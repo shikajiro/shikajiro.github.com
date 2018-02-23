@@ -3,8 +3,8 @@ layout: single
 title: AndroidのTestまとめ
 date: 2016-08-10 06:20
 slug: androidunittestmd
-url: 2016/08/10/androidunittestmd/
-save_as: 2016/08/10/androidunittestmd/index.html
+url: 2016/08/09/androidunittestmd/
+save_as: 2016/08/09/androidunittestmd/index.html
 ---
 
 この記事をまとめるにあたって
