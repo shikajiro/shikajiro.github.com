@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="Dagger2 がほんとに辛い。 公式サイト見たり、先駆者の皆さんのブログを見ながらやってみるけど、ややこしくて自分で改善するのはかなり辛い。使っているというより、言われたとおりに設定するだけで精一杯。 そんなことをぼやいてたら Realm と ウフィカ の中の人 @zaki50 さんから toothpickためそ？— zaki50 (@zaki50) 2017年9月1日 とアドバイス頂いたので試してみました。 stephanenicolas/toothpick: A scope tree based Dependency Injection (DI) library for Java サイトを見て設定すれば動くんだけど、どうしても見落としがちなとことかあるので、簡単に紹介します。 Toothpick とは Java の DI です。 とはいえ、主に Android を対象にしてる気がします。 ツリースコープなので、「Activity で Inject してたら Fragment …" />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="Android の DI を Dagger から ToothPick に代えた"/>
+<meta property="og:description" content="Dagger2 がほんとに辛い。 公式サイト見たり、先駆者の皆さんのブログを見ながらやってみるけど、ややこしくて自分で改善するのはかなり辛い。使っているというより、言われたとおりに設定するだけで精一杯。 そんなことをぼやいてたら Realm と ウフィカ の中の人 @zaki50 さんから toothpickためそ？— zaki50 (@zaki50) 2017年9月1日 とアドバイス頂いたので試してみました。 stephanenicolas/toothpick: A scope tree based Dependency Injection (DI) library for Java サイトを見て設定すれば動くんだけど、どうしても見落としがちなとことかあるので、簡単に紹介します。 Toothpick とは Java の DI です。 とはいえ、主に Android を対象にしてる気がします。 ツリースコープなので、「Activity で Inject してたら Fragment …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/2017/09/27/toothpick/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-09-27 19:31:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="articles"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; Android の DI を Dagger から ToothPick に代えた</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="toothpick">Android の DI を Dagger から ToothPick に代えた</h1>
+    <p>
+          Posted on Wed 27 September 2017 in <a href="/category/articles.html">articles</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="" src="https://camo.githubusercontent.com/24ff6ae4cd9e20cddbaf1c027651e1545b912724/68747470733a2f2f7261772e6769746875622e636f6d2f7374657068616e656e69636f6c61732f746f6f74687069636b2f6d61737465722f6173736574732f6c6f676f2e6a7067"></p>
+<p>Dagger2 がほんとに辛い。
+公式サイト見たり、先駆者の皆さんのブログを見ながらやってみるけど、ややこしくて自分で改善するのはかなり辛い。使っているというより、言われたとおりに設定するだけで精一杯。</p>
+<p>そんなことをぼやいてたら Realm と ウフィカ の中の人 <a href="https://twitter.com/zaki50">@zaki50</a> さんから</p>
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">toothpickためそ？</p>&mdash; zaki50 (@zaki50) <a href="https://twitter.com/zaki50/status/903553963747717121">2017年9月1日</a></blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>とアドバイス頂いたので試してみました。</p>
+<p><a href="https://github.com/stephanenicolas/toothpick">stephanenicolas/toothpick: A scope tree based Dependency Injection (DI) library for Java</a></p>
+<p>サイトを見て設定すれば動くんだけど、どうしても見落としがちなとことかあるので、簡単に紹介します。</p>
+<h2>Toothpick とは</h2>
+<p>Java の DI です。 とはいえ、主に Android を対象にしてる気がします。
+ツリースコープなので、「Activity で Inject してたら Fragment でも利用できる」みたいな感じです。（ざっくり）</p>
+<h3>Tree Scope</h3>
+<div class="highlight"><pre><span></span>//a typical Toothpick scope tree during the execution of an Android app.
+
+       @ApplicationSingleton 
+         /              |    \  
+        /               |     \
+       /                |      \
+   @PresenterSingleton  |   Service 2
+         /              | 
+        /            Service 1  
+       /            
+Activity 1
+    /   \
+   /   Fragment 2
+  /
+Fragment 1
+</pre></div>
+
+
+<h3>特徴</h3>
+<ul>
+<li>Dagger2より簡単（個人の感想）</li>
+<li>高速(<a href="https://github.com/stephanenicolas/toothpick/wiki/Benchmark">Benchmark</a>)</li>
+</ul>
+<p>などがあります。特に一つ目がホント助かる・・・。</p>
+<h2>使い方</h2>
+<p>本題です。実際に使えるようになるまでのソースを抜粋して紹介します。バージョンは日々進化してるので、基本公式サイトを信用してください。
+また、ここではkotlinを使ってる場合の例になります。</p>
+<h3>builg.gradle</h3>
+<p>{% gist f3348df6476f5633fea30b86ba3ffff6 build.gradle %}</p>
+<p>kapt で <code>toothpick_registry_package_name</code> を設定する必要があります。ここで指定したパッケージのソースが自動生成されます。ここ大事。</p>
+<h3>MainApplication.kt</h3>
+<p>{% gist f3348df6476f5633fea30b86ba3ffff6 MainApplication.kt %}</p>
+<p>Applicationを継承したクラスが必須になります。</p>
+<p><code>MemberInjectorRegistryLocator</code> と <code>FactoryRegistryLocator</code> に set する Registry が大事なところです。
+ここには、 kapt で指定したパッケージに生成される <code>MemberInjectorRegistry</code> と <code>FactoryRegistry</code> を指定してください。ToothPick自体にもこの２つのクラスは存在するので、そちらを指定しないように気をつけてください。</p>
+<p>もし自動生成しない場合は、エラーになってもいいので rebuild や Make Project すると生成するかもしれません。がんばろう。</p>
+<h3>Module.kt</h3>
+<p>{% gist f3348df6476f5633fea30b86ba3ffff6 Module.kt %}</p>
+<p>DIの設定をするところです。<code>bind</code>メソッドで型とインスタンスを紐付けます。scope毎にModule (ApplicationModule, ActivityModule, FragmentModule, ViewModelModule) を作っています。</p>
+<h3>SplashActivity.kt</h3>
+<p>{% gist f3348df6476f5633fea30b86ba3ffff6 SplashActivity.kt %}</p>
+<p>ActivityでInjectしてみます。 @Inject を使うところはDaggerと一緒です。</p>
+<p>onCreate の前で scope に ActivityModule インストールしています。これでActivityからActivityModuleの中でbindしたインスタンスを Inject 出来るようになります。さらに、MainApplicationModuleの中でbindしたインスタンスもInjectできます。それは、ツリー構造でApplicationと紐付いているからです。(後述)</p>
+<p>onCreate の後で <code>Toohpick.inject</code> することで @Inject が書かれたメンバ変数にインスタンスが代入されます。</p>
+<h3>HomeFragment.kt</h3>
+<p>{% gist f3348df6476f5633fea30b86ba3ffff6 HomeFragment.kt %}</p>
+<h3>HomeViewModel.kt</h3>
+<p>{% gist f3348df6476f5633fea30b86ba3ffff6 HomeViewModel.kt %}</p>
+<h3>Scope</h3>
+<p>openScopes の引数は可変長です。ここにツリー構造になるようにインスタンスを指定します。MainActivityでは (MainApplication, SplashActivity) を指定しました。これは最初で紹介したツリーだと</p>
+<div class="highlight"><pre><span></span>     MainApplication 
+         /   \
+        /   OtherActivity...
+       /            
+SplashActivity
+</pre></div>
+
+
+<p>こういう感じになります。</p>
+<p>HomeFragmentでは (MainApplication, SplashActivity, HomeFragment) を指定しました。</p>
+<div class="highlight"><pre><span></span>   MainApplication
+         /   \
+        /   OtherActivity...
+       /            
+ SplashActivity
+    /   \
+   /   OtherFragment...
+  /
+HomeFragment
+</pre></div>
+
+
+<p>この時のHomeFragment では MainApplication と SplashActivity がインストールした Module を利用することができます。具体的には ModelRepository, Navigator, DialogDelegation を Injectする事ができます。</p>
+<p>（サンプルではなにもbindしてないけど、FragmentModuleがbindしたインスタンスも利用できます。）</p>
+<p>（ModelRepository, Navigator, DialogDelegation は架空のクラスです）</p>
+<h2>まとめ</h2>
+<p>ToothpickでDIできたはずです。できたよね。うんよかった。</p>
+<p>感想としてはDagger2よりシンプルで使いやすいです。もっと依存関係が複雑になるとどうなるかわかりませんが、複雑になったらDagger2は僕には辛いですし、複雑にならないように頑張りたいです。</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

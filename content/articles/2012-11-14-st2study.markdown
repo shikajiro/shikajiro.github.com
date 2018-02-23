@@ -1,0 +1,103 @@
+---
+layout: single
+title: SublimeText2勉強会@福岡
+date: 2012-11-14 19:29
+comments: true
+Category:
+slug: st2study
+---
+
+[福岡 Sublime Text 2 勉強会-第0回- : ATND](http://atnd.org/events/33785)プレゼン用の資料です。
+
+## SublimeText2とはなにか
+vimやemacs、textmateや秀丸にも近い軽量GUIテキストエディタ。
+デフォルトで多くの言語のシンタックスやビルドコマンドが付属する。
+
+![image](/images/st2study/st2preview.png)
+
+### 大きな特徴
+
+#### パッケージコントロール
+パッケージコントロールをインストールすると（これはデフォルトじゃない）installコマンド でプラグインをぽんぽんインストールできるようになる。
+
+![image](/images/st2study/pkg.png)
+
+#### 基本的なvimやemacsのキーバインドが使える
+[Emacs, Vim, Sublime Text 2 徹底比較 - funatti's blog](http://funatti.hatenablog.com/entry/2012/07/13/155629)
+
+#### textmateのプラグインが使える
+textmateの*.tmbundleプラグインをフォルダに入れるだけで使えます。  
+僕はProcessingなどのプラグインはまだST2専用の物が無いので、textmateのプラグイン使ってます。
+
+![image](/images/st2study/plugin.png)
+
+#### プラグイン拡張
+pythonでプラグイン開発可能。
+
+![image](/images/st2study/Screen Shot 2012-11-16 at 2.27.21.png)
+
+## ST2の特徴
+
+* mac win linuxで動く
+* コード補完
+* コードの全体を見渡すミニマップ
+* 自在な複数選択
+* プロジェクト管理
+* コマンドパレット
+* anythingな検索
+
+上記の説明動画は公式サイトを御覧ください。
+[Sublime Text: The text editor you'll fall in love with](http://www.sublimetext.com/)
+
+## 他にもこんなことできるよ
+
+#### 画面分割
+
+![image](/images/st2study/Screen Shot 2012-11-16 at 2.31.32.png)
+
+#### 設定はjsonで色々変えれる
+
+![image](/images/st2study/Screen Shot 2012-11-16 at 2.31.47.png)
+
+#### ターミナルから起動できる。
+パイプでシェルの実行結果をST2に渡して起動できる。幅が広がりング。
+
+![image](/images/st2study/Screen Shot 2012-11-16 at 2.32.09.png)
+![image](/images/st2study/Screen Shot 2012-11-16 at 2.32.25.png)
+
+tail -f などはパイプできなかった(´・ω・｀)
+
+## 【鹿】これは入れとけってプラグイン【チョイス】
+
+#### OmniMarkupPreviewer
+マークアップ言語のプレビュー支援。
+alt + cmd + O でサーバーが起動し、現在のマークアップのコードをリアルタイムプレビューしてくれる。
+テキストを保存しなくても編集文字がリアルタイムでプレビューに反映されるのでまぢすごい。
+
+#### Gist
+Gistのスニペット管理。
+Gistで管理しているソースコードを追加したり、作成できる。
+
+#### SublimeCodeIntel
+入力補完の強化。
+シンボルからのジャンプ、importsのコード補完などが強化される。
+
+#### SublimeLinter
+様々な言語の検査プログラムを実行。エラー箇所をハイライト。メッセージはステータスバーに表示されます。
+
+![image](/images/st2study/Screen Shot 2012-11-16 at 2.47.03.png)
+
+#### Alignment
+選択範囲の整形。
+これが  
+![image](/images/st2study/Screen Shot 2012-11-16 at 2.47.42.png)
+範囲選択をして cmd + cntl + a を押すと、こうなる  
+![image](/images/st2study/Screen Shot 2012-11-16 at 2.47.59.png)
+
+しまじろうさん（名前がかぶってる）のブログによくまとまっております。  
+[[SublimeText2]「第0回 Sublime Text 2 勉強会」で紹介されたプラグインまとめ - The Powerful Code](http://powerful-code.com/blog/2012/11/plugins-for-st2/)
+
+
+## デメリット
+* vimやemacsのような神拡張できない（たぶん）
+* まだ新しいのでノウハウ少ない

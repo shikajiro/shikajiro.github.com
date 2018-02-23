@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="しかだよ。 MapFragmentをTabの一つとして表示したいんだけど、色々問題が出てきつつ解決できたのでメモ。 前提条件 Android 4.x TabはActionBarを使用 Mapはgoogle-play-servicesを使用 とりあえずActionBarにタブを設定するソースコードはこんな感じ。 @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mActionBar = getActionBar(); mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS); TabListener tabListener = new ActionBar.TabListener() { @Override public void onTabSelected(Tab tab, FragmentTransaction ft) { if (tab.getText().equals("Map")) { if (mMapFragment == null …" />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="MapFragmentをTabの要素として表示したい"/>
+<meta property="og:description" content="しかだよ。 MapFragmentをTabの一つとして表示したいんだけど、色々問題が出てきつつ解決できたのでメモ。 前提条件 Android 4.x TabはActionBarを使用 Mapはgoogle-play-servicesを使用 とりあえずActionBarにタブを設定するソースコードはこんな感じ。 @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); mActionBar = getActionBar(); mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS); TabListener tabListener = new ActionBar.TabListener() { @Override public void onTabSelected(Tab tab, FragmentTransaction ft) { if (tab.getText().equals("Map")) { if (mMapFragment == null …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2013/02/14/android-mapfragment-list/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2013-02-14 23:04:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="Android"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; MapFragmentをTabの要素として表示したい</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="android-mapfragment-list">MapFragmentをTabの要素として表示したい</h1>
+    <p>
+          Posted on Thu 14 February 2013 in <a href="/category/android.html">Android</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>しかだよ。
+MapFragmentをTabの一つとして表示したいんだけど、色々問題が出てきつつ解決できたのでメモ。</p>
+<h2>前提条件</h2>
+<ul>
+<li>Android 4.x</li>
+<li>TabはActionBarを使用</li>
+<li>Mapはgoogle-play-servicesを使用</li>
+</ul>
+<p _="%" highlight java>とりあえずActionBarにタブを設定するソースコードはこんな感じ。</p>
+<p>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);</p>
+<div class="highlight"><pre><span></span>mActionBar = getActionBar();
+mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+TabListener tabListener = new ActionBar.TabListener() {
+    @Override
+    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        if (tab.getText().equals(&quot;Map&quot;)) {
+            if (mMapFragment == null) {
+                mMapFragment = MapFragment.newInstance();
+                ft.add(android.R.id.content, mMapFragment, &quot;map&quot;);
+            } else {
+                ft.attach(mMapFragment);
+            }
+
+        } else {
+            if (mListFragment == null) {
+                mListFragment = CustomerListFragment.newInstance();
+                ft.add(android.R.id.content, mListFragment, &quot;list&quot;);
+            } else {
+                ft.attach(mListFragment);
+            }
+        }
+    }
+
+    @Override
+    public void onTabReselected(Tab tab, FragmentTransaction ft) {}
+
+    @Override
+    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+        if (tab.getText().equals(&quot;Map&quot;)) {
+            if (mMapFragment != null) {
+                ft.detach(mMapFragment);
+            }
+        }else{
+            if (mListFragment != null) {
+                ft.detach(mListFragment);
+            }
+        }
+    }
+};
+
+mActionBar.addTab(mActionBar.newTab().setText(&quot;List&quot;)
+        .setTabListener(tabListener));
+mActionBar.addTab(mActionBar.newTab().setText(&quot;Map&quot;)
+        .setTabListener(tabListener));
+</pre></div>
+
+
+<p _="%" endhighlight>}</p>
+<p>するときっとこんな画面になる。Manifestの設定は省く。</p>
+<p><img alt="" src="/images/android/device-2013-02-15-010618.png">
+<img alt="" src="/images/android/device-2013-02-15-010640.png"></p>
+<p>リスト画面が初期に表示され、まだインスタンス化されていないマップ画面が控えている。</p>
+<h2>マップに初期設定を行いたいけどできない</h2>
+<p>上記の参考画像の様に
+タブを選択してマップ画面に移ったら、<em>初期表示で</em>自分の位置を表示する設定とかマーカーピンを立てたりしたい。</p>
+<p>ここで問題が出てくる。
+MapFragment.newInstanceした時点ではGoogleMapのインスタンスは生成されていないのだ。なので、以下の様なnewInstanceした直後に設定はできない。</p>
+<p>{% highlight java %}</p>
+<div class="highlight"><pre><span></span>mMapFragment = MapFragment.newInstance();
+mMap = mMapFragment.getMap();
+//mMapはnullなのでぬるぽ
+mMap.setMyLocationEnabled(true);
+</pre></div>
+
+
+<p>{% endhighlight %}</p>
+<p>GoogleMapのインスタンスが生成されるのは、MapFragmentのonCreate or onCreateActivityが呼ばれた後らしい。（要出典）</p>
+<h2>解決策1 Activityのライフサイクルと同期する</h2>
+<p>GoogleMapのサンプルコードでは、呼び出し元のActivityとMapFragmentを結びつけて、Activity#onResumeのタイミングでGoogleMapのインスタンスを取得していた。</p>
+<p _="%" highlight java>サンプルコードはこんな感じ。</p>
+<div class="highlight"><pre><span></span>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    //layoutの中でMapFragmentを定義してる前提
+    setContentView(R.layout.activity_main);
+}
+
+@Override
+protected void onResume() {
+    super.onResume();
+    mMap = mMapFragment.getMap();
+}
+</pre></div>
+
+
+<p>{% endhighlight %}</p>
+<p>だがこれだと、初期表示されないタブの中のMapFragmentはActivityに紐付けできない。Activity#onResumeではMapFragmentのonCreateが終わった後を検出できない。</p>
+<h2>解決策2 MapFragmentのオーバーライド</h2>
+<p>したらなんとかなるかなと思ったけど、以下の理由で出来なかった。</p>
+<ul>
+<li>MapFragmentはソースコードが公開されてないので、どう実装したらよいものやら。</li>
+<li>MapFragment#newInstanceの中で new MapFragment(); を呼んでMapFragmentインスタンスを生成しているっぽいので、オーバーライドしても拡張したExtendMapFragmentクラスのインスタンスを扱えない。（または、MapFragmentのnewInstanceはポリモーフィズムになってない。）</li>
+</ul>
+<p>ソースコード見れないのがやっぱり辛いね・・・。動いたとしても、バージョン変わって動く保証もないし。</p>
+<h2>解決策3 タブの初期化のタイミングをずらす</h2>
+<p>結局どうしたかというと、タブの初期表示をMapFragmentにしておいて、表示する寸前に当初のFragmentに挿し替えるという姑息な技を使った。</p>
+<p>{% highlight java %}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);</p>
+<div class="highlight"><pre><span></span>    //省略
+
+    mActionBar.addTab(mActionBar.newTab().setText(&quot;List&quot;)
+            .setTabListener(tabListener));
+    mActionBar.addTab(mActionBar.newTab().setText(&quot;Map&quot;)
+            .setTabListener(tabListener));
+    //onCreateの中でMapFragmentのタグを指定しておく。
+    mActionBar.setSelectedNavigationItem(1);
+</pre></div>
+
+
+<p>}</p>
+<div class="highlight"><pre><span></span>@Override
+protected void onResume() {
+    super.onResume();
+    setUpMapIfNeeded();
+    //画面に表示される前にタブを戻しておく
+    mActionBar.setSelectedNavigationItem(0);
+}
+</pre></div>
+
+
+<p>{% endhighlight %}</p>
+<p>うん。無理矢理だね。とりあえず動いたからよしとしよう・・・。</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

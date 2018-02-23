@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+    <meta name="author" content="shikajiro" />
+    <meta name="description" content="" />
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="VS Resistance"/>
+<meta property="og:description" content=""/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash;     Category Android, ADT
+</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+
+
+<article>
+  <header>
+    <h2><a href="/blog/2013/02/19/android-adt-21-dot-0-0/#android-adt-21-dot-0-0">ADT 21.0.0新機能紹介</a></h2>
+    <p>
+          Posted on Tue 19 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p>しかだよ。
+Android Developer Toolのリリース文をまとめてるよ。
+しかの意訳なので気をつけてね。</p>
+<h1>Layout Editor</h1>
+<h2>複数の端末画面が同時にプレビューできるようになりました。</h2>
+<p>![](/images/android/Screen Shot 2013-02-20 at 1.08.14.png)</p>
+<p>詳しくはGoogle I/Oの20:30を見てね。
+<iframe width="560" height="315" src="http://www.youtube.com/embed/Erd2k6EKxCQ#t=20m30s" frameborder="0" allowfullscreen></iframe></p>
+<blockquote>
+<p>Added multi-configuration editing feature that was previewed at Google I/O developer tools talk in June. For an overview, see the session recording (starting at: 20:30).</p>
+</blockquote>
+<h2>FragmentまたはListViewのレイアウトの変更が …</h2>
+      <br>
+      <a class="btn" href="/blog/2013/02/19/android-adt-21-dot-0-0/#android-adt-21-dot-0-0">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2013/02/18/android-adt-21-0-1/#android-adt-21-0-1">ADT 21.0.1新機能紹介</a></h2>
+    <p>
+          Posted on Mon 18 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <h2>アプリケーションや依存ライブラリパッケージ名の重複を検出するようになりました。</h2>
+<blockquote>
+<p>Updated build to detect and handle package name conflicts between an application and the libraries it depends on. Libraries cannot share package names unless all of them share the same package name. (Issue 40152, Issue 40273)</p>
+</blockquote>
+<h2>DEXフラグの追加</h2>
+<p>DEXフラグは、DEXファイルをマージして壊れたDEXファイルになることを防ぐために使用します。
+設定をこんな感じにするとマージを使わなくなり、古い方のDEXファイルになります。
+{% highlight text %}
+    dex.disable.merger=true
+{% endhighlight %}
+遅くなる原因になるので気をつけてね …</p>
+      <br>
+      <a class="btn" href="/blog/2013/02/18/android-adt-21-0-1/#android-adt-21-0-1">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2013/02/15/android-adt21-1-0/#android-adt21-1-0">ADT 21.1.0 新機能紹介</a></h2>
+    <p>
+          Posted on Fri 15 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p>しかだよ。(｀・ω・´)
+ADTが21.1.0にアップデートしてたので、新機能をまとめてみたよ。</p>
+<p><a href="http://developer.android.com/tools/sdk/eclipse-adt.html">ADT Plugin | Android Developers</a></p>
+<h2>notificationとblank fragmentとlist fragmentのテンプレートができたよ。</h2>
+<blockquote>
+<p>Added new code templates for notifications, blank fragments and list fragments.</p>
+</blockquote>
+<p>今更気づいたけど、テンプレートがすごい充実してた。知らなかった・・・・。
+notificationのテンプレートを作ったらこんな感じになる。</p>
+<p>![](/images/android/Screen Shot 2013-02-15 at 15.05.52.png)
+![](/images/android/Screen Shot 2013-02-15 at 15.06.02.png)</p>
+<p>ソースコードはこんな感じ。
+{% highlight …</p>
+      <br>
+      <a class="btn" href="/blog/2013/02/15/android-adt21-1-0/#android-adt21-1-0">    Continue reading
+</a>
+  </div>
+</article>
+
+  <div class="pagination">
+  </div>
+
+
+
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

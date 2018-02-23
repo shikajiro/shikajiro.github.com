@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="しかだよ。Guavaってライブラリが良いってインターネットに書いてたので調べてみたよ。 サンプルソースのほとんどは本家からコピペしたよ。 guava-libraries - Guava: Google Core Libraries for Java 1.6+ - Google Project Hosting Basic Using/avoiding null nullぽを避けるための仕組み {% highlight java %} Optional possible = Optional.of(5); possible.isPresent(); // returns true possible.get(); // returns 5 Preconditions 引数の値チェックなど、前提条件をチェックする仕組み。assertとかに似てると思う。 条件がfalseだと対応するExceptionがスローされる。 Ordering Comparatorをスマートにしたやつ。Comparatorはめんどいよね・・・。 {% highlight java %} Ordering byLengthOrdering = new Ordering() { public …" />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="Google製Javaライブラリ Guavaを使ってみた。"/>
+<meta property="og:description" content="しかだよ。Guavaってライブラリが良いってインターネットに書いてたので調べてみたよ。 サンプルソースのほとんどは本家からコピペしたよ。 guava-libraries - Guava: Google Core Libraries for Java 1.6+ - Google Project Hosting Basic Using/avoiding null nullぽを避けるための仕組み {% highlight java %} Optional possible = Optional.of(5); possible.isPresent(); // returns true possible.get(); // returns 5 Preconditions 引数の値チェックなど、前提条件をチェックする仕組み。assertとかに似てると思う。 条件がfalseだと対応するExceptionがスローされる。 Ordering Comparatorをスマートにしたやつ。Comparatorはめんどいよね・・・。 {% highlight java %} Ordering byLengthOrdering = new Ordering() { public …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2013/03/03/java-guava/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2013-03-03 19:43:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="articles"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; Google製Javaライブラリ Guavaを使ってみた。</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="java-guava">Google製Javaライブラリ Guavaを使ってみた。</h1>
+    <p>
+          Posted on Sun 03 March 2013 in <a href="/category/articles.html">articles</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><center>
+<img src="/images/indian_guava.jpg">
+</center></p>
+<p>しかだよ。Guavaってライブラリが良いってインターネットに書いてたので調べてみたよ。
+サンプルソースのほとんどは本家からコピペしたよ。</p>
+<p><a href="https://code.google.com/p/guava-libraries/">guava-libraries - Guava: Google Core Libraries for Java 1.6+ - Google Project Hosting</a></p>
+<h2>Basic</h2>
+<h3>Using/avoiding null</h3>
+<p _="%" endhighlight>nullぽを避けるための仕組み
+{% highlight java %}
+    Optional<Integer> possible = Optional.of(5);
+    possible.isPresent(); // returns true
+    possible.get(); // returns 5</p>
+<h3>Preconditions</h3>
+<p>引数の値チェックなど、前提条件をチェックする仕組み。assertとかに似てると思う。
+条件がfalseだと対応するExceptionがスローされる。</p>
+<h3>Ordering</h3>
+<p>Comparatorをスマートにしたやつ。Comparatorはめんどいよね・・・。</p>
+<p>{% highlight java %}
+    Ordering<String> byLengthOrdering = new Ordering<String>() {
+         public int compare(String left, String right) {
+           return Ints.compare(left.length(), right.length());
+         }
+       };</p>
+<div class="highlight"><pre><span></span>if (Ordering.from(comparator).reverse().isOrdered(list)) { ... }
+</pre></div>
+
+
+<p>{% endhighlight %}
+あら素敵。</p>
+<h3>Object methods</h3>
+<p>なにやら便利メソッド。</p>
+<h4>equals</h4>
+<p>nullぽを気にせずnullチェックができるよ。</p>
+<p _="%" endhighlight>{% highlight java %}
+    Objects.equal("a", "a"); // returns true
+    Objects.equal(null, "a"); // returns false
+    Objects.equal("a", null); // returns false
+    Objects.equal(null, null); // returns true</p>
+<h4>hashCode</h4>
+<p _="%" endhighlight>安全なハッシュが簡単に作れます。
+{% highlight java %}
+    Objects.hashCode(Object...)</p>
+<h4>toString</h4>
+<p>toStringメソッドの構築・保守が楽になるよ。
+{% highlight java %}
+@override public String toString(){
+        // Returns "ClassName{x=1}"
+        return Objects.toStringHelper(this)
+           .add("x", this.x)//変数名とその値
+           .toString();
+        //or
+        // Returns "MyObject{x=1}"
+        return Objects.toStringHelper("MyObject")
+           .add("x", 1)
+           .toString();
+}
+{% endhighlight %}
+eclipseのジェネレーターでもいいと思うけど。</p>
+<h4>compare/compareTo</h4>
+<p _="%" endhighlight>ComparisonChainを使うと、連続した比較が簡単に。
+{% highlight java %}
+   public int compareTo(Foo that) {
+     return ComparisonChain.start()
+         .compare(this.aString, that.aString)
+         .compare(this.anInt, that.anInt)
+         .compare(this.anEnum, that.anEnum, Ordering.natural().nullsLast())
+         .result();
+   }</p>
+<h3>Throwables</h3>
+<p>case文のように、連鎖したtry catch文が書けるようになります。
+例えば、以下の処理で IKnowWhatToDoWithThisException が発生した場合、1 2 3 の順番で処理が発生します。
+{% highlight java %}
+    try {
+        // 1
+        someMethodThatCouldThrowAnything();
+    } catch (IKnowWhatToDoWithThisException e) {
+        // 2
+        handle(e);
+    } catch (Throwable t) {
+        // 3
+        Throwables.propagateIfInstanceOf(t, IOException.class);
+        Throwables.propagateIfInstanceOf(t, SQLException.class);
+        throw Throwables.propagate(t);
+   }
+{% endhighlight %}
+java7だと簡潔に書けるけど、Androidとかはまだ使えないからありがたいね。</p>
+<h2>Collections</h2>
+<h3>Immutable collections</h3>
+<p>不変のコレクションを作りたい時に扱う。防御的コピー(defensive copy)したい時とかに便利。</p>
+<p>{% highlight java %}
+    public static final ImmutableSet<String> COLOR_NAMES = ImmutableSet.of(
+      "red",
+      "orange",
+      "yellow",
+      "green",
+      "blue",
+      "purple");</p>
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Foo</span> <span class="p">{</span>
+  <span class="nx">Set</span><span class="o">&lt;</span><span class="nx">Bar</span><span class="o">&gt;</span> <span class="nx">bars</span><span class="p">;</span>
+  <span class="nx">Foo</span><span class="p">(</span><span class="nx">Set</span><span class="o">&lt;</span><span class="nx">Bar</span><span class="o">&gt;</span> <span class="nx">bars</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">bars</span> <span class="o">=</span> <span class="nx">ImmutableSet</span><span class="p">.</span><span class="nx">copyOf</span><span class="p">(</span><span class="nx">bars</span><span class="p">);</span> <span class="c1">// defensive copy!</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>{% endhighlight %}</p>
+<h3>New Collection Types</h3>
+<p>コレクション型の追加</p>
+<h4>Multiset</h4>
+<p _="%" endhighlight>例えば、要素の中に特定の単語がいくつ含まれるかを検出できる。
+{% highlight java %}
+    Multiset<String> wordsMultiset = HashMultiset.create();
+    wordsMultiset.addAll(words);
+    wordsMultiset.count(String);</p>
+<h4>Multimap</h4>
+<p _="%" endhighlight>1つのkeyに対して、valueがたくさんaddできます。
+{% highlight java %}
+    Set<Person> aliceChildren = childrenMultimap.get(alice);
+    aliceChildren.clear();
+    aliceChildren.add(bob);
+    aliceChildren.add(carol);</p>
+<h4>BiMap</h4>
+<p>BindingMapの略かな？Mapに保持する値と取り出して利用している値で整合性が保ちやすくする仕組み。
+mapのkeyに値が紐付いているのにputした場合、IllegalArgumentExceptionが発生する。
+削除する時はforcePutメソッドを利用する。
+※よく分かってない</p>
+<h4>Table</h4>
+<p>行と列の構造を持ったコレクション。２次元配列とが違い、行からも列からもアクセスできる。</p>
+<h4>ClassToInstanceMap</h4>
+<p>クラスの型をキーにする、変わったMapです。（使い道が思い浮かばない）</p>
+<h4>RangeSet / RangeMap</h4>
+<p>範囲のコレクション。<br>
+java6必須。GWTは非対応。</p>
+<h3>CollectionUtilitiesExplained</h3>
+<p>Collection操作のユーティリティ</p>
+<h4>Static Constructors</h4>
+<h5>鬱陶しいジェネリクスの解消</h5>
+<p _="%" endhighlight>{% highlight java %}
+    List<TypeThatsTooLongForItsOwnGood> list = new ArrayList<TypeThatsTooLongForItsOwnGood>();</p>
+<p _="%" endhighlight>{% highlight java %}
+    List<TypeThatsTooLongForItsOwnGood> list = Lists.newArrayList();
+    Map<KeyType, LongishValueType> map = Maps.newLinkedHashMap();</p>
+<h5>初期化の簡潔化</h5>
+<p _="%" endhighlight>配列の初期化みたいに自由に追加できる。
+{% highlight java %}
+    Set<Type> copySet = Sets.newHashSet(elements);
+    List<String> theseElements = Lists.newArrayList("alpha", "beta", "gamma");</p>
+<h4>Iterables</h4>
+<p>guavaはCollectionよりIterableなのが好きらしい。
+{% highlight java %}
+  Iterable<Integer> concatenated = Iterables.concat(
+    Ints.asList(1, 2, 3),
+    Ints.asList(4, 5, 6));
+  // concatenated has elements 1, 2, 3, 4, 5, 6</p>
+<p>String lastAdded = Iterables.getLast(myLinkedHashSet);</p>
+<p _="%" endhighlight>String theElement = Iterables.getOnlyElement(thisSetIsDefinitelyASingleton);
+    // if this set isn't a singleton, something is wrong!</p>
+<p>その他、Collectionの便利クラスが色々。</p>
+<h3>Extension Utilities</h3>
+<h4>Forwarding Decorators</h4>
+<p>デザインパターンの decorator pattern が簡単に実装できる仕組み。
+以下のサンプルだと addにlogの処理をdecorateしている。</p>
+<p _="%" endhighlight>{% highlight java %}
+  class AddLoggingList<E> extends ForwardingList<E> {
+    final List<E> delegate; // backing list
+    @Override protected List<E> delegate() {
+      return delegate;
+    }
+    @Override public void add(int index, E elem) {
+      log(index, elem);
+      super.add(index, elem);
+    }
+    @Override public boolean add(E elem) {
+      return standardAdd(elem); // implements in terms of add(int, E)
+    }
+    @Override public boolean addAll(Collection&lt;? extends E&gt; c) {
+      return standardAddAll(c); // implements in terms of add
+    }
+  }</p>
+<h4>PeekingIterator</h4>
+<p _="%" endhighlight>Iteratorで次の要素を見たいけどindexを進めたくない時に使うpeekメソッドが拡張されている。
+{% highlight java%}
+  List<E> result = Lists.newArrayList();
+  PeekingIterator<E> iter = Iterators.peekingIterator(source.iterator());
+  while (iter.hasNext()) {
+    E current = iter.next();
+    while (iter.hasNext() &amp;&amp; iter.peek().equals(current)) {
+      // skip this duplicate element
+      iter.next();
+    }
+    result.add(current);
+  }</p>
+<h4>AbstractIterator</h4>
+<p _="%" endhighlight>独自のイテレーターを楽に実装する。
+{% highlight java%}
+  public static Iterator<String> skipNulls(final Iterator<String> in) {
+    return new AbstractIterator<String>() {
+      protected String computeNext() {
+        while (in.hasNext()) {
+          String s = in.next();
+          if (s != null) {
+            return s;
+          }
+        }
+        return endOfData();
+      }
+    };
+  }</p>
+<h2>Caches</h2>
+<p _="%" endhighlight>いきなりサンプルである。
+{% highlight java %}
+LoadingCache<Key, Graph> graphs = CacheBuilder.newBuilder()
+       .maximumSize(1000)
+       .expireAfterWrite(10, TimeUnit.MINUTES)
+       .removalListener(MY_LISTENER)
+       .build(
+           new CacheLoader<Key, Graph>() {
+             public Graph load(Key key) throws AnyException {
+               return createExpensiveGraph(key);
+             }
+           });</p>
+<h3>Applicability</h3>
+<h3>Population</h3>
+<h3>Eviction</h3>
+<h3>Features</h3>
+<h3>Interruption</h3>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

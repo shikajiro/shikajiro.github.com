@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="Arduino FioはPCとXbee接続してワイヤレスでプログラムをアップロードできます。 しかし、XBEE-ZBではワイヤレスプログラミングできないので注意が必要です。 Arduino - ArduinoBoardFioProgramming two XBee or XBee Pro 802.15.4 XBee modules. These are also known as Series 1 modules, for those who've worked with XBees for awhile. You can't use the DigiMesh or ZB series radios (aka Series 2 or 2.5). Those modules do …" />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="Arduino FioとPCをXBeeで繋いで開発する「ワイヤレスプログラミング」はXBee-ZBではできない"/>
+<meta property="og:description" content="Arduino FioはPCとXbee接続してワイヤレスでプログラムをアップロードできます。 しかし、XBEE-ZBではワイヤレスプログラミングできないので注意が必要です。 Arduino - ArduinoBoardFioProgramming two XBee or XBee Pro 802.15.4 XBee modules. These are also known as Series 1 modules, for those who've worked with XBees for awhile. You can't use the DigiMesh or ZB series radios (aka Series 2 or 2.5). Those modules do …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2012/12/25/xbee-fio/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2012-12-25 12:36:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="articles"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; Arduino FioとPCをXBeeで繋いで開発する「ワイヤレスプログラミング」はXBee-ZBではできない</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="xbee-fio">Arduino FioとPCをXBeeで繋いで開発する「ワイヤレスプログラミング」はXBee-ZBではできない</h1>
+    <p>
+          Posted on Tue 25 December 2012 in <a href="/category/articles.html">articles</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><center>
+    <img src="/images/xbee/10021826_506ab34361bf8.jpeg" alt="">
+    <img src="/images/xbee/detail_image.jpeg" alt="">
+</center></p>
+<p>Arduino FioはPCとXbee接続してワイヤレスでプログラムをアップロードできます。
+しかし、XBEE-ZBではワイヤレスプログラミングできないので注意が必要です。</p>
+<p><a href="http://arduino.cc/en/Main/ArduinoBoardFioProgramming">Arduino - ArduinoBoardFioProgramming</a></p>
+<blockquote>
+<p>two XBee or XBee Pro 802.15.4 XBee modules. These are also known as Series 1 modules, for those who've worked with XBees for awhile. You can't use the DigiMesh or ZB series radios (aka Series 2 or 2.5). Those modules do not allow for automatic IO Line Passing that is required for toggling the reset pin when programming.</p>
+</blockquote>
+<p>ZBシリーズじゃだめだと・・・。
+三日間悩んだよ・・・・。(´・ω・｀)  </p>
+<p>あと、基板に印刷されてる「52」って型番号だと思ってたけど、Series 2 の略の「S2」だったんだね。今分かったよ・・・。</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

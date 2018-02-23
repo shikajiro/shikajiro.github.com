@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="※この記事はAndroid Advent Calendar 2013 12/04担当として書いてます。 勢いでAdvent Calendar登録したけど、最近新しいこと、突き詰めたことしてない。 Genymotionは 明日の mofmofneko さんが書くみたいだからやめておこう。 ブログ自体半年くらい放置してた。この半年でやったことをとりあえず箇条書きにしてみる。 Android Annotations Android Studio Genymotion GreenDAO Guava デジハリ講師業はじめる。 iPhone4SからNexus5に機種変 働き過ぎて瀕死になる 自分の中で一番テンション上がってるのがAndroid Annotationsなので、今回はこれのお話にする。 AndroidAnnotations AndroidAnnotationsでできることはコードの軽量化。以下の２つが主なメリット。 開発スピードの向上 メンテナンスの簡素化 冗長な処理をシンプルにし、コード量を少なくする。結果、メンテナンスが楽になるメリットがある。 設定方法と使い方 書かれ尽くされたネタなので公式サイトをどうぞ。 僕なりの書き方 注意：ココ最近の情報は追っかけてません。 RestとBean やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。 [gist:id …" />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="とあるプログラマのAndroidAnnotations"/>
+<meta property="og:description" content="※この記事はAndroid Advent Calendar 2013 12/04担当として書いてます。 勢いでAdvent Calendar登録したけど、最近新しいこと、突き詰めたことしてない。 Genymotionは 明日の mofmofneko さんが書くみたいだからやめておこう。 ブログ自体半年くらい放置してた。この半年でやったことをとりあえず箇条書きにしてみる。 Android Annotations Android Studio Genymotion GreenDAO Guava デジハリ講師業はじめる。 iPhone4SからNexus5に機種変 働き過ぎて瀕死になる 自分の中で一番テンション上がってるのがAndroid Annotationsなので、今回はこれのお話にする。 AndroidAnnotations AndroidAnnotationsでできることはコードの軽量化。以下の２つが主なメリット。 開発スピードの向上 メンテナンスの簡素化 冗長な処理をシンプルにし、コード量を少なくする。結果、メンテナンスが楽になるメリットがある。 設定方法と使い方 書かれ尽くされたネタなので公式サイトをどうぞ。 僕なりの書き方 注意：ココ最近の情報は追っかけてません。 RestとBean やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。 [gist:id …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2013/12/04/android-annotations-advent-calendar/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2013-12-04 23:23:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="Android, AndroidAnnotations"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; とあるプログラマのAndroidAnnotations</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="android-annotations-advent-calendar">とあるプログラマのAndroidAnnotations</h1>
+    <p>
+          Posted on Wed 04 December 2013 in <a href="/category/android-androidannotations.html">Android, AndroidAnnotations</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><center>
+<img src="/images/cv_aa.png">
+</center></p>
+<p>※この記事は<a href="http://qiita.com/advent-calendar/2013/android">Android Advent Calendar 2013</a> 12/04担当として書いてます。</p>
+<p>勢いでAdvent Calendar登録したけど、最近新しいこと、突き詰めたことしてない。
+Genymotionは 明日の mofmofneko さんが書くみたいだからやめておこう。</p>
+<p>ブログ自体半年くらい放置してた。この半年でやったことをとりあえず箇条書きにしてみる。</p>
+<ul>
+<li>Android Annotations</li>
+<li>Android Studio</li>
+<li>Genymotion</li>
+<li>GreenDAO</li>
+<li>Guava</li>
+<li>デジハリ講師業はじめる。</li>
+<li>iPhone4SからNexus5に機種変</li>
+<li>働き過ぎて瀕死になる</li>
+</ul>
+<p>自分の中で一番テンション上がってるのがAndroid Annotationsなので、今回はこれのお話にする。</p>
+<p><a href="http://androidannotations.org/">AndroidAnnotations</a></p>
+<p>AndroidAnnotationsでできることはコードの軽量化。以下の２つが主なメリット。</p>
+<ul>
+<li>開発スピードの向上</li>
+<li>メンテナンスの簡素化</li>
+</ul>
+<p>冗長な処理をシンプルにし、コード量を少なくする。結果、メンテナンスが楽になるメリットがある。</p>
+<h1>設定方法と使い方</h1>
+<p>書かれ尽くされたネタなので公式サイトをどうぞ。</p>
+<h1>僕なりの書き方</h1>
+<p>注意：ココ最近の情報は追っかけてません。</p>
+<h2>RestとBean</h2>
+<p>やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。</p>
+<p>[gist:id=7789111]</p>
+<p>Restで設計されたWebAPIならとてもシンプルに実装できる。（だが、すべての案件はそんなにうまくいかない）</p>
+<h3>HttpClientErrorException を必ずチェックする</h3>
+<p>なぜかわからないけど、HTTPで発生する例外は（404とか）非チェック例外になっている。なにも考えずに実装すると、WebAPIを叩く処理はtry-catchせず書けてしまう。WebAPIを叩く処理はbackground処理必須なので、この例外はUIスレッドに何も言わずbackground処理を止めてしまう。backgroud処理の多くはProgressとか表示してるので、そこでUIもめんどいことになる。
+つまり、WebAPIを叩いたら、必ず
+~~HttpClientErrorException でtry-catchしよう。~~</p>
+<p><em>2013/12/12追記</em> RestClientException か RuntimeException でtry-catchしよう。</p>
+<h2>backgroudとUiThread</h2>
+<p>backgroudとUiThreadが便利すぎて、AsyncTaskとかローダーとか忘れてしまうレベル。</p>
+<p>[gist:id=7789442]</p>
+<p>楽ちんだね。
+ちゃんと制御したい時は、AsyncTaskとかローダーとか使いましょう。そうじゃなければこんな流れで問題ないはず。</p>
+<h2>Preference</h2>
+<p>@SharedPrefで気をつけて欲しいのは、デフォルトのスコープは Activity であること。たぶん、PreferenceActivityで使うことを想定しているからだと思う。</p>
+<p>[gist:id=7789652]</p>
+<p>一般的にSharedPreferenceはアプリケーションの中で一意として使うことが多いと思う（たぶん）。
+そう思って実装してると、設定した値が取れなくってビビることが何度もあので気をつけてね。</p>
+<h2>ListView</h2>
+<p>特に実装が簡単になったと感じるのは子ViewをカスタムするListView。</p>
+<p>[gist:id=7789824]</p>
+<p>だいたいこんな感じでカスタムしたListViewが動かせる。TimelineAdapterのgetViewは再考の余地があると思うけど、これでもちゃんと動く。</p>
+<h3>2013/12/05 1:24 追記</h3>
+<p>ViewGroupが入れ子になっちゃうので、いい感じにしないといけないなと思いつつ放置してるのが僕です。</p>
+<h3>2013/12/12 追記</h3>
+<p>レイアウトファイルのルートを <merge>にすれば上記の問題は解決される。が、ルートレイアウトにpaddingとか設定した場合はmergeするとその設定が消えるので要注意。
+id:tumo300-500 さんありがとございました。</p>
+<h2>App と DBアクセス</h2>
+<p>AndroidAnnotationsを使い出してから、Applicationを継承したクラスの有意義性を知った。</p>
+<p>[gist:id=7789950]</p>
+<p>※DBにはGreenDao使ってる。</p>
+<p>DBアクセスは各ActivityなどでApplicationをインジェクションしておけばいつでも呼び出せる。起動時に１回だけ実行する処理とかもココらへんで。</p>
+<h2>ViewById と Click と OptionItems</h2>
+<p>@ViewById に使う layout xmlのidには予めjava変数になることを意識したネーミングがいいと思う。そうすれば</p>
+<div class="highlight"><pre><span></span>@ViewById TextView hogeView;
+</pre></div>
+
+
+<p>というように書ける。もし変数名がidに存在しなければEclipseが教えてくれる。</p>
+<p>@Clickと@OptionItemsは現時点では上記のようにしない方がいい。</p>
+<div class="highlight"><pre><span></span>@Click
+void hogeButton(){};
+</pre></div>
+
+
+<p>としても、もしidにhogeButtonが存在しない場合、Eclipseは教えてくれない。</p>
+<div class="highlight"><pre><span></span>@Click(R.id.hogeButton)
+void onClickHogeButton(){}
+</pre></div>
+
+
+<p>などが妥当だと思う。これならidに存在しなければコンパイル時にエラーになる。</p>
+<h1>無理に使い過ぎない</h1>
+<p>そろそろまとめるけど、無理して全部AndroidAnnotationsで書こうとしない方がいいと思う。とてもスリムになるけど、やり過ぎると汎用性がなくなるので程よく実装すると良い。
+使いこなせばAndroidAnnotationsからは離れられなくなるので、ぜひ試して欲しい。
+あと、周りに使ってる人が居ないので、意見とか指摘とかアイデアとかあったらコメントおなしゃす。</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

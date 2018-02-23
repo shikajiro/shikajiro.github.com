@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="しかだよ。 Arduino を使ってスーパーマリオな玄関ノックをつくってみたよ。 まずは動画をどうぞ。 タッチするとマリオの「チャリーン」が鳴ります。一定回数以上タッチすると1upします。 扉の裏側はこんな感じ。やっつけ感がすごい。部品にはArduino Fio、リチウムイオンバッテリー、 ブレッドボード、スピーカーを使ってます。 タッチする部分はNintendo DSのタッチパネルの部分を使ってます。 アダプタ込みで1,000円ちょい。 スイッチサイエンス/商品詳細 Nintendo DSのタッチスクリーン(コネクタ別売) ブレッドボード配線はこんな感じ。適当なので参考程度に。スピーカーの配線が気になる。 リチウムイオンバッテリー使ってるんだけど、すぐ電池が切れちゃう。省エネな使い方があるはずだけど、どうやって運用したらいいのかなぁ。 ソースコード等はこちら。 shikajiro/MarioTouch んじゃまた。" />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="Arduino Fioでスーパーマリオなノックシステム作った"/>
+<meta property="og:description" content="しかだよ。 Arduino を使ってスーパーマリオな玄関ノックをつくってみたよ。 まずは動画をどうぞ。 タッチするとマリオの「チャリーン」が鳴ります。一定回数以上タッチすると1upします。 扉の裏側はこんな感じ。やっつけ感がすごい。部品にはArduino Fio、リチウムイオンバッテリー、 ブレッドボード、スピーカーを使ってます。 タッチする部分はNintendo DSのタッチパネルの部分を使ってます。 アダプタ込みで1,000円ちょい。 スイッチサイエンス/商品詳細 Nintendo DSのタッチスクリーン(コネクタ別売) ブレッドボード配線はこんな感じ。適当なので参考程度に。スピーカーの配線が気になる。 リチウムイオンバッテリー使ってるんだけど、すぐ電池が切れちゃう。省エネな使い方があるはずだけど、どうやって運用したらいいのかなぁ。 ソースコード等はこちら。 shikajiro/MarioTouch んじゃまた。"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2013/01/07/mario-touch/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2013-01-07 15:13:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="articles"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; Arduino Fioでスーパーマリオなノックシステム作った</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="mario-touch">Arduino Fioでスーパーマリオなノックシステム作った</h1>
+    <p>
+          Posted on Mon 07 January 2013 in <a href="/category/articles.html">articles</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>しかだよ。
+Arduino を使ってスーパーマリオな玄関ノックをつくってみたよ。
+まずは動画をどうぞ。</p>
+<iframe width="640" height="360" src="http://www.youtube.com/embed/q8MxyIBVOKw?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+
+<p>タッチするとマリオの「チャリーン」が鳴ります。一定回数以上タッチすると1upします。</p>
+<p><img alt="" src="/images/mario/IMG_2187.jpg"></p>
+<p>扉の裏側はこんな感じ。やっつけ感がすごい。部品にはArduino Fio、リチウムイオンバッテリー、
+ブレッドボード、スピーカーを使ってます。
+<img alt="" src="/images/mario/IMG_2186.jpg"></p>
+<p>タッチする部分はNintendo DSのタッチパネルの部分を使ってます。
+<img alt="" src="/images/mario/IMG_2188.jpg">
+アダプタ込みで1,000円ちょい。
+<a href="http://www.switch-science.com/products/detail.php?product_id=105">スイッチサイエンス/商品詳細 Nintendo DSのタッチスクリーン(コネクタ別売)</a></p>
+<p>ブレッドボード配線はこんな感じ。適当なので参考程度に。スピーカーの配線が気になる。  <br>
+<img alt="" src="/images/mario/MarioTouch.png">
+リチウムイオンバッテリー使ってるんだけど、すぐ電池が切れちゃう。省エネな使い方があるはずだけど、どうやって運用したらいいのかなぁ。</p>
+<p>ソースコード等はこちら。
+<a href="https://github.com/shikajiro/MarioTouch">shikajiro/MarioTouch</a></p>
+<p>んじゃまた。</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

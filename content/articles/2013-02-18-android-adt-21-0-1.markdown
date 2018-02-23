@@ -1,0 +1,24 @@
+---
+layout: single
+title: ADT 21.0.1新機能紹介
+date: 2013-02-18 17:49
+comments: true
+Category: Android, ADT
+slug: android-adt-21-0-1
+---
+
+## アプリケーションや依存ライブラリパッケージ名の重複を検出するようになりました。
+
+> Updated build to detect and handle package name conflicts between an application and the libraries it depends on. Libraries cannot share package names unless all of them share the same package name. (Issue 40152, Issue 40273)
+
+## DEXフラグの追加
+
+DEXフラグは、DEXファイルをマージして壊れたDEXファイルになることを防ぐために使用します。
+設定をこんな感じにするとマージを使わなくなり、古い方のDEXファイルになります。
+{% highlight text %}
+    dex.disable.merger=true
+{% endhighlight %}
+遅くなる原因になるので気をつけてね！
+（鹿意訳）
+
+> Added a flag to disable dex merging to deal with cases where merging could generate a broken dex file. If this happens to your project, add the following setting to your project.properties file: dex.disable.merger=true This setting causes the build system to revert to the older, slower dex processing that does not pre-dex libraries.

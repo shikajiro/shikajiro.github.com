@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="しかだよ。(｀・ω・´) ADTが21.1.0にアップデートしてたので、新機能をまとめてみたよ。 ADT Plugin | Android Developers notificationとblank fragmentとlist fragmentのテンプレートができたよ。 Added new code templates for notifications, blank fragments and list fragments. 今更気づいたけど、テンプレートがすごい充実してた。知らなかった・・・・。 notificationのテンプレートを作ったらこんな感じになる。 ![](/images/android/Screen Shot 2013-02-15 at 15.05.52.png) ![](/images/android/Screen Shot 2013-02-15 at 15.06.02.png) ソースコードはこんな感じ。 {% highlight …" />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="ADT 21.1.0 新機能紹介"/>
+<meta property="og:description" content="しかだよ。(｀・ω・´) ADTが21.1.0にアップデートしてたので、新機能をまとめてみたよ。 ADT Plugin | Android Developers notificationとblank fragmentとlist fragmentのテンプレートができたよ。 Added new code templates for notifications, blank fragments and list fragments. 今更気づいたけど、テンプレートがすごい充実してた。知らなかった・・・・。 notificationのテンプレートを作ったらこんな感じになる。 ![](/images/android/Screen Shot 2013-02-15 at 15.05.52.png) ![](/images/android/Screen Shot 2013-02-15 at 15.06.02.png) ソースコードはこんな感じ。 {% highlight …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2013/02/15/android-adt21-1-0/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2013-02-15 14:56:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="Android, ADT"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; ADT 21.1.0 新機能紹介</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="android-adt21-1-0">ADT 21.1.0 新機能紹介</h1>
+    <p>
+          Posted on Fri 15 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>しかだよ。(｀・ω・´)
+ADTが21.1.0にアップデートしてたので、新機能をまとめてみたよ。</p>
+<p><a href="http://developer.android.com/tools/sdk/eclipse-adt.html">ADT Plugin | Android Developers</a></p>
+<h2>notificationとblank fragmentとlist fragmentのテンプレートができたよ。</h2>
+<blockquote>
+<p>Added new code templates for notifications, blank fragments and list fragments.</p>
+</blockquote>
+<p>今更気づいたけど、テンプレートがすごい充実してた。知らなかった・・・・。
+notificationのテンプレートを作ったらこんな感じになる。</p>
+<p>![](/images/android/Screen Shot 2013-02-15 at 15.05.52.png)
+![](/images/android/Screen Shot 2013-02-15 at 15.06.02.png)</p>
+<p>ソースコードはこんな感じ。
+{% highlight java %}
+package com.example.adtsample;</p>
+<p>import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Build;
+import android.support.v4.app.NotificationCompat;</p>
+<p>/<strong>
+ * Helper class for showing and canceling new message notifications.
+ * <p>
+ * This class makes heavy use of the {@link NotificationCompat.Builder} helper
+ * class to create notifications in a backward-compatible way.
+ */
+public class NewMessageNotification {
+    /</strong>
+     * The unique identifier for this type of notification.
+     */
+    private static final String NOTIFICATION_TAG = "NewMessage";</p>
+<div class="highlight"><pre><span></span>/**
+ * Shows the notification, or updates a previously shown notification of
+ * this type, with the given parameters.
+ * <span class="nt">&lt;p&gt;</span>
+ * TODO: Customize this method&#39;s arguments to present relevant content in
+ * the notification.
+ * <span class="nt">&lt;p&gt;</span>
+ * TODO: Customize the contents of this method to tweak the behavior and
+ * presentation of new message notifications. Make sure to follow the <span class="nt">&lt;a</span>
+ <span class="err">*</span> <span class="na">href=</span><span class="s">&quot;https://developer.android.com/design/patterns/notifications.html&quot;</span><span class="nt">&gt;</span>
+ * Notification design guidelines<span class="nt">&lt;/a&gt;</span> when doing so.
+ *
+ * @see #cancel(Context)
+ */
+public static void notify(final Context context,
+        final String exampleString, final int number) {
+    final Resources res = context.getResources();
+
+    // This image is used as the notification&#39;s large icon (thumbnail).
+    // TODO: Remove this if your notification has no relevant thumbnail.
+    final Bitmap picture = BitmapFactory.decodeResource(res,
+            R.drawable.example_picture);
+
+    final String ticker = exampleString;
+    final String title = res
+            .getString(R.string.new_message_notification_title_template,
+                    exampleString);
+    final String text = res.getString(
+            R.string.new_message_notification_placeholder_text_template,
+            exampleString);
+
+    final NotificationCompat.Builder builder = new NotificationCompat.Builder(
+            context)
+
+            // Set appropriate defaults for the notification light, sound,
+            // and vibration.
+            .setDefaults(Notification.DEFAULT_ALL)
+
+            // Set required fields, including the small icon, the
+            // notification title, and text.
+            .setSmallIcon(R.drawable.ic_stat_new_message)
+            .setContentTitle(title)
+            .setContentText(text)
+
+            // All fields below this line are optional.
+
+            // Use a default priority (recognized on devices running Android
+            // 4.1 or later)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+            // Provide a large icon, shown with the notification in the
+            // notification drawer on devices running Android 3.0 or later.
+            .setLargeIcon(picture)
+
+            // Set ticker text (preview) information for this notification.
+            .setTicker(ticker)
+
+            // Show a number. This is useful when stacking notifications of
+            // a single type.
+            .setNumber(number)
+
+            // If this notification relates to a past or upcoming event, you
+            // should set the relevant time information using the setWhen
+            // method below. If this call is omitted, the notification&#39;s
+            // timestamp will by set to the time at which it was shown.
+            // TODO: Call setWhen if this notification relates to a past or
+            // upcoming event. The sole argument to this method should be
+            // the notification timestamp in milliseconds.
+            // .setWhen(...)
+
+            // Set the pending intent to be initiated when the user touches
+            // the notification.
+            .setContentIntent(
+                    PendingIntent.getActivity(
+                            context,
+                            0,
+                            new Intent(Intent.ACTION_VIEW, Uri
+                                    .parse(&quot;http://www.google.com&quot;)),
+                            PendingIntent.FLAG_UPDATE_CURRENT))
+
+            // Show expanded text content on devices running Android 4.1 or
+            // later.
+            .setStyle(
+                    new NotificationCompat.BigTextStyle().bigText(text)
+                            .setBigContentTitle(title)
+                            .setSummaryText(&quot;Dummy summary text&quot;))
+
+            // Example additional actions for this notification. These will
+            // only show on devices running Android 4.1 or later, so you
+            // should ensure that the activity in this notification&#39;s
+            // content intent provides access to the same actions in
+            // another way.
+            .addAction(
+                    R.drawable.ic_action_stat_share,
+                    res.getString(R.string.action_share),
+                    PendingIntent.getActivity(context, 0, Intent
+                            .createChooser(
+                                    new Intent(Intent.ACTION_SEND).setType(
+                                            &quot;text/plain&quot;)
+                                            .putExtra(Intent.EXTRA_TEXT,
+                                                    &quot;Dummy text&quot;),
+                                    &quot;Dummy title&quot;),
+                            PendingIntent.FLAG_UPDATE_CURRENT))
+            .addAction(R.drawable.ic_action_stat_reply,
+                    res.getString(R.string.action_reply), null)
+
+            // Automatically dismiss the notification when it is touched.
+            .setAutoCancel(true);
+
+    notify(context, builder.build());
+}
+
+@TargetApi(Build.VERSION_CODES.ECLAIR)
+private static void notify(final Context context,
+        final Notification notification) {
+    final NotificationManager nm = (NotificationManager) context
+            .getSystemService(Context.NOTIFICATION_SERVICE);
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.ECLAIR) {
+        nm.notify(NOTIFICATION_TAG, 0, notification);
+    } else {
+        nm.notify(NOTIFICATION_TAG.hashCode(), notification);
+    }
+}
+
+/**
+ * Cancels any notifications of this type previously shown using
+ * {@link #notify(Context, String, int)}.
+ */
+@TargetApi(Build.VERSION_CODES.ECLAIR)
+public static void cancel(final Context context) {
+    final NotificationManager nm = (NotificationManager) context
+            .getSystemService(Context.NOTIFICATION_SERVICE);
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.ECLAIR) {
+        nm.cancel(NOTIFICATION_TAG, 0);
+    } else {
+        nm.cancel(NOTIFICATION_TAG.hashCode());
+    }
+}
+</pre></div>
+
+
+<p _="%" endhighlight>}</p>
+<p>ありがたやありがたや。</p>
+<h2>リソースの名前のリファクタリングに対応したよ</h2>
+<blockquote>
+<p>Added support for resource rename refactoring. Renaming a resource XML file, drawable icon, an R. field name or ID in the layout editor invokes a refactoring routine to update all resource references.</p>
+</blockquote>
+<p>xmlとかdrawableの画像名とかとかeclipseのrenameに対応したみたい。
+試しにxmlのtitleに定義されたstringリソースのnameを変更しようとするとこんなダイアログが出る。</p>
+<p>![](/images/android/Screen Shot 2013-02-15 at 15.13.17.png)</p>
+<h2>Lintが偉くなった。</h2>
+<blockquote>
+<p>Added more than 15 new Lint checks, including checks for overriding older APIs, XML resource problems, graphic asset issues and manifest tags.</p>
+</blockquote>
+<p>15個ほど増えたようだ。</p>
+<h2>xml editorでrenameのショートカットキーが使えるよ</h2>
+<blockquote>
+<p>Updated XML Editor to respond to refactoring shortcut keys such as Refactor &gt; Rename.</p>
+</blockquote>
+<p>alt + command + r に対応したって意味かな・・・？</p>
+<h2>xml editorへのダブルクリックが良くなった。</h2>
+<blockquote>
+<p>Updated XML Editor to improve double click handling.</p>
+</blockquote>
+<p>って、どういう意味だろう？</p>
+<h2>コード補完が良くなった。</h2>
+<blockquote>
+<p>Added code completion improvements for custom views, theme references and class references. For example, code completion in a <fragment android:name=””> tag now suggests completion with a list of fragment classes. Similarly, code completion in the manifest now offers implementations suitable for the given tag.</p>
+</blockquote>
+<p>特にタグのコード補完が強くなったみたい。偉い。
+![](/images/android/Screen Shot 2013-02-15 at 15.44.03.png)</p>
+<h2>プロジェクトインポートダイアログが良くなった。</h2>
+<blockquote>
+<p>Updated the Project Import dialog so that it shows a table for all imported projects where you can edit the name of the imported project.</p>
+</blockquote>
+<p>プロジェクト名が指定できるようになった。前はActivity名が自動で付いてたよね・・・。
+<img alt="" src="/images/android/Screen_Shot_2013-02-15_at_15.46.03.png"></p>
+<h2>レイアウトエイリアスのサポート</h2>
+<blockquote>
+<p>Added support for layout aliases in the Layout Editor.</p>
+</blockquote>
+<p>レイアウトエイリアスに応じた内容がレイアウトエディターに表示されるようになった。ってことかな。</p>
+<p><img alt="" src="/images/android/Screen_Shot_2013-02-15_at_15.39.36.png"></p>
+<p>真面目な和訳はこちら <a href="http://andbrowser.com/development/1330/android-development-tools-adt-21-1-0/">Android Development Tools(ADT) 21.1.0 更新情報を掲載 | Bescottee</a></p>
+<h2>おまけ</h2>
+<p>Androidのテンプレートに気づいてなかったので、忘れないようにショートカットに追加した。
+![](/images/android/Screen Shot 2013-02-15 at 15.37.15.png)  </p>
+<p>追加するにはCustomize Perspective から。
+![](/images/android/Screen Shot 2013-02-15 at 15.47.58.png)</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="BigDataをグラフィカルに表現したい！ あふれた情報だけど、 D3.js を動かし始めるとこまでやってみる。 フロントエンドが久々なので、最近のトレンドも踏まえながらやってみる。 環境構築 bower というのを使えばパッケージ管理できるらしい！すげぇ！（なぜ今まで無かったのか） bower install d3.js htmlコードにはこんな感じで <head> ... <script src="bower_components/d3/dist/d3.min.js'"></script> ... </head> D3をとりあえず動かす 適当にpタグでも作っておく <body> <p id="chart"></p> </body> TODO:簡単に図を表示するコード var hoge = d3.select("#chart").append("svg") .attr("width", chart.width()) .attr …" />
+<meta name="keywords" content="D3.js">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="D3.jsはじめ"/>
+<meta property="og:description" content="BigDataをグラフィカルに表現したい！ あふれた情報だけど、 D3.js を動かし始めるとこまでやってみる。 フロントエンドが久々なので、最近のトレンドも踏まえながらやってみる。 環境構築 bower というのを使えばパッケージ管理できるらしい！すげぇ！（なぜ今まで無かったのか） bower install d3.js htmlコードにはこんな感じで <head> ... <script src="bower_components/d3/dist/d3.min.js'"></script> ... </head> D3をとりあえず動かす 適当にpタグでも作っておく <body> <p id="chart"></p> </body> TODO:簡単に図を表示するコード var hoge = d3.select("#chart").append("svg") .attr("width", chart.width()) .attr …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2014/06/12/start-d3js/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2014-06-12 00:00:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="D3.js"/>
+<meta property="article:tag" content="D3.js"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; D3.jsはじめ</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="start-d3js">D3.jsはじめ</h1>
+    <p>
+          Posted on Thu 12 June 2014 in <a href="/category/d3js.html">D3.js</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>BigDataをグラフィカルに表現したい！</p>
+<p>あふれた情報だけど、 D3.js を動かし始めるとこまでやってみる。
+フロントエンドが久々なので、最近のトレンドも踏まえながらやってみる。</p>
+<h2>環境構築</h2>
+<p>bower というのを使えばパッケージ管理できるらしい！すげぇ！（なぜ今まで無かったのか）</p>
+<div class="highlight"><pre><span></span>bower install d3.js
+</pre></div>
+
+
+<p>htmlコードにはこんな感じで</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    ...
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;bower_components/d3/dist/d3.min.js&#39;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    ...
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2>D3をとりあえず動かす</h2>
+<p>適当にpタグでも作っておく</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;chart&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>TODO:簡単に図を表示するコード</p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">hoge</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;#chart&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">width</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">height</span><span class="p">());</span>
+</pre></div>
+
+
+<h2>parsetsを動かしてみる</h2>
+<p>TODO:画像URL
+タイタニック号沈没の死者数をビジュアル表現した結果、
+- クルー、1棟客室の客が多く生存している
+事が直感的に分かるようになり、物議を醸し出したらしいです。
+TODO:URL</p>
+<p>このタイタニック号のビジュアライズをローカルでもやってみましょう。
+jsとかは以下のサイトから落としてください。
+TODO:URL.js
+TODO:URL.css
+TODO:URL.json</p>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    ...
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;bower_components/d3/dist/d3.min.js&#39;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;d3.parsets.js&quot;</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;main.js&quot;</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+        <span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="nt">d3</span><span class="p">.</span><span class="nc">parsets</span><span class="p">.</span><span class="nc">css</span><span class="o">)</span><span class="p">;</span>
+
+        <span class="nt">body</span> <span class="p">{</span>
+          <span class="k">font-family</span><span class="p">:</span> <span class="kc">sans-serif</span><span class="p">;</span>
+          <span class="k">font-size</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+          <span class="k">width</span><span class="p">:</span> <span class="mi">960</span><span class="kt">px</span><span class="p">;</span>
+          <span class="k">margin</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span> <span class="kc">auto</span><span class="p">;</span>
+          <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="p">.</span><span class="nc">dimension</span> <span class="nt">text</span> <span class="p">{</span>
+          <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+          <span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;PT Sans&quot;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">;</span>
+          <span class="k">font-weight</span><span class="p">:</span> <span class="mi">300</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">h1</span> <span class="p">{</span>
+          <span class="k">font-size</span><span class="p">:</span> <span class="mi">4</span><span class="kt">em</span><span class="p">;</span>
+          <span class="k">margin</span><span class="p">:</span> <span class="mf">.5</span><span class="kt">em</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">h2</span> <span class="p">{</span>
+          <span class="k">font-size</span><span class="p">:</span> <span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
+          <span class="k">margin</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span> <span class="mi">0</span> <span class="mf">0.5</span><span class="kt">em</span><span class="p">;</span>
+          <span class="k">border-bottom</span><span class="p">:</span> <span class="kc">solid</span> <span class="mh">#ccc</span> <span class="mi">1</span><span class="kt">px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">p</span><span class="p">.</span><span class="nc">meta</span><span class="o">,</span> <span class="nt">p</span><span class="p">.</span><span class="nc">footer</span> <span class="p">{</span>
+          <span class="k">font-size</span><span class="p">:</span> <span class="mi">13</span><span class="kt">px</span><span class="p">;</span>
+          <span class="k">color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">p</span><span class="p">.</span><span class="nc">meta</span> <span class="p">{</span>
+          <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nt">text</span><span class="p">.</span><span class="nc">icicle</span> <span class="p">{</span> <span class="n">pointer-events</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="p">.</span><span class="nc">options</span> <span class="p">{</span> <span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span> <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+        <span class="p">.</span><span class="nc">curves</span> <span class="p">{</span> <span class="k">float</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span> <span class="p">}</span>
+        <span class="p">.</span><span class="nc">source</span> <span class="p">{</span> <span class="k">float</span><span class="p">:</span> <span class="kc">right</span><span class="p">;</span> <span class="p">}</span>
+        <span class="nt">pre</span><span class="o">,</span> <span class="nt">code</span> <span class="p">{</span> <span class="k">font-family</span><span class="p">:</span> <span class="s2">&quot;Menlo&quot;</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="p">.</span><span class="nc">html</span> <span class="p">.</span><span class="nc">value</span><span class="o">,</span>
+        <span class="p">.</span><span class="nc">javascript</span> <span class="p">.</span><span class="nc">string</span><span class="o">,</span>
+        <span class="p">.</span><span class="nc">javascript</span> <span class="p">.</span><span class="nc">regexp</span> <span class="p">{</span>
+          <span class="k">color</span><span class="p">:</span> <span class="mh">#756bb1</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="p">.</span><span class="nc">html</span> <span class="p">.</span><span class="nc">tag</span><span class="o">,</span>
+        <span class="p">.</span><span class="nc">css</span> <span class="p">.</span><span class="nc">tag</span><span class="o">,</span>
+        <span class="p">.</span><span class="nc">javascript</span> <span class="p">.</span><span class="nc">keyword</span> <span class="p">{</span>
+          <span class="k">color</span><span class="p">:</span> <span class="mh">#3182bd</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="p">.</span><span class="nc">comment</span> <span class="p">{</span>
+          <span class="k">color</span><span class="p">:</span> <span class="mh">#636363</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="p">.</span><span class="nc">html</span> <span class="p">.</span><span class="nc">doctype</span><span class="o">,</span>
+        <span class="p">.</span><span class="nc">javascript</span> <span class="p">.</span><span class="nc">number</span> <span class="p">{</span>
+          <span class="k">color</span><span class="p">:</span> <span class="mh">#31a354</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="p">.</span><span class="nc">html</span> <span class="p">.</span><span class="nc">attribute</span><span class="o">,</span>
+        <span class="p">.</span><span class="nc">css</span> <span class="p">.</span><span class="nc">attribute</span><span class="o">,</span>
+        <span class="p">.</span><span class="nc">javascript</span> <span class="p">.</span><span class="nc">class</span><span class="o">,</span>
+        <span class="p">.</span><span class="nc">javascript</span> <span class="p">.</span><span class="nc">special</span> <span class="p">{</span>
+          <span class="k">color</span><span class="p">:</span> <span class="mh">#e6550d</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+    ...
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<h2>別のデータでやってみる</h2>
+<p>google アンケートで出身、学歴、職歴、婚歴を取ってみました。どんな見え方をするか試してみましょう。</p>
+<p>TODO:URL
+history.csvにして保存します。</p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">chart</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">parsets</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">dimensions</span><span class="p">([</span><span class="s2">&quot;出身&quot;</span><span class="p">,</span> <span class="s2">&quot;学歴&quot;</span><span class="p">,</span> <span class="s2">&quot;職歴&quot;</span><span class="p">,</span> <span class="s2">&quot;婚歴&quot;</span><span class="p">]);</span>
+</pre></div>
+
+
+<p>を</p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">chart</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">parsets</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">dimensions</span><span class="p">([</span><span class="s2">&quot;出身&quot;</span><span class="p">,</span> <span class="s2">&quot;学歴&quot;</span><span class="p">,</span> <span class="s2">&quot;職歴&quot;</span><span class="p">,</span> <span class="s2">&quot;婚歴&quot;</span><span class="p">]);</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="nx">d3</span><span class="p">.</span><span class="nx">csv</span><span class="p">(</span><span class="s2">&quot;titanic.csv?201402&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">csv</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+
+<p>を</p>
+<div class="highlight"><pre><span></span><span class="nx">d3</span><span class="p">.</span><span class="nx">csv</span><span class="p">(</span><span class="s2">&quot;history.csv&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">csv</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+
+
+<p>に変更します。</p>
+<p>TODO:画像</p>
+<p>いい感じに出た！</p>
+<p>あとはがんばっておもしろいデータにしてみる。</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/d3js.html">D3.js</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

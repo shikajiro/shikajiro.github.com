@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="Gradleで管理されたAndroidプロジェクトをJenkinsで動かすまで苦しんだのでまとめます。 環境 MacOS 10.8.5 Java 1.7 Gradle 1.11 Android Studio 0.5.3 Espresso 1.1 Jenkins 1.5558 git plugin gradle plugin 前提 Android StudioでEspressoのテストが ./gradlew connectedAndroidTest で動いてるものとします。 諦めたこと Android Emulator Plugin は諦めました。 なぜか以下のメッセージを出して途中で止まります。 android completed with result NOT_BUILT 動くこともある。動かないこともある。不安定過ぎるのでエミュレーターを断念。 Genymotionで代用 エミュレーターをGenymotionに置き換えました。 以下Genymotionをjenkinsで呼び出す流れ …" />
+<meta name="keywords" content="pelican, python">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="Gradleで管理されたAndroidProjectのEspressoテストをGenymotionを使ってjenkinsでぐるぐる回すまで(長い)"/>
+<meta property="og:description" content="Gradleで管理されたAndroidプロジェクトをJenkinsで動かすまで苦しんだのでまとめます。 環境 MacOS 10.8.5 Java 1.7 Gradle 1.11 Android Studio 0.5.3 Espresso 1.1 Jenkins 1.5558 git plugin gradle plugin 前提 Android StudioでEspressoのテストが ./gradlew connectedAndroidTest で動いてるものとします。 諦めたこと Android Emulator Plugin は諦めました。 なぜか以下のメッセージを出して途中で止まります。 android completed with result NOT_BUILT 動くこともある。動かないこともある。不安定過ぎるのでエミュレーターを断念。 Genymotionで代用 エミュレーターをGenymotionに置き換えました。 以下Genymotionをjenkinsで呼び出す流れ …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2014/04/10/android-jenkins/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2014-04-10 00:00:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="Android"/>
+<meta property="article:tag" content="pelican"/>
+<meta property="article:tag" content="python"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; Gradleで管理されたAndroidProjectのEspressoテストをGenymotionを使ってjenkinsでぐるぐる回すまで(長い)</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="android-jenkins">Gradleで管理されたAndroidProjectのEspressoテストをGenymotionを使ってjenkinsでぐるぐる回すまで(長い)</h1>
+    <p>
+          Posted on Thu 10 April 2014 in <a href="/category/android.html">Android</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p><img alt="image" src="../images/menu.png"></p>
+<p>Gradleで管理されたAndroidプロジェクトをJenkinsで動かすまで苦しんだのでまとめます。</p>
+<h2>環境</h2>
+<ul>
+<li>MacOS 10.8.5</li>
+<li>Java 1.7</li>
+<li>Gradle 1.11</li>
+<li>Android Studio 0.5.3</li>
+<li>Espresso 1.1</li>
+<li>Jenkins 1.5558</li>
+<li>git plugin</li>
+<li>gradle plugin</li>
+</ul>
+<h3>前提</h3>
+<p>Android StudioでEspressoのテストが</p>
+<div class="highlight"><pre><span></span>./gradlew connectedAndroidTest
+</pre></div>
+
+
+<p>で動いてるものとします。</p>
+<h3>諦めたこと</h3>
+<p>Android Emulator Plugin は諦めました。 なぜか以下のメッセージを出して途中で止まります。</p>
+<div class="highlight"><pre><span></span>android completed with result NOT_BUILT
+</pre></div>
+
+
+<p>動くこともある。動かないこともある。不安定過ぎるのでエミュレーターを断念。</p>
+<h3>Genymotionで代用</h3>
+<p>エミュレーターをGenymotionに置き換えました。 以下Genymotionをjenkinsで呼び出す流れ。</p>
+<div class="highlight"><pre><span></span>$ VBoxManage list vms
+</pre></div>
+
+
+<p>で作成済みのGenymotionのdeviceを表示します。こんな感じ。</p>
+<div class="highlight"><pre><span></span>&quot;Nexus S - 4.3 - API 18 - 480x800&quot; {209f5db1-6ec1-4dff-9f6f-515a6ece0123}
+</pre></div>
+
+
+<p>これのスナップショットを作っておきます。</p>
+<div class="highlight"><pre><span></span>$ VBoxManage snapshot <span class="s2">&quot;Nexus S - 4.3 - API 18 - 480x800&quot;</span> take <span class="s2">&quot;factory&quot;</span>
+</pre></div>
+
+
+<p>スナップショットができたら、Jenkinsの Item &gt; Build &gt; Execute shell に起動処理を設定します。</p>
+<div class="highlight"><pre><span></span>VBoxManage snapshot &quot;Nexus S - 4.3 - API 18 - 480x800&quot; restore &quot;factory&quot;
+{GENYMOTION_DIR}/player --vm-name &quot;Nexus S - 4.3 - API 18 - 480x800&quot; &amp;
+sleep 60
+</pre></div>
+
+
+<p>他には、 Item &gt; Source Code Management &gt; Git &gt;</p>
+<div class="highlight"><pre><span></span>Repository URL : リポジトリのURL
+Branch Specifier : */develop とか
+</pre></div>
+
+
+<p>Item &gt; User Gradle Wrapper &gt;</p>
+<div class="highlight"><pre><span></span>Tasks : *connectedAndroidTest*
+</pre></div>
+
+
+<p>Item &gt; Post-build Actions &gt; Publish JUnit test result report &gt;</p>
+<div class="highlight"><pre><span></span>Test report XMLs : **/build/androidTest-results/connected/*.xml
+</pre></div>
+
+
+<p>これで動くはずです。（きっと）</p>
+<h2>失敗例</h2>
+<ul>
+<li>どんなに設定を変更しても動かなかったが、Itemを作りなおしたらすんなり動いた。</li>
+<li>テスト対象のブランチが違った。</li>
+<li>connectedAndroidTest と connectedInstrumentTest を間違えてた</li>
+<li>Genymotionのデバイスが起動しっぱなし</li>
+</ul>
+<h2>参考</h2>
+<p><a href="http://rejasupotaro.github.io/2013/12/14/26.html">AndroidのCIに纏わる諸々の問題 – Rejasupoem</a></p>
+<p><a href="http://blog.genymobile.com/genymotion-jenkins-android-testing/">Use Genymotion with Jenkins for Android testing | Genymobile Blog</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/pelican.html">pelican</a>
+      <a href="/tag/python.html">python</a>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+    <meta name="author" content="shikajiro" />
+    <meta name="description" content="" />
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="VS Resistance"/>
+<meta property="og:description" content=""/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content=""/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash;     Posts by shikajiro
+:</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+
+
+<article>
+  <header>
+    <h2><a href="/blog/2013/02/18/android-adt-21-0-1/#android-adt-21-0-1">ADT 21.0.1新機能紹介</a></h2>
+    <p>
+          Posted on Mon 18 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <h2>アプリケーションや依存ライブラリパッケージ名の重複を検出するようになりました。</h2>
+<blockquote>
+<p>Updated build to detect and handle package name conflicts between an application and the libraries it depends on. Libraries cannot share package names unless all of them share the same package name. (Issue 40152, Issue 40273)</p>
+</blockquote>
+<h2>DEXフラグの追加</h2>
+<p>DEXフラグは、DEXファイルをマージして壊れたDEXファイルになることを防ぐために使用します。
+設定をこんな感じにするとマージを使わなくなり、古い方のDEXファイルになります。
+{% highlight text %}
+    dex.disable.merger=true
+{% endhighlight %}
+遅くなる原因になるので気をつけてね …</p>
+      <br>
+      <a class="btn" href="/blog/2013/02/18/android-adt-21-0-1/#android-adt-21-0-1">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2013/02/17/sublime-plugin-startup/#sublime-plugin-startup">SublimeTextのpluginの作り方</a></h2>
+    <p>
+          Posted on Sun 17 February 2013 in <a href="/category/sublimetext-python.html">sublimetext, python</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p>しかだよ。
+SublimeTextの簡単なプラグイン作成の依頼があったのでちょっと作ってみたよ。</p>
+<h2>お題</h2>
+<p>コピーしたテキストの最終行の行末に改行があった場合、その改行を消してペーストしたい。</p>
+<h2>新規プラグイン</h2>
+<p>tool &gt; new plugin でテンプレートが作れます。</p>
+<p>{% highlight python %}
+    import sublime, sublime_plugin</p>
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">ExampleCommand</span><span class="p">(</span><span class="nx">sublime_plugin</span><span class="p">.</span><span class="nx">TextCommand</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">def</span> <span class="nx">run</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">edit</span><span class="p">)</span><span class="o">:</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">edit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>{% endhighlight %}</p>
+<h3>クリップボードの取得</h3>
+<div class="highlight"><pre><span></span>sublime.get_clipboard()
+</pre></div>
+
+
+<p>でクリップボードのデータを取得できるみたい。
+あとはpythonの正規表現で良い感じにする。</p>
+<h3>テキストの差し替え</h3>
+<p>command + v の処理を上書きするので、ペーストと同じ働きをさせたい。</p>
+<div class="highlight"><pre><span></span>self.view.insert
+</pre></div>
+
+
+<p>だと、挿入になってしまい、範囲選択した状態でペーストすると置換されなくなっちゃう。なので</p>
+<div class="highlight"><pre><span></span>self.view …</pre></div>
+      <br>
+      <a class="btn" href="/blog/2013/02/17/sublime-plugin-startup/#sublime-plugin-startup">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2013/02/15/android-adt21-1-0/#android-adt21-1-0">ADT 21.1.0 新機能紹介</a></h2>
+    <p>
+          Posted on Fri 15 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p>しかだよ。(｀・ω・´)
+ADTが21.1.0にアップデートしてたので、新機能をまとめてみたよ。</p>
+<p><a href="http://developer.android.com/tools/sdk/eclipse-adt.html">ADT Plugin | Android Developers</a></p>
+<h2>notificationとblank fragmentとlist fragmentのテンプレートができたよ。</h2>
+<blockquote>
+<p>Added new code templates for notifications, blank fragments and list fragments.</p>
+</blockquote>
+<p>今更気づいたけど、テンプレートがすごい充実してた。知らなかった・・・・。
+notificationのテンプレートを作ったらこんな感じになる。</p>
+<p>![](/images/android/Screen Shot 2013-02-15 at 15.05.52.png)
+![](/images/android/Screen Shot 2013-02-15 at 15.06.02.png)</p>
+<p>ソースコードはこんな感じ。
+{% highlight …</p>
+      <br>
+      <a class="btn" href="/blog/2013/02/15/android-adt21-1-0/#android-adt21-1-0">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2013/02/14/android-mapfragment-list/#android-mapfragment-list">MapFragmentをTabの要素として表示したい</a></h2>
+    <p>
+          Posted on Thu 14 February 2013 in <a href="/category/android.html">Android</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p>しかだよ。
+MapFragmentをTabの一つとして表示したいんだけど、色々問題が出てきつつ解決できたのでメモ。</p>
+<h2>前提条件</h2>
+<ul>
+<li>Android 4.x</li>
+<li>TabはActionBarを使用</li>
+<li>Mapはgoogle-play-servicesを使用</li>
+</ul>
+<p _="%" highlight java>とりあえずActionBarにタブを設定するソースコードはこんな感じ。</p>
+<p>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);</p>
+<div class="highlight"><pre><span></span>mActionBar = getActionBar();
+mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+TabListener tabListener = new ActionBar.TabListener() {
+    @Override
+    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        if (tab.getText().equals(&quot;Map&quot;)) {
+            if (mMapFragment == null …</pre></div>
+      <br>
+      <a class="btn" href="/blog/2013/02/14/android-mapfragment-list/#android-mapfragment-list">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2013/01/07/mario-touch/#mario-touch">Arduino Fioでスーパーマリオなノックシステム作った</a></h2>
+    <p>
+          Posted on Mon 07 January 2013 in <a href="/category/articles.html">articles</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p>しかだよ。
+Arduino を使ってスーパーマリオな玄関ノックをつくってみたよ。
+まずは動画をどうぞ。</p>
+<iframe width="640" height="360" src="http://www.youtube.com/embed/q8MxyIBVOKw?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+
+<p>タッチするとマリオの「チャリーン」が鳴ります。一定回数以上タッチすると1upします。</p>
+<p><img alt="" src="/images/mario/IMG_2187.jpg"></p>
+<p>扉の裏側はこんな感じ。やっつけ感がすごい。部品にはArduino Fio、リチウムイオンバッテリー、
+ブレッドボード、スピーカーを使ってます。
+<img alt="" src="/images/mario/IMG_2186.jpg"></p>
+<p>タッチする部分はNintendo DSのタッチパネルの部分を使ってます。
+<img alt="" src="/images/mario/IMG_2188.jpg">
+アダプタ込みで1,000円ちょい。
+<a href="http://www.switch-science.com/products/detail.php?product_id=105">スイッチサイエンス/商品詳細 Nintendo DSのタッチスクリーン(コネクタ別売)</a></p>
+<p>ブレッドボード配線はこんな感じ。適当なので参考程度に。スピーカーの配線が気になる。  <br>
+<img alt="" src="/images/mario/MarioTouch.png">
+リチウムイオンバッテリー使ってるんだけど、すぐ電池が切れちゃう。省エネな使い方があるはずだけど、どうやって運用したらいいのかなぁ。</p>
+<p>ソースコード等はこちら。
+<a href="https://github.com/shikajiro/MarioTouch">shikajiro/MarioTouch</a></p>
+<p>んじゃまた。</p>
+      <br>
+      <a class="btn" href="/blog/2013/01/07/mario-touch/#mario-touch">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2012/12/25/fritzing-init/#fritzing-init">fritzingに最初から入っているはずのパーツを使えるようにする</a></h2>
+    <p>
+          Posted on Tue 25 December 2012 in <a href="/category/articles.html">articles</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p><img alt="" src="http://fritzing.org/media/uploads/download_screenshot_jpg_versions/small_download_screenshot.jpg"></p>
+<p>しかだよ。
+ブレッドボードの配線の設計やメモに最適なツールと言えばFritzingですね。
+<a href="http://fritzing.org/download/">Download - Fritzing</a></p>
+<p>最初から色々パーツが入っているのですが、拡張版(?)のパーツのデータが抜けてる。検索はできるのに・・・。</p>
+<p>というわけでなんとかしました。</p>
+<h3>ソースコードを落とす</h3>
+<p>google code から落とせます。
+<a href="http://code.google.com/p/fritzing/source/checkout">Source Checkout - fritzing - From prototype to product - Google Project Hosting</a></p>
+<p>以下の２箇所のデータをまるっとコピー。</p>
+<div class="highlight"><pre><span></span>cp fritzing-read-only/fritzing/pdb/user /Applications/Fritzing/pdb/user
+cp fritzing-read-only/fritzing/parts/svg/user /Applications/Fritzing/parts/svg/user
+</pre></div>
+
+
+<p>![](/images/fritzing/Screen Shot 2012-12-25 at …</p>
+      <br>
+      <a class="btn" href="/blog/2012/12/25/fritzing-init/#fritzing-init">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2012/12/25/xbee-fio/#xbee-fio">Arduino FioとPCをXBeeで繋いで開発する「ワイヤレスプログラミング」はXBee-ZBではできない</a></h2>
+    <p>
+          Posted on Tue 25 December 2012 in <a href="/category/articles.html">articles</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p><center>
+    <img src="/images/xbee/10021826_506ab34361bf8.jpeg" alt="">
+    <img src="/images/xbee/detail_image.jpeg" alt="">
+</center></p>
+<p>Arduino FioはPCとXbee接続してワイヤレスでプログラムをアップロードできます。
+しかし、XBEE-ZBではワイヤレスプログラミングできないので注意が必要です。</p>
+<p><a href="http://arduino.cc/en/Main/ArduinoBoardFioProgramming">Arduino - ArduinoBoardFioProgramming</a></p>
+<blockquote>
+<p>two XBee or XBee Pro 802.15.4 XBee modules. These are also known as Series 1 modules, for those who've worked with XBees for awhile. You can't use the DigiMesh or ZB series radios (aka Series 2 or 2.5). Those modules do …</p></blockquote>
+      <br>
+      <a class="btn" href="/blog/2012/12/25/xbee-fio/#xbee-fio">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2012/12/13/cutting-print/#cutting-print">カッティングプロッターを使ってmacbookの背面シールを作ってみた</a></h2>
+    <p>
+          Posted on Thu 13 December 2012 in <a href="/category/make-print-cutting-printer.html">make, print, cutting printer</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p><img alt="" src="/images/cutting_printer/IMG_2013.jpg"></p>
+<p>しかだよ。</p>
+<p>カッティングプロッター <a href="http://silhouettejapan.jp/">silhouette cameo</a> を使って、macbook air の背面シールを作ってみた。
+林檎のマークを活かすのがシャレオツですね。
+（ちょっとずれたけど・・・）</p>
+<h2>余分なシールを剥がす</h2>
+<p>すでに色々貼ってる場合はがんばって剥がしましょう。１００均で売ってる以下の商品を使うと、割とすんなり剥がせました。
+<img alt="" src="/images/cutting_printer/IMG_2011.jpg"></p>
+<h2>データを作る</h2>
+<p>siluhouette cameoは専用ソフトを使って印刷しないといけません。illustratorには非対応です。なんてこったい。
+でも大丈夫、既存のjpg画像とかから割りと簡単に印刷データを作れます。</p>
+<p>とりあえずネットからそれっぽい画像を落とします。Etsyでは、印刷済みのシールを売ってます。そこにサンプル画像があるのでそれを拝借します。</p>
+<p><a href="http://www.chrome-life.com/mac/2651/">MacBook Air用デコシールがマジかっこよすぎ！リンゴが光るデザインステッカーの入手方法と貼り方まとめ | Chrome Life</a></p>
+<p>![](/images/cutting_printer/Screen Shot 2012-12-13 at 12.30.26.png)</p>
+<p>気に入った画像を落としましょう。</p>
+<p>![](/images/cutting_printer/Screen Shot 2012-12-13 at 12.32.52 …</p>
+      <br>
+      <a class="btn" href="/blog/2012/12/13/cutting-print/#cutting-print">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2012/12/05/adventar-cal2012/#adventar-cal2012">sublime textをコマンドラインから起動する</a></h2>
+    <p>
+          Posted on Wed 05 December 2012 in <a href="/category/articles.html">articles</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p><a href="http://www.adventar.org/calendars/20">Sublime Text 2 Advent Calendar 2012</a> ５日目担当のしかだよ。
+一番使うエディタはEclipseです。</p>
+<p>今回はsublime textのニッチな機能「コマンドラインからの起動」についてまとめてみるよ。</p>
+<h2>コマンドラインから起動できる</h2>
+<p>$ subl で起動できるように設定しておきましょう。</p>
+<div class="highlight"><pre><span></span>ln -s &quot;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl&quot; /Users/shikajiro/bin
+</pre></div>
+
+
+<h2>データを渡せる</h2>
+<p>パイプで繋げると文字列送れます。</p>
+<p>例えばこんな感じ</p>
+<div class="highlight"><pre><span></span>shikajiro$ ls | subl
+</pre></div>
+
+
+<p><img alt="" src="/images/ad_cal/a.png"></p>
+<p>開いたデータを閉じるまでコマンドライン側は待ち続けます。</p>
+<p>例えばこんな感じ。</p>
+<div class="highlight"><pre><span></span>shikajiro$  ls | subl | cat
+</pre></div>
+
+
+<p><img alt="" src="/images/ad_cal/b.png"></p>
+<p>sublime textで開いて、色々編集して、それをまたコマンドラインに戻すことができちゃいますね。
+これは、色々幅が広がりそうな予感・・・！</p>
+<h3>大体の流れ</h3>
+<ol>
+<li>コマンドラインからパイプで起動</li>
+<li>実行したデータがsublime …</li></ol>
+      <br>
+      <a class="btn" href="/blog/2012/12/05/adventar-cal2012/#adventar-cal2012">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="/blog/2012/11/19/eclipse-ctrlnp/#eclipse-ctrlnp">EclipseでContent Assistの候補をctrl+N or P で選択したい</a></h2>
+    <p>
+          Posted on Mon 19 November 2012 in <a href="/category/eclipse.html">eclipse</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <h2>ctrl+nで選択したい</h2>
+<p>Eclipse Juno (Eclipse Platform 4.2) から ctrl + n or pでContent Assistの候補一覧を選択できなくなった。ctrl + nすると、カーソルが動いちゃう。</p>
+<p><img alt="assit" src="/images/eclipse/contentassist.png"></p>
+<h2>キー設定確認</h2>
+<p>キー設定を見てみよう。</p>
+<p><img alt="" src="/images/eclipse/key-setting.png"></p>
+<ul>
+<li>Line Down</li>
+<li>Line Up</li>
+</ul>
+<p>にキー設定されてるので、おかしくはない。
+Eclipse 4.x の仕様かな。<br>
+Eclipseの設定ではどうしようもなさそう・・・。</p>
+<h2>OSのキー設定ごと変える</h2>
+<p>KeyRemap4MacBook を使って<strong>OSのカーソル操作そのものを設定</strong>することにした。</p>
+<p><img alt="" src="/images/eclipse/emacs-setting.png"></p>
+<ul>
+<li>Control+PNBF to Up/Down/Left/Right</li>
+<li>In Eclipse</li>
+</ul>
+<p>にチェックを入れればいい感じになる。これで0.5%くらい開発効率が挙がったと思う。</p>
+      <br>
+      <a class="btn" href="/blog/2012/11/19/eclipse-ctrlnp/#eclipse-ctrlnp">    Continue reading
+</a>
+  </div>
+</article>
+
+  <div class="pagination">
+    <a class="btn" href="/author/shikajiro3.html">
+      <i class="fa fa-angle-left"></i>     Older Posts
+
+    </a>
+    <a class="btn float-right" href="/author/shikajiro.html">
+          Newer Posts
+ <i class="fa fa-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

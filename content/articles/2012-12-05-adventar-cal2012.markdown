@@ -1,0 +1,77 @@
+---
+layout: single
+title: sublime textをコマンドラインから起動する
+date: 2012-12-05 14:33
+comments: true
+Category:
+slug: adventar-cal2012
+---
+[Sublime Text 2 Advent Calendar 2012](http://www.adventar.org/calendars/20) ５日目担当のしかだよ。
+一番使うエディタはEclipseです。
+
+今回はsublime textのニッチな機能「コマンドラインからの起動」についてまとめてみるよ。
+
+## コマンドラインから起動できる
+$ subl で起動できるように設定しておきましょう。
+```
+ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /Users/shikajiro/bin
+```
+## データを渡せる
+パイプで繋げると文字列送れます。
+
+例えばこんな感じ
+```
+shikajiro$ ls | subl
+```
+
+![](/images/ad_cal/a.png)
+
+開いたデータを閉じるまでコマンドライン側は待ち続けます。
+
+例えばこんな感じ。
+```
+shikajiro$  ls | subl | cat
+```
+
+![](/images/ad_cal/b.png)
+
+sublime textで開いて、色々編集して、それをまたコマンドラインに戻すことができちゃいますね。
+これは、色々幅が広がりそうな予感・・・！
+
+### 大体の流れ
+1. コマンドラインからパイプで起動
+2. 実行したデータがsublime textで開かれる
+3. sublime textを閉じる
+4. 編集したデータがコマンドラインに戻る   
+
+### 渡せないもの ###
+```
+tail -f hoge.log | subl
+```
+みたいなストリーム系は無理でした。(´・ω・｀)
+
+## 使い道 ##
+そもそもあんまりコマンドライン使わないからぱっと思い浮かばない・・・(´・ω・｀)
+がんばって考えてみた。
+
+### ソースコードビュワーっぽく ###
+```
+shikajiro$ wget http://www.adventar.org/calendars/20 -O - | subl
+```
+
+### ssh先のログを見る ###
+味気ないログをお気に入りのフォーマットで見れます。
+検索も簡単ですね！
+```
+shikajiro$ ssh shikajiro@www.shikajiro.me "cat log.txt" | subl
+```
+リアルタイムで見れないのが難点。
+### sqlite3のテーブルを見る ###
+```
+shikajiro$ sqlite3 app.db "select * from user;"
+```
+変更した内容が反映されたらかっちょいいけどそれはまた別の話だな・・・。
+
+良いアイデアがありましたら #st2jp で呟いてもらえると助かります。
+
+んじゃーね。

@@ -1,0 +1,59 @@
+---
+layout: single
+title: adk2012を動かすとこまで
+date: 2012-11-19 14:12
+comments: true
+Category: android, arduino, adk, make
+slug: hello-adk2012
+---
+
+しかだよ。  
+ADKのサンプル動かすとこまで意外と遠かったのでまとめたよ。
+
+ここを参考にやってみました。
+[Accessory Development Kit 2012 Guide | Android Developers](http://developer.android.com/tools/adk/adk2.html)
+
+### ソースコード落としましょう。
+
+```
+mkdir android-accessories
+cd android-accessories
+repo init -u https://android.googlesource.com/accessories/manifest
+repo sync
+```
+
+### IDE落としましょう。
+
+公式サイトのこのリンクにしばらく気づかなかった・・・。
+
+* mac <https://dl-ssl.google.com/android/adk/adk2012_ide-macosx-20120626.zip>
+※ バージョン変わってるかもしれないので、なるべく公式サイトから落としてね。
+
+### ADKサンプルアップロード
+
+ADK2012.appのarduinoIDEを使って動かす。  
+
+####注意
+* Tool > Board > Google ADK2
+* Serial Port > /dev/cu.usbserial_hogehoge
+
+は選択状態になっていたとしても、必ずクリックして選択すること。
+チェックされているのに認識していないことあります。
+
+Exsample > ADK2 > usbaccessory  
+をコンパイルしてみる。こんな感じになるはず。
+
+![コンパイル](/images/adk2012/compile.png)
+
+コンソールにこんな感じに表示されたら大成功.
+
+![コンソール](/images/adk2012/console.png)
+
+### Androidサンプルインストール
+eclipseにサンプルソースをインポート。
+androidのSDK2.3.3(4?)に設定されてるけど、エラー出まくる。
+実行する端末によるけど、**3.x 4.xのGoogle APIに設定する**。
+
+![sdk](/images/adk2012/sdk.png)
+
+USB繋いだらきっと動くはず！

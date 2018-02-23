@@ -1,0 +1,24 @@
+---
+layout: single
+title: Arduino FioとPCをXBeeで繋いで開発する「ワイヤレスプログラミング」はXBee-ZBではできない
+date: 2012-12-25 12:36
+comments: true
+Category:
+slug:xbee-fio
+---
+<center>
+    <img src="/images/xbee/10021826_506ab34361bf8.jpeg" alt="">
+    <img src="/images/xbee/detail_image.jpeg" alt="">
+</center>
+
+Arduino FioはPCとXbee接続してワイヤレスでプログラムをアップロードできます。
+しかし、XBEE-ZBではワイヤレスプログラミングできないので注意が必要です。
+
+[Arduino - ArduinoBoardFioProgramming](http://arduino.cc/en/Main/ArduinoBoardFioProgramming)
+
+>two XBee or XBee Pro 802.15.4 XBee modules. These are also known as Series 1 modules, for those who've worked with XBees for awhile. You can't use the DigiMesh or ZB series radios (aka Series 2 or 2.5). Those modules do not allow for automatic IO Line Passing that is required for toggling the reset pin when programming.
+
+ZBシリーズじゃだめだと・・・。
+三日間悩んだよ・・・・。(´・ω・｀)  
+
+あと、基板に印刷されてる「52」って型番号だと思ってたけど、Series 2 の略の「S2」だったんだね。今分かったよ・・・。
