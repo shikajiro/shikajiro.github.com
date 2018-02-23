@@ -2,8 +2,8 @@
 title: フリーランス残酷物語 14日目
 date: 2016-12-14 06:20
 slug: freelance
-url: 2016/12/14/freelance/
-save_as: 2016/12/14/freelance/index.html
+url: 2016/12/13/freelance/
+save_as: 2016/12/13/freelance/index.html
 ---
 この記事は「[フリーランス残酷物語 Advent Calendar 2016](http://qiita.com/advent-calendar/2016/free_zankoku)」 14日目の記事です。
 
