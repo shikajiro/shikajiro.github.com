@@ -8,6 +8,7 @@ pelican = "*"
 ghp-import = "*"
 markdown = "*"
 typogrify = "*"
+pelican-gist = "*"
 
 [dev-packages]
 

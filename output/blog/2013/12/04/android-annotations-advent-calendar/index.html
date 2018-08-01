@@ -21,11 +21,11 @@
 
 
 <meta name="author" content="shikajiro" />
-<meta name="description" content="※この記事はAndroid Advent Calendar 2013 12/04担当として書いてます。 勢いでAdvent Calendar登録したけど、最近新しいこと、突き詰めたことしてない。 Genymotionは 明日の mofmofneko さんが書くみたいだからやめておこう。 ブログ自体半年くらい放置してた。この半年でやったことをとりあえず箇条書きにしてみる。 Android Annotations Android Studio Genymotion GreenDAO Guava デジハリ講師業はじめる。 iPhone4SからNexus5に機種変 働き過ぎて瀕死になる 自分の中で一番テンション上がってるのがAndroid Annotationsなので、今回はこれのお話にする。 AndroidAnnotations AndroidAnnotationsでできることはコードの軽量化。以下の２つが主なメリット。 開発スピードの向上 メンテナンスの簡素化 冗長な処理をシンプルにし、コード量を少なくする。結果、メンテナンスが楽になるメリットがある。 設定方法と使い方 書かれ尽くされたネタなので公式サイトをどうぞ。 僕なりの書き方 注意：ココ最近の情報は追っかけてません。 RestとBean やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。 [gist:id …" />
+<meta name="description" content="※この記事はAndroid Advent Calendar 2013 12/04担当として書いてます。 勢いでAdvent Calendar登録したけど、最近新しいこと、突き詰めたことしてない。 Genymotionは 明日の mofmofneko さんが書くみたいだからやめておこう。 ブログ自体半年くらい放置してた。この半年でやったことをとりあえず箇条書きにしてみる。 Android Annotations Android Studio Genymotion GreenDAO Guava デジハリ講師業はじめる。 iPhone4SからNexus5に機種変 働き過ぎて瀕死になる 自分の中で一番テンション上がってるのがAndroid Annotationsなので、今回はこれのお話にする。 AndroidAnnotations AndroidAnnotationsでできることはコードの軽量化。以下の２つが主なメリット。 開発スピードの向上 メンテナンスの簡素化 冗長な処理をシンプルにし、コード量を少なくする。結果、メンテナンスが楽になるメリットがある。 設定方法と使い方 書かれ尽くされたネタなので公式サイトをどうぞ。 僕なりの書き方 注意：ココ最近の情報は追っかけてません。 RestとBean やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。 @EActivity public …" />
 <meta name="keywords" content="">
 <meta property="og:site_name" content="VS Resistance"/>
 <meta property="og:title" content="とあるプログラマのAndroidAnnotations"/>
-<meta property="og:description" content="※この記事はAndroid Advent Calendar 2013 12/04担当として書いてます。 勢いでAdvent Calendar登録したけど、最近新しいこと、突き詰めたことしてない。 Genymotionは 明日の mofmofneko さんが書くみたいだからやめておこう。 ブログ自体半年くらい放置してた。この半年でやったことをとりあえず箇条書きにしてみる。 Android Annotations Android Studio Genymotion GreenDAO Guava デジハリ講師業はじめる。 iPhone4SからNexus5に機種変 働き過ぎて瀕死になる 自分の中で一番テンション上がってるのがAndroid Annotationsなので、今回はこれのお話にする。 AndroidAnnotations AndroidAnnotationsでできることはコードの軽量化。以下の２つが主なメリット。 開発スピードの向上 メンテナンスの簡素化 冗長な処理をシンプルにし、コード量を少なくする。結果、メンテナンスが楽になるメリットがある。 設定方法と使い方 書かれ尽くされたネタなので公式サイトをどうぞ。 僕なりの書き方 注意：ココ最近の情報は追っかけてません。 RestとBean やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。 [gist:id …"/>
+<meta property="og:description" content="※この記事はAndroid Advent Calendar 2013 12/04担当として書いてます。 勢いでAdvent Calendar登録したけど、最近新しいこと、突き詰めたことしてない。 Genymotionは 明日の mofmofneko さんが書くみたいだからやめておこう。 ブログ自体半年くらい放置してた。この半年でやったことをとりあえず箇条書きにしてみる。 Android Annotations Android Studio Genymotion GreenDAO Guava デジハリ講師業はじめる。 iPhone4SからNexus5に機種変 働き過ぎて瀕死になる 自分の中で一番テンション上がってるのがAndroid Annotationsなので、今回はこれのお話にする。 AndroidAnnotations AndroidAnnotationsでできることはコードの軽量化。以下の２つが主なメリット。 開発スピードの向上 メンテナンスの簡素化 冗長な処理をシンプルにし、コード量を少なくする。結果、メンテナンスが楽になるメリットがある。 設定方法と使い方 書かれ尽くされたネタなので公式サイトをどうぞ。 僕なりの書き方 注意：ココ最近の情報は追っかけてません。 RestとBean やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。 @EActivity public …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="/blog/2013/12/04/android-annotations-advent-calendar/"/>
 <meta property="og:type" content="article"/>
@@ -118,7 +118,24 @@ Genymotionは 明日の mofmofneko さんが書くみたいだからやめてお
 <p>注意：ココ最近の情報は追っかけてません。</p>
 <h2>RestとBean</h2>
 <p>やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。</p>
-<p>[gist:id=7789111]</p>
+<div class="gist">
+    <script src='https://gist.github.com/7789111.js'></script>
+    <noscript>
+        <pre><code>@EActivity
+public class HogeActivity{
+    @Rest WebApi webApi;
+    public void hoge(){
+        try{
+            UserJson json = webApi.getUser(1234);
+            return json;
+        }catch(RestClientException e){
+            //HTTPエラー処理
+            //RestClientException は非チェック例外
+        }
+    }
+}</code></pre>
+    </noscript>
+</div>
 <p>Restで設計されたWebAPIならとてもシンプルに実装できる。（だが、すべての案件はそんなにうまくいかない）</p>
 <h3>HttpClientErrorException を必ずチェックする</h3>
 <p>なぜかわからないけど、HTTPで発生する例外は（404とか）非チェック例外になっている。なにも考えずに実装すると、WebAPIを叩く処理はtry-catchせず書けてしまう。WebAPIを叩く処理はbackground処理必須なので、この例外はUIスレッドに何も言わずbackground処理を止めてしまう。backgroud処理の多くはProgressとか表示してるので、そこでUIもめんどいことになる。
@@ -127,17 +144,99 @@ Genymotionは 明日の mofmofneko さんが書くみたいだからやめてお
 <p><em>2013/12/12追記</em> RestClientException か RuntimeException でtry-catchしよう。</p>
 <h2>backgroudとUiThread</h2>
 <p>backgroudとUiThreadが便利すぎて、AsyncTaskとかローダーとか忘れてしまうレベル。</p>
-<p>[gist:id=7789442]</p>
+<div class="gist">
+    <script src='https://gist.github.com/7789442.js'></script>
+    <noscript>
+        <pre><code>public class MainActivity extends Activity {
+	// 省略
+
+	@Background
+	void login(String username, String password) {
+		try {
+			webApi.login(username, password);
+			callbackLogin();
+		} catch (HttpClientErrorException e) {
+			callbackLoginMiss(e);
+		} finally {
+			if (progressDialog != null)
+				progressDialog.dismiss();
+		}
+	}
+
+	@UiThread
+	void callbackLogin() {
+		// 正常終了の時の処理
+	}
+
+	@UiThread
+	void callbackLoginMiss(HttpClientErrorException e) {
+		// エラーの時の処理
+	}
+}</code></pre>
+    </noscript>
+</div>
 <p>楽ちんだね。
 ちゃんと制御したい時は、AsyncTaskとかローダーとか使いましょう。そうじゃなければこんな流れで問題ないはず。</p>
 <h2>Preference</h2>
 <p>@SharedPrefで気をつけて欲しいのは、デフォルトのスコープは Activity であること。たぶん、PreferenceActivityで使うことを想定しているからだと思う。</p>
-<p>[gist:id=7789652]</p>
+<div class="gist">
+    <script src='https://gist.github.com/7789652.js'></script>
+    <noscript>
+        <pre><code>@SharedPref(value=Scope.UNIQUE)
+public interface MyPrefs {
+	@DefaultLong(-1) long userId();
+}</code></pre>
+    </noscript>
+</div>
 <p>一般的にSharedPreferenceはアプリケーションの中で一意として使うことが多いと思う（たぶん）。
 そう思って実装してると、設定した値が取れなくってビビることが何度もあので気をつけてね。</p>
 <h2>ListView</h2>
 <p>特に実装が簡単になったと感じるのは子ViewをカスタムするListView。</p>
-<p>[gist:id=7789824]</p>
+<div class="gist">
+    <script src='https://gist.github.com/7789824.js'></script>
+    <noscript>
+        <pre><code>@EFragment(R.layout.fragment_timeline)
+public class TimelineFragment extends Fragment {
+	@ViewById ListView timelineListView;
+	
+	@AfterViews
+	void onAfterViews(){
+		List<TimelineItem> items = Lists.newArrayList();
+        //itemsにデータ詰める
+		TimelineAdapter adapter = new TimelineAdapter(getActivity(), items);
+		timelineListView.setAdapter(adapter);
+	}
+	
+	
+    private class TimelineAdapter extends ArrayAdapter<TimelineItem>{
+
+		public TimelineAdapter(Context context, List<TimelineItem> objects) {
+			super(context, 0, objects);
+		}
+		
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+		    //convertViewのnull確認などは省略
+			TimelineItem item = getItem(position);
+			TextTimelineView view = TextTimelineView_.build(getContext());
+			view.bind((TextTimelineItem)item);
+			return view;
+		}
+	}
+}
+
+@EViewGroup(R.layout.item_timeline_text)
+class TextTimelineView extends LinearLayout{
+	@ViewById TextView usernameView;
+	public TextTimelineView(Context context) {
+		super(context);
+	}
+	public void bind(TextTimelineItem item){
+		usernameView.setText(item.getName());
+    }
+}</code></pre>
+    </noscript>
+</div>
 <p>だいたいこんな感じでカスタムしたListViewが動かせる。TimelineAdapterのgetViewは再考の余地があると思うけど、これでもちゃんと動く。</p>
 <h3>2013/12/05 1:24 追記</h3>
 <p>ViewGroupが入れ子になっちゃうので、いい感じにしないといけないなと思いつつ放置してるのが僕です。</p>
@@ -146,7 +245,23 @@ Genymotionは 明日の mofmofneko さんが書くみたいだからやめてお
 id:tumo300-500 さんありがとございました。</p>
 <h2>App と DBアクセス</h2>
 <p>AndroidAnnotationsを使い出してから、Applicationを継承したクラスの有意義性を知った。</p>
-<p>[gist:id=7789950]</p>
+<div class="gist">
+    <script src='https://gist.github.com/7789950.js'></script>
+    <noscript>
+        <pre><code><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jp.hoge"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    <application
+        android:name=".AppImpl_"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+    </application>
+</manifest></code></pre>
+    </noscript>
+</div>
 <p>※DBにはGreenDao使ってる。</p>
 <p>DBアクセスは各ActivityなどでApplicationをインジェクションしておけばいつでも呼び出せる。起動時に１回だけ実行する処理とかもココらへんで。</p>
 <h2>ViewById と Click と OptionItems</h2>

@@ -44,7 +44,7 @@ DEFAULT_PAGINATION = 10
 THEME = "/Users/shikajiro/Documents/pelican-themes/Flex"
 
 # PLUGIN_PATHS = ["/Users/shikajiro/Documents/pelican-plugins"]
-# PLUGINS = ["permalinks"]
+PLUGINS = ["pelican_gist"]
 
 ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'

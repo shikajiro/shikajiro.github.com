@@ -59,13 +59,13 @@ Fragment 1
 
 ### builg.gradle
 
-{% gist f3348df6476f5633fea30b86ba3ffff6 build.gradle %}
+[gist:id=f3348df6476f5633fea30b86ba3ffff6,file=build.gradle]
 
 kapt で `toothpick_registry_package_name` を設定する必要があります。ここで指定したパッケージのソースが自動生成されます。ここ大事。
 
 ### MainApplication.kt
 
-{% gist f3348df6476f5633fea30b86ba3ffff6 MainApplication.kt %}
+[gist:id=f3348df6476f5633fea30b86ba3ffff6,file=MainApplication.kt]
 
 Applicationを継承したクラスが必須になります。
  
@@ -75,12 +75,12 @@ Applicationを継承したクラスが必須になります。
 もし自動生成しない場合は、エラーになってもいいので rebuild や Make Project すると生成するかもしれません。がんばろう。
 
 ### Module.kt
-{% gist f3348df6476f5633fea30b86ba3ffff6 Module.kt %}
+[gist:id=f3348df6476f5633fea30b86ba3ffff6,file=Module.kt]
 
 DIの設定をするところです。`bind`メソッドで型とインスタンスを紐付けます。scope毎にModule (ApplicationModule, ActivityModule, FragmentModule, ViewModelModule) を作っています。
 
 ### SplashActivity.kt
-{% gist f3348df6476f5633fea30b86ba3ffff6 SplashActivity.kt %}
+[gist:id=f3348df6476f5633fea30b86ba3ffff6,SplashActivity.kt]
 
 ActivityでInjectしてみます。 @Inject を使うところはDaggerと一緒です。
 
@@ -90,10 +90,10 @@ onCreate の後で `Toohpick.inject` することで @Inject が書かれたメ�
 
 
 ### HomeFragment.kt
-{% gist f3348df6476f5633fea30b86ba3ffff6 HomeFragment.kt %}
+[gist:id=f3348df6476f5633fea30b86ba3ffff6,file=HomeFragment.kt]
 
 ### HomeViewModel.kt
-{% gist f3348df6476f5633fea30b86ba3ffff6 HomeViewModel.kt %}
+[gist:id=f3348df6476f5633fea30b86ba3ffff6,HomeViewModel.kt]
 
 ### Scope
 openScopes の引数は可変長です。ここにツリー構造になるようにインスタンスを指定します。MainActivityでは (MainApplication, SplashActivity) を指定しました。これは最初で紹介したツリーだと

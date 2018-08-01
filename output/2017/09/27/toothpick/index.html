@@ -130,26 +130,125 @@ Fragment 1
 <p>本題です。実際に使えるようになるまでのソースを抜粋して紹介します。バージョンは日々進化してるので、基本公式サイトを信用してください。
 また、ここではkotlinを使ってる場合の例になります。</p>
 <h3>builg.gradle</h3>
-<p>{% gist f3348df6476f5633fea30b86ba3ffff6 build.gradle %}</p>
+<div class="gist">
+    <script src='https://gist.github.com/f3348df6476f5633fea30b86ba3ffff6.js?file=build.gradle'></script>
+    <noscript>
+        <pre><code>kapt {
+  generateStubs = true
+  arguments {
+    arg('toothpick_registry_package_name', "${android.defaultConfig.applicationId}.toothpick")
+  }
+}
+
+dependencies {
+  compile "com.github.stephanenicolas.toothpick:toothpick-runtime:$toothpick_ver"
+  kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpick_ver"
+}</code></pre>
+    </noscript>
+</div>
 <p>kapt で <code>toothpick_registry_package_name</code> を設定する必要があります。ここで指定したパッケージのソースが自動生成されます。ここ大事。</p>
 <h3>MainApplication.kt</h3>
-<p>{% gist f3348df6476f5633fea30b86ba3ffff6 MainApplication.kt %}</p>
+<div class="gist">
+    <script src='https://gist.github.com/f3348df6476f5633fea30b86ba3ffff6.js?file=MainApplication.kt'></script>
+    <noscript>
+        <pre><code>import your.application.package.toothpick.FactoryRegistry
+import your.application.package.toothpick.MemberInjectorRegistry
+
+class MainApplication : Application() {
+
+  override fun onCreate() {
+    super.onCreate()
+
+    Toothpick.setConfiguration(Configuration.forProduction().disableReflection())
+    //この２つの引数は、自動生成されたRegistryを渡す。toothPickにあるRegistryを渡しても駄目
+    MemberInjectorRegistryLocator.setRootRegistry(MemberInjectorRegistry())
+    FactoryRegistryLocator.setRootRegistry(FactoryRegistry())
+
+    Toothpick.openScope(this).installModules(ApplicationModule(this))
+  }
+  
+  override fun onTerminate() {
+    super.onTerminate()
+
+    Toothpick.closeScope(this)
+  }
+
+}</code></pre>
+    </noscript>
+</div>
 <p>Applicationを継承したクラスが必須になります。</p>
 <p><code>MemberInjectorRegistryLocator</code> と <code>FactoryRegistryLocator</code> に set する Registry が大事なところです。
 ここには、 kapt で指定したパッケージに生成される <code>MemberInjectorRegistry</code> と <code>FactoryRegistry</code> を指定してください。ToothPick自体にもこの２つのクラスは存在するので、そちらを指定しないように気をつけてください。</p>
 <p>もし自動生成しない場合は、エラーになってもいいので rebuild や Make Project すると生成するかもしれません。がんばろう。</p>
 <h3>Module.kt</h3>
-<p>{% gist f3348df6476f5633fea30b86ba3ffff6 Module.kt %}</p>
+<div class="gist">
+    <script src='https://gist.github.com/f3348df6476f5633fea30b86ba3ffff6.js?file=Module.kt'></script>
+    <noscript>
+        <pre><code>class ApplicationModule(val application: Application) : Module() {
+  val local = LocalCache(application)
+
+  init {
+    bindModelRepository()
+  }
+
+  private fun bindModelRepository() {
+    val webApi = WebApi(BuildConfig.API_BASE_URL, local)
+    val repository = ModelRepositoryImp(webApi, local)
+    bind(ModelRepository::class.java).toInstance(repository)
+  }
+}
+
+class ActivityModule(val activity: Activity) : Module(){
+  init {
+    bindNavigator()
+    bindDialog()
+  }
+
+  private fun bindNavigator(){
+    bind(Navigator::class.java).toInstance(Navigator(activity))
+  }
+
+  private fun bindDialog(){
+    bind(DialogDelegation::class.java).toInstance(DialogDelegationImpl(activity))
+  }
+}
+class FragmentModule(val fragment: Fragment) : Module(){
+}
+class ViewModelModule(val viewModel: ViewModel) : Module(){
+}
+</code></pre>
+    </noscript>
+</div>
 <p>DIの設定をするところです。<code>bind</code>メソッドで型とインスタンスを紐付けます。scope毎にModule (ApplicationModule, ActivityModule, FragmentModule, ViewModelModule) を作っています。</p>
 <h3>SplashActivity.kt</h3>
-<p>{% gist f3348df6476f5633fea30b86ba3ffff6 SplashActivity.kt %}</p>
+<p>[gist:id=f3348df6476f5633fea30b86ba3ffff6,SplashActivity.kt]</p>
 <p>ActivityでInjectしてみます。 @Inject を使うところはDaggerと一緒です。</p>
 <p>onCreate の前で scope に ActivityModule インストールしています。これでActivityからActivityModuleの中でbindしたインスタンスを Inject 出来るようになります。さらに、MainApplicationModuleの中でbindしたインスタンスもInjectできます。それは、ツリー構造でApplicationと紐付いているからです。(後述)</p>
 <p>onCreate の後で <code>Toohpick.inject</code> することで @Inject が書かれたメンバ変数にインスタンスが代入されます。</p>
 <h3>HomeFragment.kt</h3>
-<p>{% gist f3348df6476f5633fea30b86ba3ffff6 HomeFragment.kt %}</p>
+<div class="gist">
+    <script src='https://gist.github.com/f3348df6476f5633fea30b86ba3ffff6.js?file=HomeFragment.kt'></script>
+    <noscript>
+        <pre><code>
+class HomeFragment : Fragment() {
+
+  private lateinit var scope: Scope
+  private lateinit var vm: HomeViewModel
+  @Inject lateinit var dialogDelegation: DialogDelegation
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    scope = Toothpick.openScopes(activity.application, activity, this)
+    scope.installModules(FragmentModule(this))
+    super.onCreate(savedInstanceState)
+    Toothpick.inject(this, scope)
+    vm = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+  }
+}
+</code></pre>
+    </noscript>
+</div>
 <h3>HomeViewModel.kt</h3>
-<p>{% gist f3348df6476f5633fea30b86ba3ffff6 HomeViewModel.kt %}</p>
+<p>[gist:id=f3348df6476f5633fea30b86ba3ffff6,HomeViewModel.kt]</p>
 <h3>Scope</h3>
 <p>openScopes の引数は可変長です。ここにツリー構造になるようにインスタンスを指定します。MainActivityでは (MainApplication, SplashActivity) を指定しました。これは最初で紹介したツリーだと</p>
 <div class="highlight"><pre><span></span>     MainApplication 
