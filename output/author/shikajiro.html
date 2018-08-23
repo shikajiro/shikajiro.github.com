@@ -75,6 +75,39 @@
 
 <article>
   <header>
+    <h2><a href="/blog/2018/08/24/flutter_mvvm/#flutter_mvvm">Flutter で MVVM をやる</a></h2>
+    <p>
+          Posted on Fri 24 August 2018 in <a href="/category/articles.html">articles</a>
+
+
+
+    </p>
+  </header>
+  <div>
+      <p>趣味で flutter を始めました。MVVMを書く時どうしたらいいのか調べてみました。
+この記事を参考にやってみました。
+<a href="https://quickbirdstudios.com/blog/mvvm-in-flutter/">App architecture: MVVM in Flutter using Dart Streams - QuickBird Studios Blog</a></p>
+<p>他にもこのスライドが超役に立ちました。
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/eWd2eGYKNQiZKy" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/cch-robo/flutter-set-state-redux" title="Flutter のリアクティブ戦略 set state 〜 redux まで" target="_blank">Flutter のリアクティブ戦略 set state 〜 redux まで</a> </strong> from <strong><a href="https://www.slideshare.net/cch-robo" target="_blank">cch-robo</a></strong> </div></p>
+<h2>実現したいこと</h2>
+<p>1.メニューを選択する。</p>
+<p><img alt="" src="/images/2018-08-24-flutter/device-2018-08-24-005900.png"></p>
+<p>2.ダイアログから選ぶ</p>
+<p><img alt="" src="/images/2018-08-24-flutter/device-2018-08-24-005957.png"></p>
+<p>3.選んだデータがさっきのところに反映される。</p>
+<p><img alt="" src="/images/2018-08-24-flutter/device-2018-08-24-010046.png"></p>
+<p>みたいなことを実現したいと思います。</p>
+<h2>ViewModelの書き方</h2>
+<p>Flutter は標準で Stream があります。これを使うとreactive programing っぽい事ができます。※別途rxDartもありますがここでは紹介しません。</p>
+<p>まずは ViewModel の Interface を定義します。Dartは暗黙的にInterfaceが定義されているので、abstract …</p>
+      <br>
+      <a class="btn" href="/blog/2018/08/24/flutter_mvvm/#flutter_mvvm">    Continue reading
+</a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="/2017/09/27/toothpick/#toothpick">Android の DI を Dagger から ToothPick に代えた</a></h2>
     <p>
           Posted on Wed 27 September 2017 in <a href="/category/articles.html">articles</a>
@@ -478,35 +511,6 @@ vmware, virtualboxで動きます。適当にセットアップします。</p>
 sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot …</pre></div>
       <br>
       <a class="btn" href="/blog/2013/02/26/ubuntu-touch-preview/#ubuntu-touch-preview">    Continue reading
-</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/blog/2013/02/19/android-adt-21-dot-0-0/#android-adt-21-dot-0-0">ADT 21.0.0新機能紹介</a></h2>
-    <p>
-          Posted on Tue 19 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
-
-
-
-    </p>
-  </header>
-  <div>
-      <p>しかだよ。
-Android Developer Toolのリリース文をまとめてるよ。
-しかの意訳なので気をつけてね。</p>
-<h1>Layout Editor</h1>
-<h2>複数の端末画面が同時にプレビューできるようになりました。</h2>
-<p>![](/images/android/Screen Shot 2013-02-20 at 1.08.14.png)</p>
-<p>詳しくはGoogle I/Oの20:30を見てね。
-<iframe width="560" height="315" src="http://www.youtube.com/embed/Erd2k6EKxCQ#t=20m30s" frameborder="0" allowfullscreen></iframe></p>
-<blockquote>
-<p>Added multi-configuration editing feature that was previewed at Google I/O developer tools talk in June. For an overview, see the session recording (starting at: 20:30).</p>
-</blockquote>
-<h2>FragmentまたはListViewのレイアウトの変更が …</h2>
-      <br>
-      <a class="btn" href="/blog/2013/02/19/android-adt-21-dot-0-0/#android-adt-21-dot-0-0">    Continue reading
 </a>
   </div>
 </article>

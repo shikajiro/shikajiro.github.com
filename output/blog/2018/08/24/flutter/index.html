@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="趣味で flutter を始めました。MVVMを書く時どうしたらいいのか調べてみました。 この記事を参考にやってみました。 App architecture: MVVM in Flutter using Dart Streams - QuickBird Studios Blog 他にもこのスライドが超役に立ちました。 Flutter のリアクティブ戦略 set state 〜 redux まで from cch-robo Flutter は標準で Stream があります。これを使うとreactive programing ができます。※別途rxDartもありますがここでは紹介しません。 1.メニューを選択する。 2.ダイアログから選ぶ 3.選んだデータがさっきのところに反映される。 みたいなことを実現したいと思います。 まずは ViewModel の Interface を定義します。Dartは暗黙的にInterfaceが定義されているので、abstract class で作ります …" />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="Flutter で MVVM をやる"/>
+<meta property="og:description" content="趣味で flutter を始めました。MVVMを書く時どうしたらいいのか調べてみました。 この記事を参考にやってみました。 App architecture: MVVM in Flutter using Dart Streams - QuickBird Studios Blog 他にもこのスライドが超役に立ちました。 Flutter のリアクティブ戦略 set state 〜 redux まで from cch-robo Flutter は標準で Stream があります。これを使うとreactive programing ができます。※別途rxDartもありますがここでは紹介しません。 1.メニューを選択する。 2.ダイアログから選ぶ 3.選んだデータがさっきのところに反映される。 みたいなことを実現したいと思います。 まずは ViewModel の Interface を定義します。Dartは暗黙的にInterfaceが定義されているので、abstract class で作ります …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2018/08/24/flutter/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-08-24 00:45:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="articles"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; Flutter で MVVM をやる</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="flutter">Flutter で MVVM をやる</h1>
+    <p>
+          Posted on Fri 24 August 2018 in <a href="/category/articles.html">articles</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>趣味で flutter を始めました。MVVMを書く時どうしたらいいのか調べてみました。
+この記事を参考にやってみました。
+<a href="https://quickbirdstudios.com/blog/mvvm-in-flutter/">App architecture: MVVM in Flutter using Dart Streams - QuickBird Studios Blog</a></p>
+<p>他にもこのスライドが超役に立ちました。
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/eWd2eGYKNQiZKy" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/cch-robo/flutter-set-state-redux" title="Flutter のリアクティブ戦略 set state 〜 redux まで" target="_blank">Flutter のリアクティブ戦略 set state 〜 redux まで</a> </strong> from <strong><a href="https://www.slideshare.net/cch-robo" target="_blank">cch-robo</a></strong> </div></p>
+<p>Flutter は標準で Stream があります。これを使うとreactive programing ができます。※別途rxDartもありますがここでは紹介しません。</p>
+<p>1.メニューを選択する。</p>
+<p><img alt="" src="/images/2018-08-24-flutter/device-2018-08-24-005900.png"></p>
+<p>2.ダイアログから選ぶ</p>
+<p><img alt="" src="/images/2018-08-24-flutter/device-2018-08-24-005957.png"></p>
+<p>3.選んだデータがさっきのところに反映される。</p>
+<p><img alt="" src="/images/2018-08-24-flutter/device-2018-08-24-010046.png"></p>
+<p>みたいなことを実現したいと思います。</p>
+<p>まずは ViewModel の Interface を定義します。Dartは暗黙的にInterfaceが定義されているので、abstract class で作ります。
+データの源流をSink、データが流れるものをStreamと呼ぶようです。rxとはちょっと呼び名が違うので気をつけます。
+ここではわかりやすく、選ばれた犬のサイズを受け取る dogSizeSink と、それが流れる dogSizeStream という名前で定義しました。
+※Block という呼び方もあるようです。</p>
+<div class="highlight"><pre><span></span><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">DogViewModel</span> <span class="p">{</span>
+  <span class="n">Sink</span> <span class="kd">get</span> <span class="n">dogSizeSink</span><span class="p">;</span>
+  <span class="n">Stream</span><span class="o">&lt;</span><span class="n">DogSize</span><span class="o">&gt;</span> <span class="kd">get</span> <span class="n">dogSizeStream</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>このインターフェースを実装したクラスを作ります。</p>
+<div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">DogViewModelImpl</span> <span class="kd">implements</span> <span class="n">DogViewModel</span> <span class="p">{</span>
+  <span class="kd">final</span> <span class="n">_dogSizeController</span> <span class="o">=</span> <span class="n">StreamController</span><span class="o">&lt;</span><span class="n">DogSize</span><span class="o">&gt;</span><span class="p">.</span><span class="n">broadcast</span><span class="p">();</span>
+
+  <span class="err">@</span><span class="n">override</span>
+  <span class="kt">void</span> <span class="n">dispose</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">_dogSizeController</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="err">@</span><span class="n">override</span>
+  <span class="n">Sink</span> <span class="kd">get</span> <span class="n">dogSizeSink</span> <span class="o">=&gt;</span> <span class="n">_dogSizeController</span><span class="p">;</span>
+
+  <span class="err">@</span><span class="n">override</span>
+  <span class="n">Stream</span><span class="o">&lt;</span><span class="n">DogSize</span><span class="o">&gt;</span> <span class="kd">get</span> <span class="n">dogSizeStream</span> <span class="o">=&gt;</span> <span class="n">_dogSizeController</span><span class="p">.</span><span class="n">stream</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>StreamController.broadcast() で stream を作ります。型はStreamControllerといいますが、rxでいうとObservableみたいなのです。
+これ自体はSink型でもあるので、get dogSizeSink が呼ばれた場合はこれをそのまま返します。
+_dogSizeController.stream とすれば、Sinkに追加したデータが流れるストリームオブジェクトを取得できます。
+今回は使いませんが、stream.listen() を使えば、sink.add(hoge) されたデータを観測することができます。</p>
+<p>データをダイアログ選択などを使って取得したら、それをsinkへ追加します。</p>
+<div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">dogSize</span> <span class="o">=</span> <span class="kd">await</span> <span class="n">showDialog</span><span class="o">&lt;</span><span class="n">DogSize</span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="nl">context:</span> <span class="n">context</span><span class="p">,</span>
+  <span class="nl">builder:</span> <span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">DogSizeList</span><span class="p">(),</span>
+<span class="p">);</span>
+<span class="n">viewModel</span><span class="p">.</span><span class="n">dogSizeSink</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">dogSize</span><span class="p">);</span>
+</pre></div>
+
+
+<p>sink.add するとデータは stream へと流れていきます。viewModel.dogSizeStreamを観測することで追加したデータを利用することができます。
+前述したように stream.listen() を使ってlistenerを実装すれば、動かなくはないのですが、もっとシンプルに実装することができます。
+streamをwidgetで利用する場合は、StreamBuilderを利用すると以下のように実装できます。</p>
+<div class="highlight"><pre><span></span><span class="n">InkWell</span><span class="p">(</span>
+  <span class="nl">child:</span> <span class="n">StreamBuilder</span><span class="o">&lt;</span><span class="n">DogSize</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nl">stream:</span> <span class="n">viewModel</span><span class="p">.</span><span class="n">dogSizeStream</span><span class="p">,</span>
+    <span class="nl">builder:</span> <span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">snapshot</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">snapshot</span><span class="p">.</span><span class="n">hasData</span><span class="p">)</span> <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;サイズを選んでください&#39;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="n">Text</span><span class="p">(</span><span class="n">snapshot</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">label</span><span class="p">);</span>
+    <span class="p">},</span>
+  <span class="p">),</span>
+  <span class="nl">onTap:</span> <span class="n">_selectDogSizeDialog</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+
+
+<p>このように、StreamBuilder() の引数に stream を直接指定することができます。
+どこかで sink.add したら、builder: で指定したラムダが呼び出され、snapshot 引数にデータが入っています。</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>
