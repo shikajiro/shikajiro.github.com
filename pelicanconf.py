@@ -41,7 +41,7 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-THEME = "/Users/shikajiro/Documents/pelican-themes/Flex"
+THEME = "/Users/shikajiro/Develop/pelican-themes/Flex"
 
 # PLUGIN_PATHS = ["/Users/shikajiro/Documents/pelican-plugins"]
 PLUGINS = ["pelican_gist"]
