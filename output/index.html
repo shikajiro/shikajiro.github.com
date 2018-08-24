@@ -84,21 +84,22 @@
   </header>
   <div>
       <p>趣味で flutter を始めました。MVVMを書く時どうしたらいいのか調べてみました。
-この記事を参考にやってみました。
-<a href="https://quickbirdstudios.com/blog/mvvm-in-flutter/">App architecture: MVVM in Flutter using Dart Streams - QuickBird Studios Blog</a></p>
-<p>他にもこのスライドが超役に立ちました。
+この記事を参考にやってみました。</p>
+<p><a href="https://quickbirdstudios.com/blog/mvvm-in-flutter/">App architecture: MVVM in Flutter using Dart Streams - QuickBird Studios Blog</a>
+<img alt="" src="https://quickbirdstudios.com/blog/wp-content/uploads/2018/06/comic_mvvm_flutter-768x591.jpg"></p>
+<p>他にもこのスライドが超役に立ちました。まだ使ってないことも書いてるので今度試します。
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/eWd2eGYKNQiZKy" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/cch-robo/flutter-set-state-redux" title="Flutter のリアクティブ戦略 set state 〜 redux まで" target="_blank">Flutter のリアクティブ戦略 set state 〜 redux まで</a> </strong> from <strong><a href="https://www.slideshare.net/cch-robo" target="_blank">cch-robo</a></strong> </div></p>
-<h2>実現したいこと</h2>
-<p>1.メニューを選択する。</p>
-<p><img alt="" src="/images/2018-08-24-flutter/device-2018-08-24-005900.png"></p>
-<p>2.ダイアログから選ぶ</p>
-<p><img alt="" src="/images/2018-08-24-flutter/device-2018-08-24-005957.png"></p>
-<p>3.選んだデータがさっきのところに反映される。</p>
-<p><img alt="" src="/images/2018-08-24-flutter/device-2018-08-24-010046.png"></p>
+<h2>実現すること</h2>
+<p><img alt="" src="/images/2018-08-24-flutter/stream.gif"></p>
+<ol>
+<li>メニューを選択する。 </li>
+<li>ダイアログから選ぶ</li>
+<li>選んだデータがメニューのところに反映される。</li>
+</ol>
 <p>みたいなことを実現したいと思います。</p>
 <h2>ViewModelの書き方</h2>
 <p>Flutter は標準で Stream があります。これを使うとreactive programing っぽい事ができます。※別途rxDartもありますがここでは紹介しません。</p>
-<p>まずは ViewModel の Interface を定義します。Dartは暗黙的にInterfaceが定義されているので、abstract …</p>
+<p>まずは ViewModel の Interface を定義します。Dartは暗黙的にInterfaceが定義されているので、abstract class で作ります …</p>
       <br>
       <a class="btn" href="/blog/2018/08/24/flutter_mvvm/#flutter_mvvm">    Continue reading
 </a>
