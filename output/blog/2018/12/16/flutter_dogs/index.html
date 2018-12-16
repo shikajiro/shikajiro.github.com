@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="shikajiro" />
+<meta name="description" content="ZOZOテクノロジーズの愉快なエンジニア AdventCalendar その2、16日目です。12月も半分過ぎました。やばいですね。 ZOZOのAdventCalendarですが完全にZOZOとは関係ない、個人的趣味な記事になります。 いぬをささえるぎじゅつ と題して、趣味レベルでコツコツ作っている犬のアプリについて書きます。 なぜ いぬをささえるぎじゅつ なのか うちの愛犬のもなかです。 ウェルシュコーギーペンブローク♀推定8歳 instagram めちゃくちゃ可愛いですね。我が家のアイドルです。 子供の頃から犬🐶が好きで、大人になったらたくさん犬を飼おうと思ってました。思ったとおりの大人には成れてないですが、最愛の犬と暮らすことができるようになりました。 もなかと暮らすようになって、犬を取り巻く人間社会が見えてくるようになりました。 なにか自分でも犬達の為になることができるんじゃないかと考えました。 僕はIT技術にしか取り柄が無いので、この力を持って彼らの力になろうと思います。 愛犬の健康を管理する もなかは3年前に我が家の一員になりましたが、その時から尿結石を患ってました。 食べ物はPh値を調整するドックフードにし、水は軟水を徹底し、しっこの回数や量なんかをしばらく監視してました。 石は手術で取り、以後尿結石はできてません。しかし、ノミダニ予防、フィラリア予防、狂犬病予防など、健康な犬でも日々予防するものはあります。 最近では膀胱炎にもなりました。薬を飲むと体に負担がかかり、数週間つらい思いをしていました。 そんな自分が欲しかった 愛犬の健康を管理する アプリを作っています。 王道ですが …" />
+<meta name="keywords" content="">
+<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:title" content="犬のためのアプリを作っている"/>
+<meta property="og:description" content="ZOZOテクノロジーズの愉快なエンジニア AdventCalendar その2、16日目です。12月も半分過ぎました。やばいですね。 ZOZOのAdventCalendarですが完全にZOZOとは関係ない、個人的趣味な記事になります。 いぬをささえるぎじゅつ と題して、趣味レベルでコツコツ作っている犬のアプリについて書きます。 なぜ いぬをささえるぎじゅつ なのか うちの愛犬のもなかです。 ウェルシュコーギーペンブローク♀推定8歳 instagram めちゃくちゃ可愛いですね。我が家のアイドルです。 子供の頃から犬🐶が好きで、大人になったらたくさん犬を飼おうと思ってました。思ったとおりの大人には成れてないですが、最愛の犬と暮らすことができるようになりました。 もなかと暮らすようになって、犬を取り巻く人間社会が見えてくるようになりました。 なにか自分でも犬達の為になることができるんじゃないかと考えました。 僕はIT技術にしか取り柄が無いので、この力を持って彼らの力になろうと思います。 愛犬の健康を管理する もなかは3年前に我が家の一員になりましたが、その時から尿結石を患ってました。 食べ物はPh値を調整するドックフードにし、水は軟水を徹底し、しっこの回数や量なんかをしばらく監視してました。 石は手術で取り、以後尿結石はできてません。しかし、ノミダニ予防、フィラリア予防、狂犬病予防など、健康な犬でも日々予防するものはあります。 最近では膀胱炎にもなりました。薬を飲むと体に負担がかかり、数週間つらい思いをしていました。 そんな自分が欲しかった 愛犬の健康を管理する アプリを作っています。 王道ですが …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/blog/2018/12/16/flutter_dogs/"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-12-16 14:00:00+09:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/shikajiro.html">
+<meta property="article:section" content="articles"/>
+<meta property="og:image" content="/images/shikajiro.jpg">
+
+  <title>VS Resistance &ndash; 犬のためのアプリを作っている</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="/">
+        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      </a>
+      <h1><a href="/">VS Resistance</a></h1>
+
+<p>Android App Programmer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="/profile/#profile">Profile</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="/">    Home
+</a>
+
+      <a href="/archives">archives</a>
+      <a href="/categories">categories</a>
+      <a href="/tags">tags</a>
+
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="flutter_dogs">犬のためのアプリを作っている</h1>
+    <p>
+          Posted on Sun 16 December 2018 in <a href="/category/articles.html">articles</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>ZOZOテクノロジーズの愉快なエンジニア AdventCalendar その2、16日目です。12月も半分過ぎました。やばいですね。</p>
+<p>ZOZOのAdventCalendarですが完全にZOZOとは関係ない、個人的趣味な記事になります。</p>
+<p><em>いぬをささえるぎじゅつ</em> と題して、趣味レベルでコツコツ作っている犬のアプリについて書きます。</p>
+<h2>なぜ いぬをささえるぎじゅつ なのか</h2>
+<p>うちの愛犬のもなかです。 ウェルシュコーギーペンブローク♀推定8歳 <a href="https://www.instagram.com/monakoala/">instagram</a></p>
+<p><img alt="" src="https://pbs.twimg.com/profile_images/976974808213733376/XL-QI99V_400x400.jpg"></p>
+<p>めちゃくちゃ可愛いですね。我が家のアイドルです。</p>
+<p>子供の頃から犬🐶が好きで、大人になったらたくさん犬を飼おうと思ってました。思ったとおりの大人には成れてないですが、最愛の犬と暮らすことができるようになりました。
+もなかと暮らすようになって、犬を取り巻く人間社会が見えてくるようになりました。
+なにか自分でも犬達の為になることができるんじゃないかと考えました。
+僕はIT技術にしか取り柄が無いので、この力を持って彼らの力になろうと思います。</p>
+<h2>愛犬の健康を管理する</h2>
+<p><img alt="" src="/images/45550733_163527401272115_1647419605745716597_n.jpg"></p>
+<p>もなかは3年前に我が家の一員になりましたが、その時から尿結石を患ってました。
+食べ物はPh値を調整するドックフードにし、水は軟水を徹底し、しっこの回数や量なんかをしばらく監視してました。</p>
+<p>石は手術で取り、以後尿結石はできてません。しかし、ノミダニ予防、フィラリア予防、狂犬病予防など、健康な犬でも日々予防するものはあります。
+最近では膀胱炎にもなりました。薬を飲むと体に負担がかかり、数週間つらい思いをしていました。</p>
+<p>そんな自分が欲しかった <em>愛犬の健康を管理する</em> アプリを作っています。
+王道ですが、愛犬の日々の食事や薬、トイレなどをログするものです。</p>
+<p>画面例 愛犬を登録する画面</p>
+<p><img alt="開発中の画面" src="/images/friendog.png"></p>
+<h3>使っている技術</h3>
+<ul>
+<li>Flutter </li>
+<li>Firebase</li>
+<li>rx</li>
+</ul>
+<p>紆余曲折を経て、今は流行りの Flutter + Firebaseで作っています。</p>
+<p>当初Android向けにKotlinで作ってましたが、iOSもいずれ出したい気持ちでしたし、Flutterの人気が出てきたので思い切って乗り換えました。
+サーバーサイドも最初は Google App Engine + Flask で作ってましたが、開発に結構時間がかかってたのと、FirebaseがFlutterとの相性も良かったので乗り換えました。</p>
+<p>こちらは最近書いた「複数の入力した内容でOKをクリックしたすると、画像はストレージに保存して、テキストデータはデータベースに保存する」という処理です。
+rxのcombineLatestを使ってます。
+まだdartのstreamとrxとの使い分けができてませんが、とりあえず動きます。</p>
+<div class="highlight"><pre><span></span><span class="n">Observable</span> <span class="n">postListen</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="n">Observable</span><span class="p">.</span><span class="n">combineLatest6</span><span class="p">(</span>
+      <span class="n">dogName</span><span class="p">.</span><span class="n">stream</span><span class="p">,</span>
+      <span class="n">dogImage</span><span class="p">.</span><span class="n">stream</span><span class="p">,</span>
+      <span class="n">dogSize</span><span class="p">.</span><span class="n">stream</span><span class="p">,</span>
+      <span class="n">dogType</span><span class="p">.</span><span class="n">stream</span><span class="p">,</span>
+      <span class="n">dogGender</span><span class="p">.</span><span class="n">stream</span><span class="p">,</span>
+      <span class="n">post</span><span class="p">.</span><span class="n">stream</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">File</span> <span class="n">image</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">type</span><span class="p">,</span> <span class="n">gender</span><span class="p">,</span> <span class="n">click</span><span class="p">)</span> <span class="kd">async</span> <span class="p">{</span>
+    <span class="c1">// すべての項目を入力してclickするとここに処理が流れてくる</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&quot;postListen image </span><span class="si">$</span><span class="n">image</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="c1">//画像をアップロードする</span>
+    <span class="kd">final</span> <span class="n">uploadTask</span> <span class="o">=</span> <span class="n">FirebaseStorage</span><span class="p">.</span><span class="n">instance</span>
+        <span class="p">.</span><span class="n">ref</span><span class="p">()</span>
+        <span class="p">.</span><span class="n">child</span><span class="p">(</span><span class="s1">&#39;images&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">child</span><span class="p">(</span><span class="s1">&#39;dogs&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">child</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">${</span><span class="n">Uuid</span><span class="p">().</span><span class="n">v1</span><span class="p">()</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+        <span class="p">.</span><span class="n">putFile</span><span class="p">(</span>
+          <span class="n">image</span><span class="p">,</span>
+          <span class="n">StorageMetadata</span><span class="p">(</span>
+            <span class="nl">contentLanguage:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
+            <span class="nl">customMetadata:</span> <span class="p">{</span><span class="s1">&#39;activity&#39;</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span><span class="p">},</span>
+          <span class="p">),</span>
+        <span class="p">);</span>
+    <span class="c1">//アップロードが終わるまで待つ</span>
+    <span class="kd">final</span> <span class="n">event</span> <span class="o">=</span> <span class="kd">await</span> <span class="n">uploadTask</span><span class="p">.</span><span class="n">onComplete</span><span class="p">;</span>
+    <span class="c1">//参照用URLを取得する</span>
+    <span class="kd">final</span> <span class="n">url</span> <span class="o">=</span> <span class="kd">await</span> <span class="n">event</span><span class="p">.</span><span class="n">ref</span><span class="p">.</span><span class="n">getDownloadURL</span><span class="p">();</span>
+    <span class="n">print</span><span class="p">(</span><span class="s2">&quot;image url:</span><span class="si">$</span><span class="n">url</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="c1">//データベースに保存する</span>
+    <span class="kd">await</span> <span class="n">Firestore</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;dogs&#39;</span><span class="p">).</span><span class="n">document</span><span class="p">().</span><span class="n">setData</span><span class="p">({</span>
+      <span class="s1">&#39;image&#39;</span><span class="o">:</span> <span class="n">url</span><span class="p">,</span>
+      <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="n">name</span><span class="p">,</span>
+      <span class="s1">&#39;dogGenderId&#39;</span><span class="o">:</span> <span class="n">gender</span><span class="p">.</span><span class="n">toJson</span><span class="p">(),</span>
+      <span class="s1">&#39;dogType&#39;</span><span class="o">:</span> <span class="n">type</span><span class="p">.</span><span class="n">toJson</span><span class="p">(),</span>
+      <span class="s1">&#39;dogSize&#39;</span><span class="o">:</span> <span class="n">size</span><span class="p">.</span><span class="n">toJson</span><span class="p">(),</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+</pre></div>
+
+
+<p>作り直しているので進捗はまだまだですが、来年の中頃にはリリースしたいです。</p>
+<h2>迷子の犬をみんなで探す</h2>
+<p><img alt="" src="/images/o0450046413361865330.jpg"></p>
+<p>もなかは保健所に居ました。保健所は収容してから２週間ほど経っても飼い主が現れない場合は、殺処分します。(行政によって異なります)
+期限日ギリギリに引き出してくれたのが 福岡コーギーレスキューさんです。僕たち家族にもなかを紹介してもらい、僕たちの家族の一員になりました。</p>
+<p>動物愛護センターのHPを見ると、収容されている犬猫以外にも「迷子になっている犬猫」のページがありました。
+誰も助けに来ない犬猫も居れば、飼い主が何年も探している犬猫が居ます。</p>
+<p>犬猫と飼い主を不幸を減らすために、迷子になった犬猫をすぐ見つけることはできないだろうか？
+一人で探すには限界があるので、ソーシャルの力を使って網の目で探すのがいいんじゃないだろうか？
+そんなテーマで作っているのが PetSearcher です。
+近隣で犬猫が迷子になると利用者にpush通知が送られるので、飼い主と地域の人みんなで一緒に探そうというものです。</p>
+<p>ロゴ</p>
+<p><img alt="" src="/images/petsearcher.png"></p>
+<p>迷子になった犬の目撃情報などの情報を集めるページ
+<img alt="" src="/images/petsearch_host.png"></p>
+<h3>使っている技術</h3>
+<ul>
+<li>vue.js </li>
+<li>firebase </li>
+<li>BeautifulSoup </li>
+<li>FBMessenger</li>
+</ul>
+<p>firebase は vue.js とも相性がいいです。firebaseのデータが複雑なプログラミングなしで画面に反映されます。
+作成したhtmlは firebase で hosting しているので低コストで運用できそうです。
+特定サイトからのスクレイピングには BeautifulSoup を使ってます。
+迷子犬の新着情報はFBMessengerを使っています。</p>
+<h2>まとめ</h2>
+<p>技術紹介というより、やってることの紹介な記事になりました。</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy; shikajiro </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " VS Resistance ",
+  "url" : "",
+  "image": "/images/shikajiro.jpg",
+  "description": ""
+}
+</script>
+</body>
+</html>

@@ -48,3 +48,5 @@ PLUGINS = ["pelican_gist"]
 
 ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+
+GOOGLE_ANALYTICS = "UA-389036-10"
