@@ -5,7 +5,6 @@ Category: Android
 Tags: Android, debug
 Slug: current-activity
 Authors: Shikajiro
-Summary: Androidで現在起動中のActivityを知るにはActivityLifecycleCallbacksを使う
 
 Android開発にて Activity, Fragment での画面遷移が入り乱れる実装をしていると、現在動かしている画面のActivityが何なのか知りたくなることがある。
 
