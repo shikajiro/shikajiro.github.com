@@ -2,7 +2,7 @@
 書き出したhtml等を master ブランチに書き出してpushする
 
 #htmlの作成
-make html
+pelican content
 
 #gh-pages branch に テキストを書き出す
 ghp-import output

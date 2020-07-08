@@ -2,28 +2,47 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
 <meta name="author" content="shikajiro" />
 <meta name="description" content="しかだよ。 Glaxy Nexus、Nexus7, Nexus10, Nexus4 でubuntu phone or tabletのデモ版がインストールできると聞いたので、早速やってみました。 割りと簡単に出来ました。DLに時間がかかるので、全部で2時間くらいかかりました。 Touch/Install - Ubuntu Wiki Desktop Setup ubuntu os が必須です。 インストールはめんどいので、仮想ハードディスクを使いました。 vmware, virtualboxで動きます。適当にセットアップします。 Ubuntuの入手 | Ubuntu Japanese Team sudo add-apt-repository ppa:phablet-team/tools で、ubuntuのパッケージ管理システムにubuntu phone用のURLが追加されます。 んで、 sudo apt-get update sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot …" />
 <meta name="keywords" content="">
-<meta property="og:site_name" content="VS Resistance"/>
+
+
+<meta property="og:site_name" content="shikajiro blog"/>
 <meta property="og:title" content="Ubuntu Touch Developer Preview を Nexus7にインストールしてみた"/>
 <meta property="og:description" content="しかだよ。 Glaxy Nexus、Nexus7, Nexus10, Nexus4 でubuntu phone or tabletのデモ版がインストールできると聞いたので、早速やってみました。 割りと簡単に出来ました。DLに時間がかかるので、全部で2時間くらいかかりました。 Touch/Install - Ubuntu Wiki Desktop Setup ubuntu os が必須です。 インストールはめんどいので、仮想ハードディスクを使いました。 vmware, virtualboxで動きます。適当にセットアップします。 Ubuntuの入手 | Ubuntu Japanese Team sudo add-apt-repository ppa:phablet-team/tools で、ubuntuのパッケージ管理システムにubuntu phone用のURLが追加されます。 んで、 sudo apt-get update sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot …"/>
 <meta property="og:locale" content="en_US"/>
@@ -33,40 +52,57 @@
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="/author/shikajiro.html">
 <meta property="article:section" content="Android, Ubuntu, Nexus"/>
-<meta property="og:image" content="/images/shikajiro.jpg">
+<meta property="og:image" content="/images/shikajiro-icon.png">
 
-  <title>VS Resistance &ndash; Ubuntu Touch Developer Preview を Nexus7にインストールしてみた</title>
+  <title>shikajiro blog &ndash; Ubuntu Touch Developer Preview を Nexus7にインストールしてみた</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
-      <a href="/">
-        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      <a href="">
+        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
       </a>
-      <h1><a href="/">VS Resistance</a></h1>
+
+      <h1>
+        <a href="">shikajiro blog</a>
+      </h1>
 
 <p>Android App Programmer</p>
+
       <nav>
         <ul class="list">
-          <li><a href="/profile/#profile">Profile</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="/profile/#profile">
+                  Profile
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="/">    Home
-</a>
+      <a href="">Home</a>
 
       <a href="/archives">archives</a>
       <a href="/categories">categories</a>
@@ -77,10 +113,10 @@
 
 <article class="single">
   <header>
+      
     <h1 id="ubuntu-touch-preview">Ubuntu Touch Developer Preview を Nexus7にインストールしてみた</h1>
     <p>
-          Posted on Tue 26 February 2013 in <a href="/category/android-ubuntu-nexus.html">Android, Ubuntu, Nexus</a>
-
+      Posted on 火 26 2月 2013 in <a href="/category/android-ubuntu-nexus.html">Android, Ubuntu, Nexus</a>
 
     </p>
   </header>
@@ -99,15 +135,15 @@ Glaxy Nexus、Nexus7, Nexus10, Nexus4 でubuntu phone or tabletのデモ版が�
 インストールはめんどいので、仮想ハードディスクを使いました。
 vmware, virtualboxで動きます。適当にセットアップします。</p>
 <p><a href="http://www.ubuntulinux.jp/download">Ubuntuの入手 | Ubuntu Japanese Team</a></p>
-<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:phablet-team/tools
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">sudo add-apt-repository ppa:phablet-team/tools</span>
+</code></pre></div>
 
 
 <p>で、ubuntuのパッケージ管理システムにubuntu phone用のURLが追加されます。
 んで、</p>
-<div class="highlight"><pre><span></span>sudo apt-get update
-sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">sudo apt-get update</span>
+<span class="err">sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot</span>
+</code></pre></div>
 
 
 <p>で、環境構築完了。</p>
@@ -118,8 +154,8 @@ sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot
 <p><img alt="" src="/images/ubuntu/861796_10200726678831259_1974635631_n.jpeg"></p>
 <p>3.USBケーブル接続。仮想環境なのでちゃんとubuntuに接続する。</p>
 <p>4.ubuntuのterminal起動</p>
-<div class="highlight"><pre><span></span>sudo fastboot oem unlock
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">sudo fastboot oem unlock</span>
+</code></pre></div>
 
 
 <p>5.以下の画面がでるので、unlockを選んで電源ボタンで決定。</p>
@@ -132,8 +168,8 @@ sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot
 <p>※念のためビルド番号を控えておきましょう。</p>
 <h2>Deploying Image to Device</h2>
 <p>ubuntuのターミナルで</p>
-<div class="highlight"><pre><span></span>phablet-flash -b
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">phablet-flash -b</span>
+</code></pre></div>
 
 
 <p>DLやらインストールやらデバイスへのデータ転送が始まります。
@@ -157,25 +193,16 @@ sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot
 
 
 
+
 </article>
 
     <footer>
-<p>&copy; shikajiro </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 
 
@@ -183,11 +210,13 @@ sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " VS Resistance ",
+  "name": " shikajiro blog ",
   "url" : "",
-  "image": "/images/shikajiro.jpg",
+  "image": "/images/shikajiro-icon.png",
   "description": ""
 }
 </script>
+
+
 </body>
 </html>

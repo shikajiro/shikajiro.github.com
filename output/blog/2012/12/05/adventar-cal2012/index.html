@@ -2,30 +2,49 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
 <meta name="author" content="shikajiro" />
-<meta name="description" content="Sublime Text 2 Advent Calendar 2012 ５日目担当のしかだよ。 一番使うエディタはEclipseです。 今回はsublime textのニッチな機能「コマンドラインからの起動」についてまとめてみるよ。 コマンドラインから起動できる $ subl で起動できるように設定しておきましょう。 ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /Users/shikajiro/bin データを渡せる パイプで繋げると文字列送れます。 例えばこんな感じ shikajiro$ ls | subl 開いたデータを閉じるまでコマンドライン側は待ち続けます。 例えばこんな感じ。 shikajiro$ ls | subl | cat sublime textで開いて、色々編集して、それをまたコマンドラインに戻すことができちゃいますね。 これは、色々幅が広がりそうな予感・・・！ 大体の流れ コマンドラインからパイプで起動 実行したデータがsublime …" />
+<meta name="description" content="Sublime Text 2 Advent Calendar 2012 ５日目担当のしかだよ。 一番使うエディタはEclipseです。 今回はsublime textのニッチな機能「コマンドラインからの起動」についてまとめてみるよ。 コマンドラインから起動できる $ subl で起動できるように設定しておきましょう。 ln -s &#34;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl&#34; /Users/shikajiro/bin データを渡せる パイプで繋げると文字列送れます。 例えばこんな感じ shikajiro$ ls | subl 開いたデータを閉じるまでコマンドライン側は待ち続けます。 例えばこんな感じ。 shikajiro$ ls | subl | cat sublime textで開いて、色々編集して、それをまたコマンドラインに戻すことができちゃいますね。 これは、色々幅が広がりそうな予感・・・！ 大体の流れ コマンドラインからパイプで起動 実行したデータがsublime …" />
 <meta name="keywords" content="">
-<meta property="og:site_name" content="VS Resistance"/>
+
+
+<meta property="og:site_name" content="shikajiro blog"/>
 <meta property="og:title" content="sublime textをコマンドラインから起動する"/>
-<meta property="og:description" content="Sublime Text 2 Advent Calendar 2012 ５日目担当のしかだよ。 一番使うエディタはEclipseです。 今回はsublime textのニッチな機能「コマンドラインからの起動」についてまとめてみるよ。 コマンドラインから起動できる $ subl で起動できるように設定しておきましょう。 ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" /Users/shikajiro/bin データを渡せる パイプで繋げると文字列送れます。 例えばこんな感じ shikajiro$ ls | subl 開いたデータを閉じるまでコマンドライン側は待ち続けます。 例えばこんな感じ。 shikajiro$ ls | subl | cat sublime textで開いて、色々編集して、それをまたコマンドラインに戻すことができちゃいますね。 これは、色々幅が広がりそうな予感・・・！ 大体の流れ コマンドラインからパイプで起動 実行したデータがsublime …"/>
+<meta property="og:description" content="Sublime Text 2 Advent Calendar 2012 ５日目担当のしかだよ。 一番使うエディタはEclipseです。 今回はsublime textのニッチな機能「コマンドラインからの起動」についてまとめてみるよ。 コマンドラインから起動できる $ subl で起動できるように設定しておきましょう。 ln -s &#34;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl&#34; /Users/shikajiro/bin データを渡せる パイプで繋げると文字列送れます。 例えばこんな感じ shikajiro$ ls | subl 開いたデータを閉じるまでコマンドライン側は待ち続けます。 例えばこんな感じ。 shikajiro$ ls | subl | cat sublime textで開いて、色々編集して、それをまたコマンドラインに戻すことができちゃいますね。 これは、色々幅が広がりそうな予感・・・！ 大体の流れ コマンドラインからパイプで起動 実行したデータがsublime …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="/blog/2012/12/05/adventar-cal2012/"/>
 <meta property="og:type" content="article"/>
@@ -33,40 +52,57 @@
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="/author/shikajiro.html">
 <meta property="article:section" content="articles"/>
-<meta property="og:image" content="/images/shikajiro.jpg">
+<meta property="og:image" content="/images/shikajiro-icon.png">
 
-  <title>VS Resistance &ndash; sublime textをコマンドラインから起動する</title>
+  <title>shikajiro blog &ndash; sublime textをコマンドラインから起動する</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
-      <a href="/">
-        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      <a href="">
+        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
       </a>
-      <h1><a href="/">VS Resistance</a></h1>
+
+      <h1>
+        <a href="">shikajiro blog</a>
+      </h1>
 
 <p>Android App Programmer</p>
+
       <nav>
         <ul class="list">
-          <li><a href="/profile/#profile">Profile</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="/profile/#profile">
+                  Profile
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="/">    Home
-</a>
+      <a href="">Home</a>
 
       <a href="/archives">archives</a>
       <a href="/categories">categories</a>
@@ -77,10 +113,10 @@
 
 <article class="single">
   <header>
+      
     <h1 id="adventar-cal2012">sublime textをコマンドラインから起動する</h1>
     <p>
-          Posted on Wed 05 December 2012 in <a href="/category/articles.html">articles</a>
-
+      Posted on 水 05 12月 2012 in <a href="/category/articles.html">articles</a>
 
     </p>
   </header>
@@ -92,22 +128,22 @@
 <p>今回はsublime textのニッチな機能「コマンドラインからの起動」についてまとめてみるよ。</p>
 <h2>コマンドラインから起動できる</h2>
 <p>$ subl で起動できるように設定しておきましょう。</p>
-<div class="highlight"><pre><span></span>ln -s &quot;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl&quot; /Users/shikajiro/bin
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">ln -s &quot;/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl&quot; /Users/shikajiro/bin</span>
+</code></pre></div>
 
 
 <h2>データを渡せる</h2>
 <p>パイプで繋げると文字列送れます。</p>
 <p>例えばこんな感じ</p>
-<div class="highlight"><pre><span></span>shikajiro$ ls | subl
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">shikajiro$ ls | subl</span>
+</code></pre></div>
 
 
 <p><img alt="" src="/images/ad_cal/a.png"></p>
 <p>開いたデータを閉じるまでコマンドライン側は待ち続けます。</p>
 <p>例えばこんな感じ。</p>
-<div class="highlight"><pre><span></span>shikajiro$  ls | subl | cat
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">shikajiro$  ls | subl | cat</span>
+</code></pre></div>
 
 
 <p><img alt="" src="/images/ad_cal/b.png"></p>
@@ -121,8 +157,8 @@
 <li>編集したデータがコマンドラインに戻る   </li>
 </ol>
 <h3>渡せないもの</h3>
-<div class="highlight"><pre><span></span>tail -f hoge.log | subl
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">tail -f hoge.log | subl</span>
+</code></pre></div>
 
 
 <p>みたいなストリーム系は無理でした。(´・ω・｀)</p>
@@ -130,21 +166,21 @@
 <p>そもそもあんまりコマンドライン使わないからぱっと思い浮かばない・・・(´・ω・｀)
 がんばって考えてみた。</p>
 <h3>ソースコードビュワーっぽく</h3>
-<div class="highlight"><pre><span></span>shikajiro$ wget http://www.adventar.org/calendars/20 -O - | subl
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">shikajiro$ wget http://www.adventar.org/calendars/20 -O - | subl</span>
+</code></pre></div>
 
 
 <h3>ssh先のログを見る</h3>
 <p>味気ないログをお気に入りのフォーマットで見れます。
 検索も簡単ですね！</p>
-<div class="highlight"><pre><span></span>shikajiro$ ssh shikajiro@www.shikajiro.me &quot;cat log.txt&quot; | subl
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">shikajiro$ ssh shikajiro@www.shikajiro.me &quot;cat log.txt&quot; | subl</span>
+</code></pre></div>
 
 
 <p>リアルタイムで見れないのが難点。</p>
 <h3>sqlite3のテーブルを見る</h3>
-<div class="highlight"><pre><span></span>shikajiro$ sqlite3 app.db &quot;select * from user;&quot;
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">shikajiro$ sqlite3 app.db &quot;select * from user;&quot;</span>
+</code></pre></div>
 
 
 <p>変更した内容が反映されたらかっちょいいけどそれはまた別の話だな・・・。</p>
@@ -159,25 +195,16 @@
 
 
 
+
 </article>
 
     <footer>
-<p>&copy; shikajiro </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 
 
@@ -185,11 +212,13 @@
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " VS Resistance ",
+  "name": " shikajiro blog ",
   "url" : "",
-  "image": "/images/shikajiro.jpg",
+  "image": "/images/shikajiro-icon.png",
   "description": ""
 }
 </script>
+
+
 </body>
 </html>

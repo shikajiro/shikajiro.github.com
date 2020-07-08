@@ -2,67 +2,100 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
     <meta name="author" content="shikajiro" />
     <meta name="description" content="" />
-<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:site_name" content="shikajiro blog"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:title" content="VS Resistance"/>
+<meta property="og:title" content="shikajiro blog"/>
 <meta property="og:description" content=""/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content=""/>
-<meta property="og:image" content="/images/shikajiro.jpg">
+<meta property="og:image" content="/images/shikajiro-icon.png">
 
-  <title>VS Resistance &ndash;     Category sublimetext, python
-</title>
+  <title>shikajiro blog &ndash; Category sublimetext, python</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
-      <a href="/">
-        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      <a href="">
+        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
       </a>
-      <h1><a href="/">VS Resistance</a></h1>
+
+      <h1>
+        <a href="">shikajiro blog</a>
+      </h1>
 
 <p>Android App Programmer</p>
+
       <nav>
         <ul class="list">
-          <li><a href="/profile/#profile">Profile</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="/profile/#profile">
+                  Profile
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="/">    Home
-</a>
+      <a href="">Home</a>
 
       <a href="/archives">archives</a>
       <a href="/categories">categories</a>
@@ -77,8 +110,7 @@
   <header>
     <h2><a href="/blog/2013/02/17/sublime-plugin-startup/#sublime-plugin-startup">SublimeTextのpluginの作り方</a></h2>
     <p>
-          Posted on Sun 17 February 2013 in <a href="/category/sublimetext-python.html">sublimetext, python</a>
-
+      Posted on 日 17 2月 2013 in <a href="/category/sublimetext-python.html">sublimetext, python</a>
 
 
     </p>
@@ -92,31 +124,33 @@ SublimeTextの簡単なプラグイン作成の依頼があったのでちょっ
 <p>tool &gt; new plugin でテンプレートが作れます。</p>
 <p>{% highlight python %}
     import sublime, sublime_plugin</p>
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">ExampleCommand</span><span class="p">(</span><span class="nx">sublime_plugin</span><span class="p">.</span><span class="nx">TextCommand</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">def</span> <span class="nx">run</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">edit</span><span class="p">)</span><span class="o">:</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">edit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">class ExampleCommand(sublime_plugin.TextCommand):</span>
+<span class="err">    def run(self, edit):</span>
+<span class="err">        self.view.insert(edit, 0, &quot;Hello, World!&quot;)</span>
+</code></pre></div>
 
 
 <p>{% endhighlight %}</p>
 <h3>クリップボードの取得</h3>
-<div class="highlight"><pre><span></span>sublime.get_clipboard()
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">sublime.get_clipboard()</span>
+</code></pre></div>
 
 
 <p>でクリップボードのデータを取得できるみたい。
 あとはpythonの正規表現で良い感じにする。</p>
 <h3>テキストの差し替え</h3>
 <p>command + v の処理を上書きするので、ペーストと同じ働きをさせたい。</p>
-<div class="highlight"><pre><span></span>self.view.insert
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">self.view.insert</span>
+</code></pre></div>
 
 
 <p>だと、挿入になってしまい、範囲選択した状態でペーストすると置換されなくなっちゃう。なので</p>
-<div class="highlight"><pre><span></span>self.view …</pre></div>
-      <br>
-      <a class="btn" href="/blog/2013/02/17/sublime-plugin-startup/#sublime-plugin-startup">    Continue reading
-</a>
+<div class="highlight"><pre><span></span><code><span class="err">self.view …</span></code></pre></div>
+        <br>
+        <a class="btn"
+           href="/blog/2013/02/17/sublime-plugin-startup/#sublime-plugin-startup">
+          Continue reading
+        </a>
   </div>
 </article>
 
@@ -125,24 +159,13 @@ SublimeTextの簡単なプラグイン作成の依頼があったのでちょっ
 
 
 
-
     <footer>
-<p>&copy; shikajiro </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 
 
@@ -150,11 +173,13 @@ SublimeTextの簡単なプラグイン作成の依頼があったのでちょっ
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " VS Resistance ",
+  "name": " shikajiro blog ",
   "url" : "",
-  "image": "/images/shikajiro.jpg",
+  "image": "/images/shikajiro-icon.png",
   "description": ""
 }
 </script>
+
+
 </body>
 </html>

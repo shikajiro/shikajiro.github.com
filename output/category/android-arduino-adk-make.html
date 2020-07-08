@@ -2,67 +2,100 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
     <meta name="author" content="shikajiro" />
     <meta name="description" content="" />
-<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:site_name" content="shikajiro blog"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:title" content="VS Resistance"/>
+<meta property="og:title" content="shikajiro blog"/>
 <meta property="og:description" content=""/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content=""/>
-<meta property="og:image" content="/images/shikajiro.jpg">
+<meta property="og:image" content="/images/shikajiro-icon.png">
 
-  <title>VS Resistance &ndash;     Category android, arduino, adk, make
-</title>
+  <title>shikajiro blog &ndash; Category android, arduino, adk, make</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
-      <a href="/">
-        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      <a href="">
+        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
       </a>
-      <h1><a href="/">VS Resistance</a></h1>
+
+      <h1>
+        <a href="">shikajiro blog</a>
+      </h1>
 
 <p>Android App Programmer</p>
+
       <nav>
         <ul class="list">
-          <li><a href="/profile/#profile">Profile</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="/profile/#profile">
+                  Profile
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="/">    Home
-</a>
+      <a href="">Home</a>
 
       <a href="/archives">archives</a>
       <a href="/categories">categories</a>
@@ -77,8 +110,7 @@
   <header>
     <h2><a href="/blog/2012/11/19/hello-adk2012/#hello-adk2012">adk2012を動かすとこまで</a></h2>
     <p>
-          Posted on Mon 19 November 2012 in <a href="/category/android-arduino-adk-make.html">android, arduino, adk, make</a>
-
+      Posted on 月 19 11月 2012 in <a href="/category/android-arduino-adk-make.html">android, arduino, adk, make</a>
 
 
     </p>
@@ -89,11 +121,11 @@ ADKのサンプル動かすとこまで意外と遠かったのでまとめた�
 <p>ここを参考にやってみました。
 <a href="http://developer.android.com/tools/adk/adk2.html">Accessory Development Kit 2012 Guide | Android Developers</a></p>
 <h3>ソースコード落としましょう。</h3>
-<div class="highlight"><pre><span></span>mkdir android-accessories
-cd android-accessories
-repo init -u https://android.googlesource.com/accessories/manifest
-repo sync
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">mkdir android-accessories</span>
+<span class="err">cd android-accessories</span>
+<span class="err">repo init -u https://android.googlesource.com/accessories/manifest</span>
+<span class="err">repo sync</span>
+</code></pre></div>
 
 
 <h3>IDE落としましょう。</h3>
@@ -108,9 +140,11 @@ repo sync
 <ul>
 <li>Tool &gt; Board &gt; Google ADK2</li>
 <li>Serial Port &gt; /dev …</li></ul>
-      <br>
-      <a class="btn" href="/blog/2012/11/19/hello-adk2012/#hello-adk2012">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="/blog/2012/11/19/hello-adk2012/#hello-adk2012">
+          Continue reading
+        </a>
   </div>
 </article>
 
@@ -119,24 +153,13 @@ repo sync
 
 
 
-
     <footer>
-<p>&copy; shikajiro </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 
 
@@ -144,11 +167,13 @@ repo sync
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " VS Resistance ",
+  "name": " shikajiro blog ",
   "url" : "",
-  "image": "/images/shikajiro.jpg",
+  "image": "/images/shikajiro-icon.png",
   "description": ""
 }
 </script>
+
+
 </body>
 </html>

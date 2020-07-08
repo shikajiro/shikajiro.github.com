@@ -2,28 +2,47 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
 <meta name="author" content="shikajiro" />
 <meta name="description" content="この記事は「フリーランス残酷物語 Advent Calendar 2016」 14日目の記事です。 気がつけばフリーランスになって6年経ちました。こじか屋のしかじろうです。 フリーランスとしては中の下くらいだと思ってます。かろうじて生きてます。 受託だったり保守だったり講師だったり社員教育だったり趣味サービスやってます。 あと、もなかが可愛いです。 instagram 残酷な話をすると心が滅入るので、「残酷にならないためにはどうしたらいいか」っていう事を書こうと思います。 まとめ これを読もう SOFT SKILLS ソフトウェア開発者の人生マニュアル 収入分散化の勧め 技術力があって１システム全部作れると受託が金額的に良かったりします。ので、受託ばかり受けがちになってしまいます。 「じゃあこのシステム、200万でよろしくお願いします。」 『たまんねぇぜ(^q^)ｼﾞｭﾙﾘ』 でも受託ばかりやっていると収入の波ができてしまいます。200万の入金の月もあれば、0円の月もあります。 これだと資金の見通しが立たず、なかなか経営が安定できません。 「自社サービスを作ろう！」と思ってもなかなか着手出来なかったりします。 受託 長期の保守 定期的な講師業 スパンの長い社員教育 上記は僕がやってる or やってたものです。複数の収入先を確保すると安定します。心にも余裕ができます。 理想は不労所得です。寝ずに仕事すれば収入は増えますが長続きしません …" />
 <meta name="keywords" content="">
-<meta property="og:site_name" content="VS Resistance"/>
+
+
+<meta property="og:site_name" content="shikajiro blog"/>
 <meta property="og:title" content="フリーランス残酷物語 14日目"/>
 <meta property="og:description" content="この記事は「フリーランス残酷物語 Advent Calendar 2016」 14日目の記事です。 気がつけばフリーランスになって6年経ちました。こじか屋のしかじろうです。 フリーランスとしては中の下くらいだと思ってます。かろうじて生きてます。 受託だったり保守だったり講師だったり社員教育だったり趣味サービスやってます。 あと、もなかが可愛いです。 instagram 残酷な話をすると心が滅入るので、「残酷にならないためにはどうしたらいいか」っていう事を書こうと思います。 まとめ これを読もう SOFT SKILLS ソフトウェア開発者の人生マニュアル 収入分散化の勧め 技術力があって１システム全部作れると受託が金額的に良かったりします。ので、受託ばかり受けがちになってしまいます。 「じゃあこのシステム、200万でよろしくお願いします。」 『たまんねぇぜ(^q^)ｼﾞｭﾙﾘ』 でも受託ばかりやっていると収入の波ができてしまいます。200万の入金の月もあれば、0円の月もあります。 これだと資金の見通しが立たず、なかなか経営が安定できません。 「自社サービスを作ろう！」と思ってもなかなか着手出来なかったりします。 受託 長期の保守 定期的な講師業 スパンの長い社員教育 上記は僕がやってる or やってたものです。複数の収入先を確保すると安定します。心にも余裕ができます。 理想は不労所得です。寝ずに仕事すれば収入は増えますが長続きしません …"/>
 <meta property="og:locale" content="en_US"/>
@@ -33,40 +52,57 @@
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="/author/shikajiro.html">
 <meta property="article:section" content="articles"/>
-<meta property="og:image" content="/images/shikajiro.jpg">
+<meta property="og:image" content="/images/shikajiro-icon.png">
 
-  <title>VS Resistance &ndash; フリーランス残酷物語 14日目</title>
+  <title>shikajiro blog &ndash; フリーランス残酷物語 14日目</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
-      <a href="/">
-        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      <a href="">
+        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
       </a>
-      <h1><a href="/">VS Resistance</a></h1>
+
+      <h1>
+        <a href="">shikajiro blog</a>
+      </h1>
 
 <p>Android App Programmer</p>
+
       <nav>
         <ul class="list">
-          <li><a href="/profile/#profile">Profile</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="/profile/#profile">
+                  Profile
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="/">    Home
-</a>
+      <a href="">Home</a>
 
       <a href="/archives">archives</a>
       <a href="/categories">categories</a>
@@ -77,10 +113,10 @@
 
 <article class="single">
   <header>
+      
     <h1 id="freelance">フリーランス残酷物語 14日目</h1>
     <p>
-          Posted on Wed 14 December 2016 in <a href="/category/articles.html">articles</a>
-
+      Posted on 水 14 12月 2016 in <a href="/category/articles.html">articles</a>
 
     </p>
   </header>
@@ -101,9 +137,9 @@
 <a href="https://www.amazon.co.jp/gp/product/4822251551//ref=as_li_ss_il?ie=UTF8&linkCode=li2&tag=shikajiro-22&linkId=9dff9daa5902a1e5f8805c9af7b79fdd" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=4822251551&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=shikajiro-22" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=shikajiro-22&l=li2&o=9&a=4822251551" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 <h2>収入分散化の勧め</h2>
 <p>技術力があって１システム全部作れると受託が金額的に良かったりします。ので、受託ばかり受けがちになってしまいます。</p>
-<div class="highlight"><pre><span></span>「じゃあこのシステム、200万でよろしくお願いします。」
-『たまんねぇぜ(^q^)ｼﾞｭﾙﾘ』
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">「じゃあこのシステム、200万でよろしくお願いします。」</span>
+<span class="err">『たまんねぇぜ(^q^)ｼﾞｭﾙﾘ』</span>
+</code></pre></div>
 
 
 <p>でも受託ばかりやっていると収入の波ができてしまいます。200万の入金の月もあれば、0円の月もあります。
@@ -121,8 +157,8 @@
 （僕に不労所得があるとは言ってません）</p>
 <h2>T型の勧め</h2>
 <p>一つの技術やプラットフォームに突出してる方が営業しやすいです。単価も高くしやすいのかもしれません。説明もし易いです。顔や名前を覚えてもらいやすいです。</p>
-<div class="highlight"><pre><span></span>(^o^)「こじか屋はAndroidアプリが得意です。」
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">(^o^)「こじか屋はAndroidアプリが得意です。」</span>
+</code></pre></div>
 
 
 <p>なんでも作れますって言ってると、いざどこかで案件が発生した時にあなたの顔が浮かばないので、声がかかりづらいです。
@@ -186,25 +222,16 @@
 
 
 
+
 </article>
 
     <footer>
-<p>&copy; shikajiro </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 
 
@@ -212,11 +239,13 @@
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " VS Resistance ",
+  "name": " shikajiro blog ",
   "url" : "",
-  "image": "/images/shikajiro.jpg",
+  "image": "/images/shikajiro-icon.png",
   "description": ""
 }
 </script>
+
+
 </body>
 </html>

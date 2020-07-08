@@ -10,14 +10,12 @@ save_as: profile/index.html
 
 * [GitHub](https://github.com/shikajiro)
 * [Twitter](https://twitter.com/shikajiro)
-* [note](https://note.mu/shikajiro)
-
+* [note](https://note.com/shikajiro)
 
 ## Works
 
 - 個人事業主 こじか屋 代表
 - 九州先端科学技術研究所 特別研究員
-- デジタルハリウッド福岡校 Android Instructor
 
 ## Business Development
 ### Android app

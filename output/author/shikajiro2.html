@@ -2,67 +2,100 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
     <meta name="author" content="shikajiro" />
     <meta name="description" content="" />
-<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:site_name" content="shikajiro blog"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:title" content="VS Resistance"/>
+<meta property="og:title" content="shikajiro blog"/>
 <meta property="og:description" content=""/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content=""/>
-<meta property="og:image" content="/images/shikajiro.jpg">
+<meta property="og:image" content="/images/shikajiro-icon.png">
 
-  <title>VS Resistance &ndash;     Posts by shikajiro
-:</title>
+  <title>shikajiro blog &ndash; Posts by Shikajiro:</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
-      <a href="/">
-        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      <a href="">
+        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
       </a>
-      <h1><a href="/">VS Resistance</a></h1>
+
+      <h1>
+        <a href="">shikajiro blog</a>
+      </h1>
 
 <p>Android App Programmer</p>
+
       <nav>
         <ul class="list">
-          <li><a href="/profile/#profile">Profile</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="/profile/#profile">
+                  Profile
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="/">    Home
-</a>
+      <a href="">Home</a>
 
       <a href="/archives">archives</a>
       <a href="/categories">categories</a>
@@ -75,10 +108,48 @@
 
 <article>
   <header>
+    <h2><a href="/blog/2013/03/03/java-guava/#java-guava">Google製Javaライブラリ Guavaを使ってみた。</a></h2>
+    <p>
+      Posted on 日 03 3月 2013 in <a href="/category/articles.html">articles</a>
+
+
+    </p>
+  </header>
+  <div>
+      <p><center>
+<img src="/images/indian_guava.jpg">
+</center></p>
+<p>しかだよ。Guavaってライブラリが良いってインターネットに書いてたので調べてみたよ。
+サンプルソースのほとんどは本家からコピペしたよ。</p>
+<p><a href="https://code.google.com/p/guava-libraries/">guava-libraries - Guava: Google Core Libraries for Java 1.6+ - Google Project Hosting</a></p>
+<h2>Basic</h2>
+<h3>Using/avoiding null</h3>
+<p _="%" endhighlight>nullぽを避けるための仕組み
+{% highlight java %}
+    Optional<Integer> possible = Optional.of(5);
+    possible.isPresent(); // returns true
+    possible.get(); // returns 5</p>
+<h3>Preconditions</h3>
+<p>引数の値チェックなど、前提条件をチェックする仕組み。assertとかに似てると思う。
+条件がfalseだと対応するExceptionがスローされる。</p>
+<h3>Ordering</h3>
+<p>Comparatorをスマートにしたやつ。Comparatorはめんどいよね・・・。</p>
+<p>{% highlight java %}
+    Ordering<String> byLengthOrdering = new Ordering<String>() {
+         public …</string></string></p>
+        <br>
+        <a class="btn"
+           href="/blog/2013/03/03/java-guava/#java-guava">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="/blog/2013/02/26/ubuntu-touch-preview/#ubuntu-touch-preview">Ubuntu Touch Developer Preview を Nexus7にインストールしてみた</a></h2>
     <p>
-          Posted on Tue 26 February 2013 in <a href="/category/android-ubuntu-nexus.html">Android, Ubuntu, Nexus</a>
-
+      Posted on 火 26 2月 2013 in <a href="/category/android-ubuntu-nexus.html">Android, Ubuntu, Nexus</a>
 
 
     </p>
@@ -96,17 +167,19 @@ Glaxy Nexus、Nexus7, Nexus10, Nexus4 でubuntu phone or tabletのデモ版が�
 インストールはめんどいので、仮想ハードディスクを使いました。
 vmware, virtualboxで動きます。適当にセットアップします。</p>
 <p><a href="http://www.ubuntulinux.jp/download">Ubuntuの入手 | Ubuntu Japanese Team</a></p>
-<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:phablet-team/tools
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">sudo add-apt-repository ppa:phablet-team/tools</span>
+</code></pre></div>
 
 
 <p>で、ubuntuのパッケージ管理システムにubuntu phone用のURLが追加されます。
 んで、</p>
-<div class="highlight"><pre><span></span>sudo apt-get update
-sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot …</pre></div>
-      <br>
-      <a class="btn" href="/blog/2013/02/26/ubuntu-touch-preview/#ubuntu-touch-preview">    Continue reading
-</a>
+<div class="highlight"><pre><span></span><code><span class="err">sudo apt-get update</span>
+<span class="err">sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot …</span></code></pre></div>
+        <br>
+        <a class="btn"
+           href="/blog/2013/02/26/ubuntu-touch-preview/#ubuntu-touch-preview">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -114,8 +187,7 @@ sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot …<
   <header>
     <h2><a href="/blog/2013/02/19/android-adt-21-dot-0-0/#android-adt-21-dot-0-0">ADT 21.0.0新機能紹介</a></h2>
     <p>
-          Posted on Tue 19 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
-
+      Posted on 火 19 2月 2013 in <a href="/category/android-adt.html">Android, ADT</a>
 
 
     </p>
@@ -137,9 +209,11 @@ Android Developer Toolのリリース文をまとめてるよ。
 <p>ってことだと思う。</p>
 <blockquote>
 <p>Modified the layout logic so that setting a …</p></blockquote>
-      <br>
-      <a class="btn" href="/blog/2013/02/19/android-adt-21-dot-0-0/#android-adt-21-dot-0-0">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="/blog/2013/02/19/android-adt-21-dot-0-0/#android-adt-21-dot-0-0">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -147,8 +221,7 @@ Android Developer Toolのリリース文をまとめてるよ。
   <header>
     <h2><a href="/blog/2013/02/18/android-adt-21-0-1/#android-adt-21-0-1">ADT 21.0.1新機能紹介</a></h2>
     <p>
-          Posted on Mon 18 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
-
+      Posted on 月 18 2月 2013 in <a href="/category/android-adt.html">Android, ADT</a>
 
 
     </p>
@@ -165,9 +238,11 @@ Android Developer Toolのリリース文をまとめてるよ。
     dex.disable.merger=true
 {% endhighlight %}
 遅くなる原因になるので気をつけてね …</p>
-      <br>
-      <a class="btn" href="/blog/2013/02/18/android-adt-21-0-1/#android-adt-21-0-1">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="/blog/2013/02/18/android-adt-21-0-1/#android-adt-21-0-1">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -175,8 +250,7 @@ Android Developer Toolのリリース文をまとめてるよ。
   <header>
     <h2><a href="/blog/2013/02/17/sublime-plugin-startup/#sublime-plugin-startup">SublimeTextのpluginの作り方</a></h2>
     <p>
-          Posted on Sun 17 February 2013 in <a href="/category/sublimetext-python.html">sublimetext, python</a>
-
+      Posted on 日 17 2月 2013 in <a href="/category/sublimetext-python.html">sublimetext, python</a>
 
 
     </p>
@@ -190,31 +264,33 @@ SublimeTextの簡単なプラグイン作成の依頼があったのでちょっ
 <p>tool &gt; new plugin でテンプレートが作れます。</p>
 <p>{% highlight python %}
     import sublime, sublime_plugin</p>
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">ExampleCommand</span><span class="p">(</span><span class="nx">sublime_plugin</span><span class="p">.</span><span class="nx">TextCommand</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">def</span> <span class="nx">run</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">edit</span><span class="p">)</span><span class="o">:</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">view</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">edit</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">class ExampleCommand(sublime_plugin.TextCommand):</span>
+<span class="err">    def run(self, edit):</span>
+<span class="err">        self.view.insert(edit, 0, &quot;Hello, World!&quot;)</span>
+</code></pre></div>
 
 
 <p>{% endhighlight %}</p>
 <h3>クリップボードの取得</h3>
-<div class="highlight"><pre><span></span>sublime.get_clipboard()
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">sublime.get_clipboard()</span>
+</code></pre></div>
 
 
 <p>でクリップボードのデータを取得できるみたい。
 あとはpythonの正規表現で良い感じにする。</p>
 <h3>テキストの差し替え</h3>
 <p>command + v の処理を上書きするので、ペーストと同じ働きをさせたい。</p>
-<div class="highlight"><pre><span></span>self.view.insert
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">self.view.insert</span>
+</code></pre></div>
 
 
 <p>だと、挿入になってしまい、範囲選択した状態でペーストすると置換されなくなっちゃう。なので</p>
-<div class="highlight"><pre><span></span>self.view …</pre></div>
-      <br>
-      <a class="btn" href="/blog/2013/02/17/sublime-plugin-startup/#sublime-plugin-startup">    Continue reading
-</a>
+<div class="highlight"><pre><span></span><code><span class="err">self.view …</span></code></pre></div>
+        <br>
+        <a class="btn"
+           href="/blog/2013/02/17/sublime-plugin-startup/#sublime-plugin-startup">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -222,8 +298,7 @@ SublimeTextの簡単なプラグイン作成の依頼があったのでちょっ
   <header>
     <h2><a href="/blog/2013/02/15/android-adt21-1-0/#android-adt21-1-0">ADT 21.1.0 新機能紹介</a></h2>
     <p>
-          Posted on Fri 15 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
-
+      Posted on 金 15 2月 2013 in <a href="/category/android-adt.html">Android, ADT</a>
 
 
     </p>
@@ -247,9 +322,11 @@ package com.example.adtsample;</p>
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app …</p>
-      <br>
-      <a class="btn" href="/blog/2013/02/15/android-adt21-1-0/#android-adt21-1-0">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="/blog/2013/02/15/android-adt21-1-0/#android-adt21-1-0">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -257,8 +334,7 @@ import android.app …</p>
   <header>
     <h2><a href="/blog/2013/02/14/android-mapfragment-list/#android-mapfragment-list">MapFragmentをTabの要素として表示したい</a></h2>
     <p>
-          Posted on Thu 14 February 2013 in <a href="/category/android.html">Android</a>
-
+      Posted on 木 14 2月 2013 in <a href="/category/android.html">Android</a>
 
 
     </p>
@@ -277,16 +353,18 @@ MapFragmentをTabの一つとして表示したいんだけど、色々問題が
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);</p>
-<div class="highlight"><pre><span></span>mActionBar = getActionBar();
-mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-TabListener tabListener = new ActionBar.TabListener() {
-    @Override
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
-        if (tab.getText().equals(&quot;Map&quot;)) {
-            if (mMapFragment == null …</pre></div>
-      <br>
-      <a class="btn" href="/blog/2013/02/14/android-mapfragment-list/#android-mapfragment-list">    Continue reading
-</a>
+<div class="highlight"><pre><span></span><code><span class="n">mActionBar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getActionBar</span><span class="p">();</span><span class="w"></span>
+<span class="n">mActionBar</span><span class="p">.</span><span class="n">setNavigationMode</span><span class="p">(</span><span class="n">ActionBar</span><span class="p">.</span><span class="n">NAVIGATION_MODE_TABS</span><span class="p">);</span><span class="w"></span>
+<span class="n">TabListener</span><span class="w"> </span><span class="n">tabListener</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ActionBar</span><span class="p">.</span><span class="n">TabListener</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">onTabSelected</span><span class="p">(</span><span class="n">Tab</span><span class="w"> </span><span class="n">tab</span><span class="p">,</span><span class="w"> </span><span class="n">FragmentTransaction</span><span class="w"> </span><span class="n">ft</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tab</span><span class="p">.</span><span class="n">getText</span><span class="p">().</span><span class="k">equals</span><span class="p">(</span><span class="ss">&quot;Map&quot;</span><span class="p">))</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">mMapFragment</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null …</span></code></pre></div>
+        <br>
+        <a class="btn"
+           href="/blog/2013/02/14/android-mapfragment-list/#android-mapfragment-list">
+          Continue reading
+        </a>
   </div>
   <hr />
 </article>
@@ -294,8 +372,7 @@ TabListener tabListener = new ActionBar.TabListener() {
   <header>
     <h2><a href="/blog/2013/01/07/mario-touch/#mario-touch">Arduino Fioでスーパーマリオなノックシステム作った</a></h2>
     <p>
-          Posted on Mon 07 January 2013 in <a href="/category/articles.html">articles</a>
-
+      Posted on 月 07 1月 2013 in <a href="/category/articles.html">articles</a>
 
 
     </p>
@@ -321,9 +398,6 @@ Arduino を使ってスーパーマリオな玄関ノックをつくってみた
 <p>ソースコード等はこちら。
 <a href="https://github.com/shikajiro/MarioTouch">shikajiro/MarioTouch</a></p>
 <p>んじゃまた。</p>
-      <br>
-      <a class="btn" href="/blog/2013/01/07/mario-touch/#mario-touch">    Continue reading
-</a>
   </div>
   <hr />
 </article>
@@ -331,8 +405,7 @@ Arduino を使ってスーパーマリオな玄関ノックをつくってみた
   <header>
     <h2><a href="/blog/2012/12/25/fritzing-init/#fritzing-init">fritzingに最初から入っているはずのパーツを使えるようにする</a></h2>
     <p>
-          Posted on Tue 25 December 2012 in <a href="/category/articles.html">articles</a>
-
+      Posted on 火 25 12月 2012 in <a href="/category/articles.html">articles</a>
 
 
     </p>
@@ -348,16 +421,13 @@ Arduino を使ってスーパーマリオな玄関ノックをつくってみた
 <p>google code から落とせます。
 <a href="http://code.google.com/p/fritzing/source/checkout">Source Checkout - fritzing - From prototype to product - Google Project Hosting</a></p>
 <p>以下の２箇所のデータをまるっとコピー。</p>
-<div class="highlight"><pre><span></span>cp fritzing-read-only/fritzing/pdb/user /Applications/Fritzing/pdb/user
-cp fritzing-read-only/fritzing/parts/svg/user /Applications/Fritzing/parts/svg/user
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">cp fritzing-read-only/fritzing/pdb/user /Applications/Fritzing/pdb/user</span>
+<span class="err">cp fritzing-read-only/fritzing/parts/svg/user /Applications/Fritzing/parts/svg/user</span>
+</code></pre></div>
 
 
 <p><img alt="" src="/images/fritzing/Screen Shot 2012-12-25 at 19.32.45.png"></p>
 <p>こんな感じでNintendo DS のタッチパネルも使えます。素敵ですね。</p>
-      <br>
-      <a class="btn" href="/blog/2012/12/25/fritzing-init/#fritzing-init">    Continue reading
-</a>
   </div>
   <hr />
 </article>
@@ -365,8 +435,7 @@ cp fritzing-read-only/fritzing/parts/svg/user /Applications/Fritzing/parts/svg/u
   <header>
     <h2><a href="/blog/2012/12/25/xbee-fio/#xbee-fio">Arduino FioとPCをXBeeで繋いで開発する「ワイヤレスプログラミング」はXBee-ZBではできない</a></h2>
     <p>
-          Posted on Tue 25 December 2012 in <a href="/category/articles.html">articles</a>
-
+      Posted on 火 25 12月 2012 in <a href="/category/articles.html">articles</a>
 
 
     </p>
@@ -381,89 +450,32 @@ cp fritzing-read-only/fritzing/parts/svg/user /Applications/Fritzing/parts/svg/u
 <p><a href="http://arduino.cc/en/Main/ArduinoBoardFioProgramming">Arduino - ArduinoBoardFioProgramming</a></p>
 <blockquote>
 <p>two XBee or XBee Pro 802.15.4 XBee modules. These are also known as Series 1 modules, for those who've worked with XBees for awhile. You can't use the DigiMesh or ZB series radios (aka Series 2 or 2.5). Those modules do …</p></blockquote>
-      <br>
-      <a class="btn" href="/blog/2012/12/25/xbee-fio/#xbee-fio">    Continue reading
-</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/blog/2012/12/13/cutting-print/#cutting-print">カッティングプロッターを使ってmacbookの背面シールを作ってみた</a></h2>
-    <p>
-          Posted on Thu 13 December 2012 in <a href="/category/make-print-cutting-printer.html">make, print, cutting printer</a>
-
-
-
-    </p>
-  </header>
-  <div>
-      <p><img alt="" src="/images/cutting_printer/IMG_2013.jpg"></p>
-<p>しかだよ。</p>
-<p>カッティングプロッター <a href="http://silhouettejapan.jp/">silhouette cameo</a> を使って、macbook air の背面シールを作ってみた。
-林檎のマークを活かすのがシャレオツですね。
-（ちょっとずれたけど・・・）</p>
-<h2>余分なシールを剥がす</h2>
-<p>すでに色々貼ってる場合はがんばって剥がしましょう。１００均で売ってる以下の商品を使うと、割とすんなり剥がせました。
-<img alt="" src="/images/cutting_printer/IMG_2011.jpg"></p>
-<h2>データを作る</h2>
-<p>siluhouette cameoは専用ソフトを使って印刷しないといけません。illustratorには非対応です。なんてこったい。
-でも大丈夫、既存のjpg画像とかから割りと簡単に印刷データを作れます。</p>
-<p>とりあえずネットからそれっぽい画像を落とします。Etsyでは、印刷済みのシールを売ってます。そこにサンプル画像があるのでそれを拝借します。</p>
-<p><a href="http://www.chrome-life.com/mac/2651/">MacBook Air用デコシールがマジかっこよすぎ！リンゴが光るデザインステッカーの入手方法と貼り方まとめ | Chrome Life</a></p>
-<p><img alt="" src="/images/cutting_printer/Screen Shot 2012-12-13 at 12.30.26.png"></p>
-<p>気に入った画像を落としましょう。</p>
-<p><img alt="" src="/images/cutting_printer/Screen Shot 2012-12-13 at 12.32.52.png"></p>
-<p>Siluhouette Studio で落とした画像を開きます。</p>
-<p><img alt="" src="/images/cutting_printer/Screen Shot 2012-12-13 at 17.06.41.png"></p>
-<p>Trace機能を使って、対象のオブジェクトだけに切り込みのパスを引きます。</p>
-<p><img alt="" src="/images/cutting_printer/Screen Shot 2012-12-13 at 17.07.59.png"></p>
-<p>右側にTraceツールバーが現れます。Select Trace Area で、切り込み部分を選択します。</p>
-<p><img alt="" src="/images/cutting_printer/Screen Shot 2012-12-13 at 17.08.58.png">
-<img alt="" src="/images/cutting_printer/Screen Shot 2012-12-13 at 17.10.17.png"></p>
-<p>Traceボタンを使うと、線境でパスを引いてくれます。</p>
-<p><img alt="" src="/images/cutting_printer/Screen Shot 2012-12-13 at 17.11.26.png">
-<img alt="" src="/images/cutting_printer/Screen Shot 2012-12-13 at 17.11.38.png"></p>
-<p>後は不要なパスを消したりして調整し、カットすれば出来上がり！</p>
-<p><img alt="" src="/images/cutting_printer/IMG_2007.jpg"></p>
-<p>自分だけの背面シールを貼って自慢しましょう。んじゃ！</p>
-      <br>
-      <a class="btn" href="/blog/2012/12/13/cutting-print/#cutting-print">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="/blog/2012/12/25/xbee-fio/#xbee-fio">
+          Continue reading
+        </a>
   </div>
 </article>
 
   <div class="pagination">
-    <a class="btn" href="/author/shikajiro3.html">
-      <i class="fa fa-angle-left"></i>     Older Posts
-
+    <a class="btn float-left" href="/author/shikajiro3.html">
+      <i class="fa fa-angle-left"></i> Older Posts
     </a>
     <a class="btn float-right" href="/author/shikajiro.html">
-          Newer Posts
- <i class="fa fa-angle-right"></i>
+      Newer Posts <i class="fa fa-angle-right"></i>
     </a>
   </div>
 
 
 
-
     <footer>
-<p>&copy; shikajiro </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 
 
@@ -471,11 +483,13 @@ cp fritzing-read-only/fritzing/parts/svg/user /Applications/Fritzing/parts/svg/u
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " VS Resistance ",
+  "name": " shikajiro blog ",
   "url" : "",
-  "image": "/images/shikajiro.jpg",
+  "image": "/images/shikajiro-icon.png",
   "description": ""
 }
 </script>
+
+
 </body>
 </html>

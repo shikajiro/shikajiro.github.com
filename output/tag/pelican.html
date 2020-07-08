@@ -2,67 +2,100 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
     <meta name="author" content="shikajiro" />
     <meta name="description" content="" />
-<meta property="og:site_name" content="VS Resistance"/>
+<meta property="og:site_name" content="shikajiro blog"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:title" content="VS Resistance"/>
+<meta property="og:title" content="shikajiro blog"/>
 <meta property="og:description" content=""/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content=""/>
-<meta property="og:image" content="/images/shikajiro.jpg">
+<meta property="og:image" content="/images/shikajiro-icon.png">
 
-  <title>VS Resistance &ndash;     Tag pelican
-</title>
+  <title>shikajiro blog &ndash; Tag pelican</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
-      <a href="/">
-        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      <a href="">
+        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
       </a>
-      <h1><a href="/">VS Resistance</a></h1>
+
+      <h1>
+        <a href="">shikajiro blog</a>
+      </h1>
 
 <p>Android App Programmer</p>
+
       <nav>
         <ul class="list">
-          <li><a href="/profile/#profile">Profile</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="/profile/#profile">
+                  Profile
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="/">    Home
-</a>
+      <a href="">Home</a>
 
       <a href="/archives">archives</a>
       <a href="/categories">categories</a>
@@ -77,11 +110,9 @@
   <header>
     <h2><a href="/blog/2014/04/10/android-jenkins/#android-jenkins">Gradleで管理されたAndroidProjectのEspressoテストをGenymotionを使ってjenkinsでぐるぐる回すまで(長い)</a></h2>
     <p>
-          Posted on Thu 10 April 2014 in <a href="/category/android.html">Android</a>
+      Posted on 木 10 4月 2014 in <a href="/category/android.html">Android</a>
 
-
-          &#8226;     Tagged with
-
+          &#8226; Tagged with
               <a href="/tag/pelican.html">pelican</a>,              <a href="/tag/python.html">python</a>
     </p>
   </header>
@@ -101,23 +132,25 @@
 </ul>
 <h3>前提</h3>
 <p>Android StudioでEspressoのテストが</p>
-<div class="highlight"><pre><span></span>./gradlew connectedAndroidTest
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">./gradlew connectedAndroidTest</span>
+</code></pre></div>
 
 
 <p>で動いてるものとします。</p>
 <h3>諦めたこと</h3>
 <p>Android Emulator Plugin は諦めました。 なぜか以下のメッセージを出して途中で止まります。</p>
-<div class="highlight"><pre><span></span>android completed with result NOT_BUILT
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">android completed with result NOT_BUILT</span>
+</code></pre></div>
 
 
 <p>動くこともある。動かないこともある。不安定過ぎるのでエミュレーターを断念。</p>
 <h3>Genymotionで代用</h3>
 <p>エミュレーターをGenymotionに置き換えました。 以下Genymotionをjenkinsで呼び出す流れ …</p>
-      <br>
-      <a class="btn" href="/blog/2014/04/10/android-jenkins/#android-jenkins">    Continue reading
-</a>
+        <br>
+        <a class="btn"
+           href="/blog/2014/04/10/android-jenkins/#android-jenkins">
+          Continue reading
+        </a>
   </div>
 </article>
 
@@ -126,24 +159,13 @@
 
 
 
-
     <footer>
-<p>&copy; shikajiro </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 
 
@@ -151,11 +173,13 @@
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " VS Resistance ",
+  "name": " shikajiro blog ",
   "url" : "",
-  "image": "/images/shikajiro.jpg",
+  "image": "/images/shikajiro-icon.png",
   "description": ""
 }
 </script>
+
+
 </body>
 </html>

@@ -2,28 +2,47 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
 <meta name="author" content="shikajiro" />
 <meta name="description" content="しかだよ。(｀・ω・´) ADTが21.1.0にアップデートしてたので、新機能をまとめてみたよ。 ADT Plugin | Android Developers notificationとblank fragmentとlist fragmentのテンプレートができたよ。 Added new code templates for notifications, blank fragments and list fragments. 今更気づいたけど、テンプレートがすごい充実してた。知らなかった・・・・。 notificationのテンプレートを作ったらこんな感じになる。 ソースコードはこんな感じ。 {% highlight java %} package com.example.adtsample; import android.annotation.TargetApi; import android.app.Notification; import android.app.NotificationManager; import android.app …" />
 <meta name="keywords" content="">
-<meta property="og:site_name" content="VS Resistance"/>
+
+
+<meta property="og:site_name" content="shikajiro blog"/>
 <meta property="og:title" content="ADT 21.1.0 新機能紹介"/>
 <meta property="og:description" content="しかだよ。(｀・ω・´) ADTが21.1.0にアップデートしてたので、新機能をまとめてみたよ。 ADT Plugin | Android Developers notificationとblank fragmentとlist fragmentのテンプレートができたよ。 Added new code templates for notifications, blank fragments and list fragments. 今更気づいたけど、テンプレートがすごい充実してた。知らなかった・・・・。 notificationのテンプレートを作ったらこんな感じになる。 ソースコードはこんな感じ。 {% highlight java %} package com.example.adtsample; import android.annotation.TargetApi; import android.app.Notification; import android.app.NotificationManager; import android.app …"/>
 <meta property="og:locale" content="en_US"/>
@@ -33,40 +52,57 @@
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="/author/shikajiro.html">
 <meta property="article:section" content="Android, ADT"/>
-<meta property="og:image" content="/images/shikajiro.jpg">
+<meta property="og:image" content="/images/shikajiro-icon.png">
 
-  <title>VS Resistance &ndash; ADT 21.1.0 新機能紹介</title>
+  <title>shikajiro blog &ndash; ADT 21.1.0 新機能紹介</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
-      <a href="/">
-        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      <a href="">
+        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
       </a>
-      <h1><a href="/">VS Resistance</a></h1>
+
+      <h1>
+        <a href="">shikajiro blog</a>
+      </h1>
 
 <p>Android App Programmer</p>
+
       <nav>
         <ul class="list">
-          <li><a href="/profile/#profile">Profile</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="/profile/#profile">
+                  Profile
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="/">    Home
-</a>
+      <a href="">Home</a>
 
       <a href="/archives">archives</a>
       <a href="/categories">categories</a>
@@ -77,10 +113,10 @@
 
 <article class="single">
   <header>
+      
     <h1 id="android-adt21-1-0">ADT 21.1.0 新機能紹介</h1>
     <p>
-          Posted on Fri 15 February 2013 in <a href="/category/android-adt.html">Android, ADT</a>
-
+      Posted on 金 15 2月 2013 in <a href="/category/android-adt.html">Android, ADT</a>
 
     </p>
   </header>
@@ -124,145 +160,145 @@ public class NewMessageNotification {
      * The unique identifier for this type of notification.
      */
     private static final String NOTIFICATION_TAG = "NewMessage";</p>
-<div class="highlight"><pre><span></span><span class="c">/**</span>
-<span class="c"> * Shows the notification, or updates a previously shown notification of</span>
-<span class="c"> * this type, with the given parameters.</span>
-<span class="c"> * &amp;lt;p&amp;gt;</span>
-<span class="c"> * TODO: Customize this method&#39;s arguments to present relevant content in</span>
-<span class="c"> * the notification.</span>
-<span class="c"> * &amp;lt;p&amp;gt;</span>
-<span class="c"> * TODO: Customize the contents of this method to tweak the behavior and</span>
-<span class="c"> * presentation of new message notifications. Make sure to follow the &amp;lt;a</span>
-<span class="c"> * href=&quot;https://developer.android.com/design/patterns/notifications.html&quot;&amp;gt;</span>
-<span class="c"> * Notification design guidelines&amp;lt;/a&amp;gt; when doing so.</span>
-<span class="c"> *</span>
-<span class="c"> * @see #cancel(Context)</span>
-<span class="c"> */</span>
-<span class="nt">public</span> <span class="nt">static</span> <span class="nt">void</span> <span class="nt">notify</span><span class="o">(</span><span class="nt">final</span> <span class="nt">Context</span> <span class="nt">context</span><span class="o">,</span>
-        <span class="nt">final</span> <span class="nt">String</span> <span class="nt">exampleString</span><span class="o">,</span> <span class="nt">final</span> <span class="nt">int</span> <span class="nt">number</span><span class="o">)</span> <span class="p">{</span>
-    <span class="err">final</span> <span class="err">Resources</span> <span class="err">res</span> <span class="err">=</span> <span class="err">context.getResources()</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>/**
+ * Shows the notification, or updates a previously shown notification of
+ * this type, with the given parameters.
+ * <span class="nt">&lt;p&gt;</span>
+ * TODO: Customize this method&#39;s arguments to present relevant content in
+ * the notification.
+ * <span class="nt">&lt;p&gt;</span>
+ * TODO: Customize the contents of this method to tweak the behavior and
+ * presentation of new message notifications. Make sure to follow the <span class="nt">&lt;a</span>
+ <span class="err">*</span> <span class="na">href=</span><span class="s">&quot;https://developer.android.com/design/patterns/notifications.html&quot;</span><span class="nt">&gt;</span>
+ * Notification design guidelines<span class="nt">&lt;/a&gt;</span> when doing so.
+ *
+ * @see #cancel(Context)
+ */
+public static void notify(final Context context,
+        final String exampleString, final int number) {
+    final Resources res = context.getResources();
 
-    <span class="err">//</span> <span class="err">This</span> <span class="err">image</span> <span class="err">is</span> <span class="err">used</span> <span class="err">as</span> <span class="err">the</span> <span class="err">notification&#39;s</span> <span class="err">large</span> <span class="err">icon</span> <span class="err">(thumbnail).</span>
-    <span class="err">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Remove</span> <span class="n">this</span> <span class="n">if</span> <span class="n">your</span> <span class="n">notification</span> <span class="n">has</span> <span class="n">no</span> <span class="n">relevant</span> <span class="n">thumbnail</span><span class="o">.</span>
-    <span class="n">final</span> <span class="n">Bitmap</span> <span class="n">picture</span> <span class="o">=</span> <span class="n">BitmapFactory</span><span class="o">.</span><span class="nf">decodeResource</span><span class="p">(</span><span class="n">res</span><span class="p">,</span>
-            <span class="n">R</span><span class="err">.</span><span class="n">drawable</span><span class="err">.</span><span class="n">example_picture</span><span class="p">);</span>
+    // This image is used as the notification&#39;s large icon (thumbnail).
+    // TODO: Remove this if your notification has no relevant thumbnail.
+    final Bitmap picture = BitmapFactory.decodeResource(res,
+            R.drawable.example_picture);
 
-    <span class="err">final</span> <span class="err">String</span> <span class="err">ticker</span> <span class="err">=</span> <span class="err">exampleString</span><span class="p">;</span>
-    <span class="err">final</span> <span class="err">String</span> <span class="err">title</span> <span class="err">=</span> <span class="err">res</span>
-            <span class="err">.getString(R.string.new_message_notification_title_template,</span>
-                    <span class="err">exampleString)</span><span class="p">;</span>
-    <span class="err">final</span> <span class="err">String</span> <span class="err">text</span> <span class="err">=</span> <span class="err">res.getString(</span>
-            <span class="err">R.string.new_message_notification_placeholder_text_template,</span>
-            <span class="err">exampleString)</span><span class="p">;</span>
+    final String ticker = exampleString;
+    final String title = res
+            .getString(R.string.new_message_notification_title_template,
+                    exampleString);
+    final String text = res.getString(
+            R.string.new_message_notification_placeholder_text_template,
+            exampleString);
 
-    <span class="err">final</span> <span class="err">NotificationCompat.Builder</span> <span class="err">builder</span> <span class="err">=</span> <span class="err">new</span> <span class="err">NotificationCompat.Builder(</span>
-            <span class="err">context)</span>
+    final NotificationCompat.Builder builder = new NotificationCompat.Builder(
+            context)
 
-            <span class="err">//</span> <span class="err">Set</span> <span class="err">appropriate</span> <span class="err">defaults</span> <span class="err">for</span> <span class="err">the</span> <span class="err">notification</span> <span class="err">light,</span> <span class="err">sound,</span>
-            <span class="err">//</span> <span class="err">and</span> <span class="err">vibration.</span>
-            <span class="err">.setDefaults(Notification.DEFAULT_ALL)</span>
+            // Set appropriate defaults for the notification light, sound,
+            // and vibration.
+            .setDefaults(Notification.DEFAULT_ALL)
 
-            <span class="err">//</span> <span class="err">Set</span> <span class="err">required</span> <span class="err">fields,</span> <span class="err">including</span> <span class="err">the</span> <span class="err">small</span> <span class="err">icon,</span> <span class="err">the</span>
-            <span class="err">//</span> <span class="err">notification</span> <span class="err">title,</span> <span class="err">and</span> <span class="err">text.</span>
-            <span class="err">.setSmallIcon(R.drawable.ic_stat_new_message)</span>
-            <span class="err">.setContentTitle(title)</span>
-            <span class="err">.setContentText(text)</span>
+            // Set required fields, including the small icon, the
+            // notification title, and text.
+            .setSmallIcon(R.drawable.ic_stat_new_message)
+            .setContentTitle(title)
+            .setContentText(text)
 
-            <span class="err">//</span> <span class="err">All</span> <span class="err">fields</span> <span class="err">below</span> <span class="err">this</span> <span class="err">line</span> <span class="err">are</span> <span class="err">optional.</span>
+            // All fields below this line are optional.
 
-            <span class="err">//</span> <span class="err">Use</span> <span class="err">a</span> <span class="err">default</span> <span class="err">priority</span> <span class="err">(recognized</span> <span class="err">on</span> <span class="err">devices</span> <span class="err">running</span> <span class="err">Android</span>
-            <span class="err">//</span> <span class="err">4.1</span> <span class="err">or</span> <span class="err">later)</span>
-            <span class="err">.setPriority(NotificationCompat.PRIORITY_DEFAULT)</span>
+            // Use a default priority (recognized on devices running Android
+            // 4.1 or later)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-            <span class="err">//</span> <span class="err">Provide</span> <span class="err">a</span> <span class="err">large</span> <span class="err">icon,</span> <span class="err">shown</span> <span class="err">with</span> <span class="err">the</span> <span class="err">notification</span> <span class="err">in</span> <span class="err">the</span>
-            <span class="err">//</span> <span class="err">notification</span> <span class="err">drawer</span> <span class="err">on</span> <span class="err">devices</span> <span class="err">running</span> <span class="err">Android</span> <span class="err">3.0</span> <span class="err">or</span> <span class="err">later.</span>
-            <span class="err">.setLargeIcon(picture)</span>
+            // Provide a large icon, shown with the notification in the
+            // notification drawer on devices running Android 3.0 or later.
+            .setLargeIcon(picture)
 
-            <span class="err">//</span> <span class="err">Set</span> <span class="err">ticker</span> <span class="err">text</span> <span class="err">(preview)</span> <span class="err">information</span> <span class="err">for</span> <span class="err">this</span> <span class="err">notification.</span>
-            <span class="err">.setTicker(ticker)</span>
+            // Set ticker text (preview) information for this notification.
+            .setTicker(ticker)
 
-            <span class="err">//</span> <span class="err">Show</span> <span class="err">a</span> <span class="err">number.</span> <span class="err">This</span> <span class="err">is</span> <span class="err">useful</span> <span class="err">when</span> <span class="err">stacking</span> <span class="err">notifications</span> <span class="err">of</span>
-            <span class="err">//</span> <span class="err">a</span> <span class="err">single</span> <span class="err">type.</span>
-            <span class="err">.setNumber(number)</span>
+            // Show a number. This is useful when stacking notifications of
+            // a single type.
+            .setNumber(number)
 
-            <span class="err">//</span> <span class="err">If</span> <span class="err">this</span> <span class="err">notification</span> <span class="err">relates</span> <span class="err">to</span> <span class="err">a</span> <span class="err">past</span> <span class="err">or</span> <span class="err">upcoming</span> <span class="err">event,</span> <span class="err">you</span>
-            <span class="err">//</span> <span class="err">should</span> <span class="err">set</span> <span class="err">the</span> <span class="err">relevant</span> <span class="err">time</span> <span class="err">information</span> <span class="err">using</span> <span class="err">the</span> <span class="err">setWhen</span>
-            <span class="err">//</span> <span class="err">method</span> <span class="err">below.</span> <span class="err">If</span> <span class="err">this</span> <span class="err">call</span> <span class="err">is</span> <span class="err">omitted,</span> <span class="err">the</span> <span class="err">notification&#39;s</span>
-            <span class="err">//</span> <span class="err">timestamp</span> <span class="err">will</span> <span class="err">by</span> <span class="err">set</span> <span class="err">to</span> <span class="err">the</span> <span class="err">time</span> <span class="err">at</span> <span class="err">which</span> <span class="err">it</span> <span class="err">was</span> <span class="err">shown.</span>
-            <span class="err">//</span> <span class="n">TODO</span><span class="p">:</span> <span class="n">Call</span> <span class="n">setWhen</span> <span class="n">if</span> <span class="n">this</span> <span class="n">notification</span> <span class="n">relates</span> <span class="kc">to</span> <span class="n">a</span> <span class="n">past</span> <span class="n">or</span>
-            <span class="o">//</span> <span class="n">upcoming</span> <span class="n">event</span><span class="o">.</span> <span class="n">The</span> <span class="n">sole</span> <span class="n">argument</span> <span class="kc">to</span> <span class="n">this</span> <span class="n">method</span> <span class="n">should</span> <span class="n">be</span>
-            <span class="o">//</span> <span class="n">the</span> <span class="n">notification</span> <span class="n">timestamp</span> <span class="n">in</span> <span class="n">milliseconds</span><span class="o">.</span>
-            <span class="o">//</span> <span class="o">.</span><span class="nf">setWhen</span><span class="p">(</span><span class="err">...</span><span class="p">)</span>
+            // If this notification relates to a past or upcoming event, you
+            // should set the relevant time information using the setWhen
+            // method below. If this call is omitted, the notification&#39;s
+            // timestamp will by set to the time at which it was shown.
+            // TODO: Call setWhen if this notification relates to a past or
+            // upcoming event. The sole argument to this method should be
+            // the notification timestamp in milliseconds.
+            // .setWhen(...)
 
-            <span class="o">//</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">pending</span> <span class="n">intent</span> <span class="kc">to</span> <span class="n">be</span> <span class="n">initiated</span> <span class="n">when</span> <span class="n">the</span> <span class="n">user</span> <span class="n">touches</span>
-            <span class="o">//</span> <span class="n">the</span> <span class="n">notification</span><span class="o">.</span>
-            <span class="o">.</span><span class="nf">setContentIntent</span><span class="p">(</span>
-                    <span class="n">PendingIntent</span><span class="err">.</span><span class="nf">getActivity</span><span class="p">(</span>
-                            <span class="n">context</span><span class="p">,</span>
-                            <span class="mi">0</span><span class="p">,</span>
-                            <span class="n">new</span> <span class="nf">Intent</span><span class="p">(</span><span class="n">Intent</span><span class="err">.</span><span class="n">ACTION_VIEW</span><span class="p">,</span> <span class="n">Uri</span>
-                                    <span class="err">.</span><span class="nf">parse</span><span class="p">(</span><span class="s2">&quot;http://www.google.com&quot;</span><span class="p">)),</span>
-                            <span class="n">PendingIntent</span><span class="err">.</span><span class="n">FLAG_UPDATE_CURRENT</span><span class="p">))</span>
+            // Set the pending intent to be initiated when the user touches
+            // the notification.
+            .setContentIntent(
+                    PendingIntent.getActivity(
+                            context,
+                            0,
+                            new Intent(Intent.ACTION_VIEW, Uri
+                                    .parse(&quot;http://www.google.com&quot;)),
+                            PendingIntent.FLAG_UPDATE_CURRENT))
 
-            <span class="o">//</span> <span class="n">Show</span> <span class="kc">expanded</span> <span class="kc">text</span> <span class="k">content</span> <span class="kc">on</span> <span class="n">devices</span> <span class="kc">running</span> <span class="n">Android</span> <span class="mf">4.1</span> <span class="n">or</span>
-            <span class="o">//</span> <span class="n">later</span><span class="o">.</span>
-            <span class="o">.</span><span class="nf">setStyle</span><span class="p">(</span>
-                    <span class="n">new</span> <span class="n">NotificationCompat</span><span class="err">.</span><span class="nf">BigTextStyle</span><span class="p">()</span><span class="err">.</span><span class="nf">bigText</span><span class="p">(</span><span class="kc">text</span><span class="p">)</span>
-                            <span class="err">.</span><span class="nf">setBigContentTitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-                            <span class="err">.</span><span class="nf">setSummaryText</span><span class="p">(</span><span class="s2">&quot;Dummy summary text&quot;</span><span class="p">))</span>
+            // Show expanded text content on devices running Android 4.1 or
+            // later.
+            .setStyle(
+                    new NotificationCompat.BigTextStyle().bigText(text)
+                            .setBigContentTitle(title)
+                            .setSummaryText(&quot;Dummy summary text&quot;))
 
-            <span class="o">//</span> <span class="n">Example</span> <span class="n">additional</span> <span class="n">actions</span> <span class="n">for</span> <span class="n">this</span> <span class="n">notification</span><span class="o">.</span> <span class="n">These</span> <span class="n">will</span>
-            <span class="o">//</span> <span class="n">only</span> <span class="kc">show</span> <span class="kc">on</span> <span class="n">devices</span> <span class="kc">running</span> <span class="n">Android</span> <span class="mf">4.1</span> <span class="n">or</span> <span class="n">later</span><span class="p">,</span> <span class="n">so</span> <span class="n">you</span>
-            <span class="o">//</span> <span class="n">should</span> <span class="n">ensure</span> <span class="n">that</span> <span class="n">the</span> <span class="n">activity</span> <span class="n">in</span> <span class="n">this</span> <span class="n">notification</span><span class="err">&#39;</span><span class="n">s</span>
-            <span class="o">//</span> <span class="k">content</span> <span class="n">intent</span> <span class="n">provides</span> <span class="n">access</span> <span class="kc">to</span> <span class="n">the</span> <span class="n">same</span> <span class="n">actions</span> <span class="n">in</span>
-            <span class="o">//</span> <span class="n">another</span> <span class="n">way</span><span class="o">.</span>
-            <span class="o">.</span><span class="nf">addAction</span><span class="p">(</span>
-                    <span class="n">R</span><span class="err">.</span><span class="n">drawable</span><span class="err">.</span><span class="n">ic_action_stat_share</span><span class="p">,</span>
-                    <span class="n">res</span><span class="err">.</span><span class="nf">getString</span><span class="p">(</span><span class="n">R</span><span class="err">.</span><span class="n">string</span><span class="err">.</span><span class="n">action_share</span><span class="p">),</span>
-                    <span class="n">PendingIntent</span><span class="err">.</span><span class="nf">getActivity</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Intent</span>
-                            <span class="err">.</span><span class="nf">createChooser</span><span class="p">(</span>
-                                    <span class="n">new</span> <span class="nf">Intent</span><span class="p">(</span><span class="n">Intent</span><span class="err">.</span><span class="n">ACTION_SEND</span><span class="p">)</span><span class="err">.</span><span class="nf">setType</span><span class="p">(</span>
-                                            <span class="s2">&quot;text/plain&quot;</span><span class="p">)</span>
-                                            <span class="err">.</span><span class="nf">putExtra</span><span class="p">(</span><span class="n">Intent</span><span class="err">.</span><span class="n">EXTRA_TEXT</span><span class="p">,</span>
-                                                    <span class="s2">&quot;Dummy text&quot;</span><span class="p">),</span>
-                                    <span class="s2">&quot;Dummy title&quot;</span><span class="p">),</span>
-                            <span class="n">PendingIntent</span><span class="err">.</span><span class="n">FLAG_UPDATE_CURRENT</span><span class="p">))</span>
-            <span class="o">.</span><span class="nf">addAction</span><span class="p">(</span><span class="n">R</span><span class="err">.</span><span class="n">drawable</span><span class="err">.</span><span class="n">ic_action_stat_reply</span><span class="p">,</span>
-                    <span class="n">res</span><span class="err">.</span><span class="nf">getString</span><span class="p">(</span><span class="n">R</span><span class="err">.</span><span class="n">string</span><span class="err">.</span><span class="n">action_reply</span><span class="p">),</span> <span class="n">null</span><span class="p">)</span>
+            // Example additional actions for this notification. These will
+            // only show on devices running Android 4.1 or later, so you
+            // should ensure that the activity in this notification&#39;s
+            // content intent provides access to the same actions in
+            // another way.
+            .addAction(
+                    R.drawable.ic_action_stat_share,
+                    res.getString(R.string.action_share),
+                    PendingIntent.getActivity(context, 0, Intent
+                            .createChooser(
+                                    new Intent(Intent.ACTION_SEND).setType(
+                                            &quot;text/plain&quot;)
+                                            .putExtra(Intent.EXTRA_TEXT,
+                                                    &quot;Dummy text&quot;),
+                                    &quot;Dummy title&quot;),
+                            PendingIntent.FLAG_UPDATE_CURRENT))
+            .addAction(R.drawable.ic_action_stat_reply,
+                    res.getString(R.string.action_reply), null)
 
-            <span class="o">//</span> <span class="n">Automatically</span> <span class="n">dismiss</span> <span class="n">the</span> <span class="n">notification</span> <span class="n">when</span> <span class="n">it</span> <span class="n">is</span> <span class="n">touched</span><span class="o">.</span>
-            <span class="o">.</span><span class="nf">setAutoCancel</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+            // Automatically dismiss the notification when it is touched.
+            .setAutoCancel(true);
 
-    <span class="err">notify(context,</span> <span class="err">builder.build())</span><span class="p">;</span>
-<span class="p">}</span>
+    notify(context, builder.build());
+}
 
-<span class="p">@</span><span class="k">TargetApi</span><span class="o">(</span><span class="nt">Build</span><span class="p">.</span><span class="nc">VERSION_CODES</span><span class="p">.</span><span class="nc">ECLAIR</span><span class="o">)</span>
-<span class="nt">private</span> <span class="nt">static</span> <span class="nt">void</span> <span class="nt">notify</span><span class="o">(</span><span class="nt">final</span> <span class="nt">Context</span> <span class="nt">context</span><span class="o">,</span>
-        <span class="nt">final</span> <span class="nt">Notification</span> <span class="nt">notification</span><span class="o">)</span> <span class="p">{</span>
-    <span class="nt">final</span> <span class="nt">NotificationManager</span> <span class="nt">nm</span> <span class="o">=</span> <span class="o">(</span><span class="nt">NotificationManager</span><span class="o">)</span> <span class="nt">context</span>
-            <span class="p">.</span><span class="nc">getSystemService</span><span class="o">(</span><span class="nt">Context</span><span class="p">.</span><span class="nc">NOTIFICATION_SERVICE</span><span class="o">);</span>
-    <span class="nt">if</span> <span class="o">(</span><span class="nt">Build</span><span class="p">.</span><span class="nc">VERSION</span><span class="p">.</span><span class="nc">SDK_INT</span> <span class="o">&amp;</span><span class="nt">gt</span><span class="o">;=</span> <span class="nt">Build</span><span class="p">.</span><span class="nc">VERSION_CODES</span><span class="p">.</span><span class="nc">ECLAIR</span><span class="o">)</span> <span class="p">{</span>
-        <span class="err">nm.notify(NOTIFICATION_TAG,</span> <span class="err">0,</span> <span class="err">notification)</span><span class="p">;</span>
-    <span class="p">}</span> <span class="nt">else</span> <span class="p">{</span>
-        <span class="err">nm.notify(NOTIFICATION_TAG.hashCode(),</span> <span class="err">notification)</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+@TargetApi(Build.VERSION_CODES.ECLAIR)
+private static void notify(final Context context,
+        final Notification notification) {
+    final NotificationManager nm = (NotificationManager) context
+            .getSystemService(Context.NOTIFICATION_SERVICE);
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.ECLAIR) {
+        nm.notify(NOTIFICATION_TAG, 0, notification);
+    } else {
+        nm.notify(NOTIFICATION_TAG.hashCode(), notification);
+    }
+}
 
-<span class="c">/**</span>
-<span class="c"> * Cancels any notifications of this type previously shown using</span>
-<span class="c"> * {@link #notify(Context, String, int)}.</span>
-<span class="c"> */</span>
-<span class="p">@</span><span class="k">TargetApi</span><span class="o">(</span><span class="nt">Build</span><span class="p">.</span><span class="nc">VERSION_CODES</span><span class="p">.</span><span class="nc">ECLAIR</span><span class="o">)</span>
-<span class="nt">public</span> <span class="nt">static</span> <span class="nt">void</span> <span class="nt">cancel</span><span class="o">(</span><span class="nt">final</span> <span class="nt">Context</span> <span class="nt">context</span><span class="o">)</span> <span class="p">{</span>
-    <span class="nt">final</span> <span class="nt">NotificationManager</span> <span class="nt">nm</span> <span class="o">=</span> <span class="o">(</span><span class="nt">NotificationManager</span><span class="o">)</span> <span class="nt">context</span>
-            <span class="p">.</span><span class="nc">getSystemService</span><span class="o">(</span><span class="nt">Context</span><span class="p">.</span><span class="nc">NOTIFICATION_SERVICE</span><span class="o">);</span>
-    <span class="nt">if</span> <span class="o">(</span><span class="nt">Build</span><span class="p">.</span><span class="nc">VERSION</span><span class="p">.</span><span class="nc">SDK_INT</span> <span class="o">&amp;</span><span class="nt">gt</span><span class="o">;=</span> <span class="nt">Build</span><span class="p">.</span><span class="nc">VERSION_CODES</span><span class="p">.</span><span class="nc">ECLAIR</span><span class="o">)</span> <span class="p">{</span>
-        <span class="err">nm.cancel(NOTIFICATION_TAG,</span> <span class="err">0)</span><span class="p">;</span>
-    <span class="p">}</span> <span class="nt">else</span> <span class="p">{</span>
-        <span class="err">nm.cancel(NOTIFICATION_TAG.hashCode())</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+/**
+ * Cancels any notifications of this type previously shown using
+ * {@link #notify(Context, String, int)}.
+ */
+@TargetApi(Build.VERSION_CODES.ECLAIR)
+public static void cancel(final Context context) {
+    final NotificationManager nm = (NotificationManager) context
+            .getSystemService(Context.NOTIFICATION_SERVICE);
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.ECLAIR) {
+        nm.cancel(NOTIFICATION_TAG, 0);
+    } else {
+        nm.cancel(NOTIFICATION_TAG.hashCode());
+    }
+}
+</code></pre></div>
 
 
 <p _="%" endhighlight>}</p>
@@ -322,25 +358,16 @@ public class NewMessageNotification {
 
 
 
+
 </article>
 
     <footer>
-<p>&copy; shikajiro </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 
 
@@ -348,11 +375,13 @@ public class NewMessageNotification {
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " VS Resistance ",
+  "name": " shikajiro blog ",
   "url" : "",
-  "image": "/images/shikajiro.jpg",
+  "image": "/images/shikajiro-icon.png",
   "description": ""
 }
 </script>
+
+
 </body>
 </html>

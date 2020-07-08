@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-SITETITLE = "VS Resistance"
+SITETITLE = "shikajiro blog"
 SITESUBTITLE = "Android App Programmer"
 
 AUTHOR = 'shikajiro'
-SITELOGO = "/images/shikajiro.jpg"
-SITENAME = 'VS Resistance'
+SITELOGO = "/images/shikajiro-icon.png"
+SITENAME = 'shikajiro blog'
 SITEURL = '/'
 
 PATH = 'content'
@@ -41,9 +41,7 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-THEME = "/Users/shikajiro/Develop/pelican-themes/Flex"
-
-# PLUGIN_PATHS = ["/Users/shikajiro/Documents/pelican-plugins"]
+THEME = "pelican-themes/Flex"
 PLUGINS = ["pelican_gist"]
 
 ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'

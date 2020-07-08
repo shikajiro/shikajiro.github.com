@@ -2,28 +2,47 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-389036-10', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
 
 <meta name="author" content="shikajiro" />
 <meta name="description" content="Dagger2 がほんとに辛い。 公式サイト見たり、先駆者の皆さんのブログを見ながらやってみるけど、ややこしくて自分で改善するのはかなり辛い。使っているというより、言われたとおりに設定するだけで精一杯。 そんなことをぼやいてたら Realm と ウフィカ の中の人 @zaki50 さんから toothpickためそ？— zaki50 (@zaki50) 2017年9月1日 とアドバイス頂いたので試してみました。 stephanenicolas/toothpick: A scope tree based Dependency Injection (DI) library for Java サイトを見て設定すれば動くんだけど、どうしても見落としがちなとことかあるので、簡単に紹介します。 Toothpick とは Java の DI です。 とはいえ、主に Android を対象にしてる気がします。 ツリースコープなので、「Activity で Inject してたら Fragment …" />
 <meta name="keywords" content="">
-<meta property="og:site_name" content="VS Resistance"/>
+
+
+<meta property="og:site_name" content="shikajiro blog"/>
 <meta property="og:title" content="Android の DI を Dagger から ToothPick に代えた"/>
 <meta property="og:description" content="Dagger2 がほんとに辛い。 公式サイト見たり、先駆者の皆さんのブログを見ながらやってみるけど、ややこしくて自分で改善するのはかなり辛い。使っているというより、言われたとおりに設定するだけで精一杯。 そんなことをぼやいてたら Realm と ウフィカ の中の人 @zaki50 さんから toothpickためそ？— zaki50 (@zaki50) 2017年9月1日 とアドバイス頂いたので試してみました。 stephanenicolas/toothpick: A scope tree based Dependency Injection (DI) library for Java サイトを見て設定すれば動くんだけど、どうしても見落としがちなとことかあるので、簡単に紹介します。 Toothpick とは Java の DI です。 とはいえ、主に Android を対象にしてる気がします。 ツリースコープなので、「Activity で Inject してたら Fragment …"/>
 <meta property="og:locale" content="en_US"/>
@@ -33,40 +52,57 @@
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="/author/shikajiro.html">
 <meta property="article:section" content="articles"/>
-<meta property="og:image" content="/images/shikajiro.jpg">
+<meta property="og:image" content="/images/shikajiro-icon.png">
 
-  <title>VS Resistance &ndash; Android の DI を Dagger から ToothPick に代えた</title>
+  <title>shikajiro blog &ndash; Android の DI を Dagger から ToothPick に代えた</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
-      <a href="/">
-        <img src="/images/shikajiro.jpg" alt="VS Resistance" title="VS Resistance" width="128px" height="128px" style=" background-color: white; object-fit: contain;">
+      <a href="">
+        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
       </a>
-      <h1><a href="/">VS Resistance</a></h1>
+
+      <h1>
+        <a href="">shikajiro blog</a>
+      </h1>
 
 <p>Android App Programmer</p>
+
       <nav>
         <ul class="list">
-          <li><a href="/profile/#profile">Profile</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="/profile/#profile">
+                  Profile
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/shikajiro" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
 
     <nav>
-      <a href="/">    Home
-</a>
+      <a href="">Home</a>
 
       <a href="/archives">archives</a>
       <a href="/categories">categories</a>
@@ -77,10 +113,10 @@
 
 <article class="single">
   <header>
+      
     <h1 id="toothpick">Android の DI を Dagger から ToothPick に代えた</h1>
     <p>
-          Posted on Wed 27 September 2017 in <a href="/category/articles.html">articles</a>
-
+      Posted on 水 27 9月 2017 in <a href="/category/articles.html">articles</a>
 
     </p>
   </header>
@@ -102,7 +138,7 @@
 <p>Java の DI です。 とはいえ、主に Android を対象にしてる気がします。
 ツリースコープなので、「Activity で Inject してたら Fragment でも利用できる」みたいな感じです。（ざっくり）</p>
 <h3>Tree Scope</h3>
-<div class="highlight"><pre><span></span>//a typical Toothpick scope tree during the execution of an Android app.
+<div class="highlight"><pre><span></span><code>//a typical Toothpick scope tree during the execution of an Android app.
 
        @ApplicationSingleton 
          /              |    \  
@@ -117,7 +153,7 @@ Activity 1
    /   Fragment 2
   /
 Fragment 1
-</pre></div>
+</code></pre></div>
 
 
 <h3>特徴</h3>
@@ -251,17 +287,17 @@ class HomeFragment : Fragment() {
 <p>[gist:id=f3348df6476f5633fea30b86ba3ffff6,HomeViewModel.kt]</p>
 <h3>Scope</h3>
 <p>openScopes の引数は可変長です。ここにツリー構造になるようにインスタンスを指定します。MainActivityでは (MainApplication, SplashActivity) を指定しました。これは最初で紹介したツリーだと</p>
-<div class="highlight"><pre><span></span>     MainApplication 
+<div class="highlight"><pre><span></span><code>     MainApplication 
          /   \
         /   OtherActivity...
        /            
 SplashActivity
-</pre></div>
+</code></pre></div>
 
 
 <p>こういう感じになります。</p>
 <p>HomeFragmentでは (MainApplication, SplashActivity, HomeFragment) を指定しました。</p>
-<div class="highlight"><pre><span></span>   MainApplication
+<div class="highlight"><pre><span></span><code>   MainApplication
          /   \
         /   OtherActivity...
        /            
@@ -270,7 +306,7 @@ SplashActivity
    /   OtherFragment...
   /
 HomeFragment
-</pre></div>
+</code></pre></div>
 
 
 <p>この時のHomeFragment では MainApplication と SplashActivity がインストールした Module を利用することができます。具体的には ModelRepository, Navigator, DialogDelegation を Injectする事ができます。</p>
@@ -288,25 +324,16 @@ HomeFragment
 
 
 
+
 </article>
 
     <footer>
-<p>&copy; shikajiro </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 
 
 
@@ -314,11 +341,13 @@ HomeFragment
 {
   "@context" : "http://schema.org",
   "@type" : "Blog",
-  "name": " VS Resistance ",
+  "name": " shikajiro blog ",
   "url" : "",
-  "image": "/images/shikajiro.jpg",
+  "image": "/images/shikajiro-icon.png",
   "description": ""
 }
 </script>
+
+
 </body>
 </html>
