@@ -1,3 +1,11 @@
+---
+title: Works
+date: 2021/02/28
+slug: works
+url: works/
+save_as: works/index.html
+---
+
 鹿似プログラマのしかじろうです。しかじろうの働き方（今・これから）をまとめてみました。
 
 ## 所属・肩書
@@ -65,4 +73,8 @@
 
 - フルリモート
 - 裁量労働 / 業務委託 / 受託
+
+## リンク
+
+[渡辺 慎二郎 プロフィール \- Wantedly](https://www.wantedly.com/users/10604)
 
