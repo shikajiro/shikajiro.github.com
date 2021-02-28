@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
-from __future__ import unicode_literals
 
 SITETITLE = "shikajiro blog"
 SITESUBTITLE = "Android App Programmer"
@@ -8,7 +7,7 @@ SITESUBTITLE = "Android App Programmer"
 AUTHOR = 'shikajiro'
 SITELOGO = "/images/shikajiro-icon.png"
 SITENAME = 'shikajiro blog'
-SITEURL = '/'
+SITEURL = 'https://shikajiro.github.io/'
 
 PATH = 'content'
 

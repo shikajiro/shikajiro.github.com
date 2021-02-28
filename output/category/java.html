@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-        <title>shikajiro blog</title>
+        <title>Java</title>
         <meta charset="utf-8" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="shikajiro blog" />
@@ -30,26 +30,71 @@
     </div>
 
 
-<div class="page-container archive-container">
+<div class="category-page-container">
+    <div class="category-logo">
+        <h1><a href="https://shikajiro.github.io/category/java.html" rel="bookmark" title="Permalink to Java">Java</a></h1>
+    </div>
 
-    <div class="entry-content">
+    <div class="section-header">
+        Latest
+    </div>
 
-        <h1>Categories for shikajiro blog</h1>
 
-        <ul>
-            <li><a href="https://shikajiro.github.io/category/android.html">Android</a></li>
-            <li><a href="https://shikajiro.github.io/category/articles.html">articles</a></li>
-            <li><a href="https://shikajiro.github.io/category/d3js.html">D3.js</a></li>
-            <li><a href="https://shikajiro.github.io/category/eclipse.html">Eclipse</a></li>
-            <li><a href="https://shikajiro.github.io/category/flutter.html">Flutter</a></li>
-            <li><a href="https://shikajiro.github.io/category/fukuoka.html">Fukuoka</a></li>
-            <li><a href="https://shikajiro.github.io/category/java.html">Java</a></li>
-            <li><a href="https://shikajiro.github.io/category/make.html">Make</a></li>
-            <li><a href="https://shikajiro.github.io/category/sublimetext.html">SublimeText</a></li>
-        </ul>
+
+    <div class="pure-g article-row">
+        <div class="pure-u-1 article-info">
+           <div class="col">
+
+               <h1><a href="https://shikajiro.github.io/blog/2013/03/03/java-guava/">Google製Javaライブラリ Guavaを使ってみた。</a></h1>
+
+               <p><center>
+<img src="/images/indian_guava.jpg">
+</center></p>
+<p>しかだよ。Guavaってライブラリが良いってインターネットに書いてたので調べてみたよ。
+サンプルソースのほとんどは本家からコピペしたよ。</p>
+<p><a href="https://code.google.com/p/guava-libraries/">guava-libraries - Guava: Google Core Libraries for Java 1.6+ - Google Project Hosting</a></p>
+<h2>Basic</h2>
+<h3>Using/avoiding null</h3>
+<p _="%" endhighlight>nullぽを避けるための仕組み
+{% highlight java %}
+    Optional<Integer> possible = Optional.of(5);
+    possible.isPresent(); // returns true
+    possible.get(); // returns 5</p>
+<h3>Preconditions</h3>
+<p>引数の値チェックなど、前提条件をチェックする仕組み。assertとかに似てると思う。
+条件がfalseだと対応するExceptionがスローされる。</p>
+<h3>Ordering</h3>
+<p>Comparatorをスマートにしたやつ。Comparatorはめんどいよね・・・。</p>
+<p>{% highlight java %}
+    Ordering<String> byLengthOrdering = new Ordering<String>() {
+         public …</string></string></p>
+
+               <div class="post-meta pure-g">
+                   <div class="pure-u">
+                       <img src="https://pbs.twimg.com/profile_images/1111646061376921600/4HgO1Ojg_400x400.jpg" class="post-avatar" alt="Go to the profile of shikajiro">
+                   </div>
+                   <div class="pure-u-3-4 meta-data">
+                       <a href="https://shikajiro.github.io/author/shikajiro.html" class="category">shikajiro</a><br />
+                       <abbr title="2013-03-03T19:43:00+09:00">日 03 3月 2013</abbr>
+                   </div>
+               </div>
+
+           </div>
+
+        </div>
 
     </div>
 
+    </div>
+
+<div class="pagination">
+    <div class="post-meta pure-g">
+        <div class="pure-u-1-2 left">
+        </div>
+        <div class="pure-u-1-2 right">
+        </div>
+    </div>
+</div>
 </div>
 
 
