@@ -1,135 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
-
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-          href="/theme/pygments/github.min.css">
-
-
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
-
-
-
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
-
-<meta name="author" content="shikajiro" />
-<meta name="description" content="※この記事はAndroid Advent Calendar 2013 12/04担当として書いてます。 勢いでAdvent Calendar登録したけど、最近新しいこと、突き詰めたことしてない。 Genymotionは 明日の mofmofneko さんが書くみたいだからやめておこう。 ブログ自体半年くらい放置してた。この半年でやったことをとりあえず箇条書きにしてみる。 Android Annotations Android Studio Genymotion GreenDAO Guava デジハリ講師業はじめる。 iPhone4SからNexus5に機種変 働き過ぎて瀕死になる 自分の中で一番テンション上がってるのがAndroid Annotationsなので、今回はこれのお話にする。 AndroidAnnotations AndroidAnnotationsでできることはコードの軽量化。以下の２つが主なメリット。 開発スピードの向上 メンテナンスの簡素化 冗長な処理をシンプルにし、コード量を少なくする。結果、メンテナンスが楽になるメリットがある。 設定方法と使い方 書かれ尽くされたネタなので公式サイトをどうぞ。 僕なりの書き方 注意：ココ最近の情報は追っかけてません。 RestとBean やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。 @EActivity public …" />
-<meta name="keywords" content="">
-
-
-<meta property="og:site_name" content="shikajiro blog"/>
-<meta property="og:title" content="とあるプログラマのAndroidAnnotations"/>
-<meta property="og:description" content="※この記事はAndroid Advent Calendar 2013 12/04担当として書いてます。 勢いでAdvent Calendar登録したけど、最近新しいこと、突き詰めたことしてない。 Genymotionは 明日の mofmofneko さんが書くみたいだからやめておこう。 ブログ自体半年くらい放置してた。この半年でやったことをとりあえず箇条書きにしてみる。 Android Annotations Android Studio Genymotion GreenDAO Guava デジハリ講師業はじめる。 iPhone4SからNexus5に機種変 働き過ぎて瀕死になる 自分の中で一番テンション上がってるのがAndroid Annotationsなので、今回はこれのお話にする。 AndroidAnnotations AndroidAnnotationsでできることはコードの軽量化。以下の２つが主なメリット。 開発スピードの向上 メンテナンスの簡素化 冗長な処理をシンプルにし、コード量を少なくする。結果、メンテナンスが楽になるメリットがある。 設定方法と使い方 書かれ尽くされたネタなので公式サイトをどうぞ。 僕なりの書き方 注意：ココ最近の情報は追っかけてません。 RestとBean やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。 @EActivity public …"/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="/blog/2013/12/04/android-annotations-advent-calendar/"/>
-<meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2013-12-04 23:23:00+09:00"/>
-<meta property="article:modified_time" content=""/>
-<meta property="article:author" content="/author/shikajiro.html">
-<meta property="article:section" content="Android, AndroidAnnotations"/>
-<meta property="og:image" content="/images/shikajiro-icon.png">
-
-  <title>shikajiro blog &ndash; とあるプログラマのAndroidAnnotations</title>
-
+        <title>とあるプログラマのAndroidAnnotations</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
-<body class="light-theme">
-  <aside>
-    <div>
-      <a href="">
-        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
-      </a>
+<body>
 
-      <h1>
-        <a href="">shikajiro blog</a>
-      </h1>
-
-<p>Android App Programmer</p>
-
-      <nav>
-        <ul class="list">
-
-
-              <li>
-                <a target="_self"
-                   href="/profile/#profile">
-                  Profile
-                </a>
-              </li>
-              <li>
-                <a target="_self"
-                   href="/works/#works">
-                  Works
-                </a>
-              </li>
+    <div class="navigation pure-menu pure-menu-horizontal">
+        <a href="/" class="pure-menu-heading  pure-menu-link">shikajiro blog</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+            <li class="pure-menu-item"><a href="/profile" class="pure-menu-link">Profile</a></li>
+            <li class="pure-menu-item"><a href="/works" class="pure-menu-link">Works</a></li>
+            <li class="pure-menu-item"><a href="/archives" class="pure-menu-link">Archives</a></li>
+            <li class="pure-menu-item"><a href="/categories" class="pure-menu-link">Categories</a></li>
+            <li class="pure-menu-item"><a href="/tags" class="pure-menu-link">Tags</a></li>
 
         </ul>
-      </nav>
-
-      <ul class="social">
-          <li>
-            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-      </ul>
     </div>
 
-  </aside>
-  <main>
 
-    <nav>
-      <a href="">Home</a>
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u">
+                <a href="/category/android.html"><img src="https://developer.android.com/images/brand/Android_Robot_200.png " class="post-avatar" alt="Android"></a>
+            </div>
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/android.html" class="category">Android</a><br />
 
-      <a href="/archives">archives</a>
-      <a href="/categories">categories</a>
-      <a href="/tags">tags</a>
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2013-12-04T23:23:00+09:00">水 04 12月 2013</abbr>
+</div>        </div>
+    </div>
 
+    <div class="article-header-container">
+        <div class="background-image-container">
 
-    </nav>
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>とあるプログラマのAndroidAnnotations</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<article class="single">
-  <header>
-      
-    <h1 id="android-annotations-advent-calendar">とあるプログラマのAndroidAnnotations</h1>
-    <p>
-      Posted on 水 04 12月 2013 in <a href="/category/android-androidannotations.html">Android, AndroidAnnotations</a>
-
-    </p>
-  </header>
-
-
-  <div>
-    <p><center>
+    <div class="entry-content">
+        <p><center>
 <img src="/images/cv_aa.png">
 </center></p>
 <p>※この記事は<a href="http://qiita.com/advent-calendar/2013/android">Android Advent Calendar 2013</a> 12/04担当として書いてます。</p>
@@ -160,24 +82,7 @@ Genymotionは 明日の mofmofneko さんが書くみたいだからやめてお
 <p>注意：ココ最近の情報は追っかけてません。</p>
 <h2>RestとBean</h2>
 <p>やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。</p>
-<div class="gist">
-    <script src='https://gist.github.com/7789111.js'></script>
-    <noscript>
-        <pre><code>@EActivity
-public class HogeActivity{
-    @Rest WebApi webApi;
-    public void hoge(){
-        try{
-            UserJson json = webApi.getUser(1234);
-            return json;
-        }catch(RestClientException e){
-            //HTTPエラー処理
-            //RestClientException は非チェック例外
-        }
-    }
-}</code></pre>
-    </noscript>
-</div>
+<p>[gist:id=7789111]</p>
 <p>Restで設計されたWebAPIならとてもシンプルに実装できる。（だが、すべての案件はそんなにうまくいかない）</p>
 <h3>HttpClientErrorException を必ずチェックする</h3>
 <p>なぜかわからないけど、HTTPで発生する例外は（404とか）非チェック例外になっている。なにも考えずに実装すると、WebAPIを叩く処理はtry-catchせず書けてしまう。WebAPIを叩く処理はbackground処理必須なので、この例外はUIスレッドに何も言わずbackground処理を止めてしまう。backgroud処理の多くはProgressとか表示してるので、そこでUIもめんどいことになる。
@@ -186,99 +91,17 @@ public class HogeActivity{
 <p><em>2013/12/12追記</em> RestClientException か RuntimeException でtry-catchしよう。</p>
 <h2>backgroudとUiThread</h2>
 <p>backgroudとUiThreadが便利すぎて、AsyncTaskとかローダーとか忘れてしまうレベル。</p>
-<div class="gist">
-    <script src='https://gist.github.com/7789442.js'></script>
-    <noscript>
-        <pre><code>public class MainActivity extends Activity {
-	// 省略
-
-	@Background
-	void login(String username, String password) {
-		try {
-			webApi.login(username, password);
-			callbackLogin();
-		} catch (HttpClientErrorException e) {
-			callbackLoginMiss(e);
-		} finally {
-			if (progressDialog != null)
-				progressDialog.dismiss();
-		}
-	}
-
-	@UiThread
-	void callbackLogin() {
-		// 正常終了の時の処理
-	}
-
-	@UiThread
-	void callbackLoginMiss(HttpClientErrorException e) {
-		// エラーの時の処理
-	}
-}</code></pre>
-    </noscript>
-</div>
+<p>[gist:id=7789442]</p>
 <p>楽ちんだね。
 ちゃんと制御したい時は、AsyncTaskとかローダーとか使いましょう。そうじゃなければこんな流れで問題ないはず。</p>
 <h2>Preference</h2>
 <p>@SharedPrefで気をつけて欲しいのは、デフォルトのスコープは Activity であること。たぶん、PreferenceActivityで使うことを想定しているからだと思う。</p>
-<div class="gist">
-    <script src='https://gist.github.com/7789652.js'></script>
-    <noscript>
-        <pre><code>@SharedPref(value=Scope.UNIQUE)
-public interface MyPrefs {
-	@DefaultLong(-1) long userId();
-}</code></pre>
-    </noscript>
-</div>
+<p>[gist:id=7789652]</p>
 <p>一般的にSharedPreferenceはアプリケーションの中で一意として使うことが多いと思う（たぶん）。
 そう思って実装してると、設定した値が取れなくってビビることが何度もあので気をつけてね。</p>
 <h2>ListView</h2>
 <p>特に実装が簡単になったと感じるのは子ViewをカスタムするListView。</p>
-<div class="gist">
-    <script src='https://gist.github.com/7789824.js'></script>
-    <noscript>
-        <pre><code>@EFragment(R.layout.fragment_timeline)
-public class TimelineFragment extends Fragment {
-	@ViewById ListView timelineListView;
-	
-	@AfterViews
-	void onAfterViews(){
-		List<TimelineItem> items = Lists.newArrayList();
-        //itemsにデータ詰める
-		TimelineAdapter adapter = new TimelineAdapter(getActivity(), items);
-		timelineListView.setAdapter(adapter);
-	}
-	
-	
-    private class TimelineAdapter extends ArrayAdapter<TimelineItem>{
-
-		public TimelineAdapter(Context context, List<TimelineItem> objects) {
-			super(context, 0, objects);
-		}
-		
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-		    //convertViewのnull確認などは省略
-			TimelineItem item = getItem(position);
-			TextTimelineView view = TextTimelineView_.build(getContext());
-			view.bind((TextTimelineItem)item);
-			return view;
-		}
-	}
-}
-
-@EViewGroup(R.layout.item_timeline_text)
-class TextTimelineView extends LinearLayout{
-	@ViewById TextView usernameView;
-	public TextTimelineView(Context context) {
-		super(context);
-	}
-	public void bind(TextTimelineItem item){
-		usernameView.setText(item.getName());
-    }
-}</code></pre>
-    </noscript>
-</div>
+<p>[gist:id=7789824]</p>
 <p>だいたいこんな感じでカスタムしたListViewが動かせる。TimelineAdapterのgetViewは再考の余地があると思うけど、これでもちゃんと動く。</p>
 <h3>2013/12/05 1:24 追記</h3>
 <p>ViewGroupが入れ子になっちゃうので、いい感じにしないといけないなと思いつつ放置してるのが僕です。</p>
@@ -287,23 +110,7 @@ class TextTimelineView extends LinearLayout{
 id:tumo300-500 さんありがとございました。</p>
 <h2>App と DBアクセス</h2>
 <p>AndroidAnnotationsを使い出してから、Applicationを継承したクラスの有意義性を知った。</p>
-<div class="gist">
-    <script src='https://gist.github.com/7789950.js'></script>
-    <noscript>
-        <pre><code><manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="jp.hoge"
-    android:versionCode="1"
-    android:versionName="1.0" >
-    <application
-        android:name=".AppImpl_"
-        android:allowBackup="true"
-        android:icon="@drawable/icon"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-    </application>
-</manifest></code></pre>
-    </noscript>
-</div>
+<p>[gist:id=7789950]</p>
 <p>※DBにはGreenDao使ってる。</p>
 <p>DBアクセスは各ActivityなどでApplicationをインジェクションしておけばいつでも呼び出せる。起動時に１回だけ実行する処理とかもココらへんで。</p>
 <h2>ViewById と Click と OptionItems</h2>
@@ -330,39 +137,73 @@ id:tumo300-500 さんありがとございました。</p>
 <p>そろそろまとめるけど、無理して全部AndroidAnnotationsで書こうとしない方がいいと思う。とてもスリムになるけど、やり過ぎると汎用性がなくなるので程よく実装すると良い。
 使いこなせばAndroidAnnotationsからは離れられなくなるので、ぜひ試して欲しい。
 あと、周りに使ってる人が居ないので、意見とか指摘とかアイデアとかあったらコメントおなしゃす。</p>
-  </div>
-  <div class="tag-cloud">
-    <p>
-    </p>
-  </div>
-
-
-
-
-
-</article>
+    </div>
 
     <footer>
-<p>&copy;  </p>
-<p>
-Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
-</p>    </footer>
-  </main>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u">
+                        <a href="/author/shikajiro.html"><img src="https://pbs.twimg.com/profile_images/1111646061376921600/4HgO1Ojg_400x400.jpg" alt=""></a>
+                    </div>
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/author/shikajiro.html">shikajiro</a></h3>
+                        <p class="author-description">
+                          
+            Android App Freelance.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pure-u-1 pure-u-md-1-2">
+
+                <div class="pure-g post-category-info">
+                    <div class="pure-u">
+                        <a href="/category/android.html"><img src="https://developer.android.com/images/brand/Android_Robot_200.png" alt=""></a>
+                    </div>
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/category/android.html">Android</a></h3>
+                        <p class="author-description">
+                          Android
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </footer>
+
+
+</div>
 
 
 
+    <footer class="index-footer">
 
-<script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "Blog",
-  "name": " shikajiro blog ",
-  "url" : "",
-  "image": "/images/shikajiro-icon.png",
-  "description": ""
-}
-</script>
+        <a href="/" title="shikajiro blog">shikajiro blog</a>
+        <a href="/profile">Profile</a></li>
+        <a href="/works">Works</a></li>
+        <a href="/archives">Archives</a></li>
+        <a href="/categories">Categories</a></li>
+        <a href="/tags">Tags</a></li>
 
+    </footer>
 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-389036-10', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 </body>
 </html>

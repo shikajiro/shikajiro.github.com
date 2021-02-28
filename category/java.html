@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-        <title>sublimetext, python</title>
+        <title>Java</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
@@ -17,9 +17,9 @@
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/profile" class="pure-menu-link">Profile</a></li>
             <li class="pure-menu-item"><a href="/works" class="pure-menu-link">Works</a></li>
-            <li class="pure-menu-item"><a href="/archives" class="pure-menu-link">archives</a></li>
-            <li class="pure-menu-item"><a href="/categories" class="pure-menu-link">categories</a></li>
-            <li class="pure-menu-item"><a href="/tags" class="pure-menu-link">tags</a></li>
+            <li class="pure-menu-item"><a href="/archives" class="pure-menu-link">Archives</a></li>
+            <li class="pure-menu-item"><a href="/categories" class="pure-menu-link">Categories</a></li>
+            <li class="pure-menu-item"><a href="/tags" class="pure-menu-link">Tags</a></li>
 
         </ul>
     </div>
@@ -27,7 +27,7 @@
 
 <div class="category-page-container">
     <div class="category-logo">
-        <h1><a href="/category/sublimetext-python.html" rel="bookmark" title="Permalink to sublimetext, python">sublimetext, python</a></h1>
+        <h1><a href="/category/java.html" rel="bookmark" title="Permalink to Java">Java</a></h1>
     </div>
 
     <div class="section-header">
@@ -40,38 +40,29 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="/blog/2013/02/17/sublime-plugin-startup/">SublimeTextのpluginの作り方</a></h1>
+               <h1><a href="/blog/2013/03/03/java-guava/">Google製Javaライブラリ Guavaを使ってみた。</a></h1>
 
-               <p>しかだよ。
-SublimeTextの簡単なプラグイン作成の依頼があったのでちょっと作ってみたよ。</p>
-<h2>お題</h2>
-<p>コピーしたテキストの最終行の行末に改行があった場合、その改行を消してペーストしたい。</p>
-<h2>新規プラグイン</h2>
-<p>tool &gt; new plugin でテンプレートが作れます。</p>
-<p>{% highlight python %}
-    import sublime, sublime_plugin</p>
-<div class="highlight"><pre><span></span><code><span class="err">class ExampleCommand(sublime_plugin.TextCommand):</span>
-<span class="err">    def run(self, edit):</span>
-<span class="err">        self.view.insert(edit, 0, &quot;Hello, World!&quot;)</span>
-</code></pre></div>
-
-
-<p>{% endhighlight %}</p>
-<h3>クリップボードの取得</h3>
-<div class="highlight"><pre><span></span><code><span class="err">sublime.get_clipboard()</span>
-</code></pre></div>
-
-
-<p>でクリップボードのデータを取得できるみたい。
-あとはpythonの正規表現で良い感じにする。</p>
-<h3>テキストの差し替え</h3>
-<p>command + v の処理を上書きするので、ペーストと同じ働きをさせたい。</p>
-<div class="highlight"><pre><span></span><code><span class="err">self.view.insert</span>
-</code></pre></div>
-
-
-<p>だと、挿入になってしまい、範囲選択した状態でペーストすると置換されなくなっちゃう。なので</p>
-<div class="highlight"><pre><span></span><code><span class="err">self.view …</span></code></pre></div>
+               <p><center>
+<img src="/images/indian_guava.jpg">
+</center></p>
+<p>しかだよ。Guavaってライブラリが良いってインターネットに書いてたので調べてみたよ。
+サンプルソースのほとんどは本家からコピペしたよ。</p>
+<p><a href="https://code.google.com/p/guava-libraries/">guava-libraries - Guava: Google Core Libraries for Java 1.6+ - Google Project Hosting</a></p>
+<h2>Basic</h2>
+<h3>Using/avoiding null</h3>
+<p _="%" endhighlight>nullぽを避けるための仕組み
+{% highlight java %}
+    Optional<Integer> possible = Optional.of(5);
+    possible.isPresent(); // returns true
+    possible.get(); // returns 5</p>
+<h3>Preconditions</h3>
+<p>引数の値チェックなど、前提条件をチェックする仕組み。assertとかに似てると思う。
+条件がfalseだと対応するExceptionがスローされる。</p>
+<h3>Ordering</h3>
+<p>Comparatorをスマートにしたやつ。Comparatorはめんどいよね・・・。</p>
+<p>{% highlight java %}
+    Ordering<String> byLengthOrdering = new Ordering<String>() {
+         public …</string></string></p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u">
@@ -79,7 +70,7 @@ SublimeTextの簡単なプラグイン作成の依頼があったのでちょっ
                    </div>
                    <div class="pure-u-3-4 meta-data">
                        <a href="/author/shikajiro.html" class="category">shikajiro</a><br />
-                       <abbr title="2013-02-17T01:19:00+09:00">日 17 2月 2013</abbr>
+                       <abbr title="2013-03-03T19:43:00+09:00">日 03 3月 2013</abbr>
                    </div>
                </div>
 
@@ -107,9 +98,9 @@ SublimeTextの簡単なプラグイン作成の依頼があったのでちょっ
         <a href="/" title="shikajiro blog">shikajiro blog</a>
         <a href="/profile">Profile</a></li>
         <a href="/works">Works</a></li>
-        <a href="/archives">archives</a></li>
-        <a href="/categories">categories</a></li>
-        <a href="/tags">tags</a></li>
+        <a href="/archives">Archives</a></li>
+        <a href="/categories">Categories</a></li>
+        <a href="/tags">Tags</a></li>
 
     </footer>
 

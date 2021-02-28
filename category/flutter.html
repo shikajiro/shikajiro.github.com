@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-        <title>D3.js</title>
+        <title>Flutter</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
@@ -27,7 +27,7 @@
 
 <div class="category-page-container">
     <div class="category-logo">
-        <h1><a href="/category/d3js.html" rel="bookmark" title="Permalink to D3.js">D3.js</a></h1>
+        <h1><a href="/category/flutter.html" rel="bookmark" title="Permalink to Flutter">Flutter</a></h1>
     </div>
 
     <div class="section-header">
@@ -40,38 +40,25 @@
         <div class="pure-u-1 article-info">
            <div class="col">
 
-               <h1><a href="/blog/2014/06/12/start-d3js/">D3.jsはじめ</a></h1>
+               <h1><a href="/blog/2018/08/24/flutter_mvvm/">Flutter で MVVM をやる</a></h1>
 
-               <p>BigDataをグラフィカルに表現したい！</p>
-<p>あふれた情報だけど、 D3.js を動かし始めるとこまでやってみる。
-フロントエンドが久々なので、最近のトレンドも踏まえながらやってみる。</p>
-<h2>環境構築</h2>
-<p>bower というのを使えばパッケージ管理できるらしい！すげぇ！（なぜ今まで無かったのか）</p>
-<div class="highlight"><pre><span></span><code><span class="err">bower install d3.js</span>
-</code></pre></div>
-
-
-<p>htmlコードにはこんな感じで</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-    ...
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;bower_components/d3/dist/d3.min.js&#39;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    ...
-<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-</code></pre></div>
-
-
-<h2>D3をとりあえず動かす</h2>
-<p>適当にpタグでも作っておく</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;chart&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</code></pre></div>
-
-
-<p>TODO:簡単に図を表示するコード</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">hoge</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;#chart&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">width</span><span class="p">())</span>
-    <span class="p">.</span><span class="nx">attr …</span></code></pre></div>
+               <p>趣味で flutter を始めました。MVVMを書く時どうしたらいいのか調べてみました。
+この記事を参考にやってみました。</p>
+<p><a href="https://quickbirdstudios.com/blog/mvvm-in-flutter/">App architecture: MVVM in Flutter using Dart Streams - QuickBird Studios Blog</a>
+<img alt="" src="https://quickbirdstudios.com/blog/wp-content/uploads/2018/06/comic_mvvm_flutter-768x591.jpg"></p>
+<p>他にもこのスライドが超役に立ちました。まだ使ってないことも書いてるので今度試します。
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/eWd2eGYKNQiZKy" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/cch-robo/flutter-set-state-redux" title="Flutter のリアクティブ戦略 set state 〜 redux まで" target="_blank">Flutter のリアクティブ戦略 set state 〜 redux まで</a> </strong> from <strong><a href="https://www.slideshare.net/cch-robo" target="_blank">cch-robo</a></strong> </div></p>
+<h2>実現すること</h2>
+<p><img alt="" src="/images/2018-08-24-flutter/stream.gif"></p>
+<ol>
+<li>メニューを選択する。 </li>
+<li>ダイアログから選ぶ</li>
+<li>選んだデータがメニューのところに反映される。</li>
+</ol>
+<p>みたいなことを実現したいと思います。</p>
+<h2>ViewModelの書き方</h2>
+<p>Flutter は標準で Stream があります。これを使うとreactive programing っぽい事ができます。※別途rxDartもありますがここでは紹介しません。</p>
+<p>まずは ViewModel の Interface を定義します。Dartは暗黙的にInterfaceが定義されているので、abstract class で作ります …</p>
 
                <div class="post-meta pure-g">
                    <div class="pure-u">
@@ -79,7 +66,7 @@
                    </div>
                    <div class="pure-u-3-4 meta-data">
                        <a href="/author/shikajiro.html" class="category">shikajiro</a><br />
-                       <abbr title="2014-06-12T00:00:00+09:00">木 12 6月 2014</abbr>
+                       <abbr title="2018-08-24T00:45:00+09:00">金 24 8月 2018</abbr>
                    </div>
                </div>
 

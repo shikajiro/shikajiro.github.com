@@ -1,129 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
-
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-          href="/theme/pygments/github.min.css">
-
-
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
-
-
-
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
-
-    <meta name="author" content="shikajiro" />
-    <meta name="description" content="" />
-<meta property="og:site_name" content="shikajiro blog"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="shikajiro blog"/>
-<meta property="og:description" content=""/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content=""/>
-<meta property="og:image" content="/images/shikajiro-icon.png">
-
-  <title>shikajiro blog</title>
-
+        <title>shikajiro blog</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
-<body class="light-theme">
-  <aside>
-    <div>
-      <a href="">
-        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
-      </a>
+<body>
 
-      <h1>
-        <a href="">shikajiro blog</a>
-      </h1>
-
-<p>Android App Programmer</p>
-
-      <nav>
-        <ul class="list">
-
-
-              <li>
-                <a target="_self"
-                   href="/profile/#profile">
-                  Profile
-                </a>
-              </li>
-              <li>
-                <a target="_self"
-                   href="/works/#works">
-                  Works
-                </a>
-              </li>
+    <div class="navigation pure-menu pure-menu-horizontal">
+        <a href="/" class="pure-menu-heading  pure-menu-link">shikajiro blog</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+            <li class="pure-menu-item"><a href="/profile" class="pure-menu-link">Profile</a></li>
+            <li class="pure-menu-item"><a href="/works" class="pure-menu-link">Works</a></li>
+            <li class="pure-menu-item"><a href="/archives" class="pure-menu-link">Archives</a></li>
+            <li class="pure-menu-item"><a href="/categories" class="pure-menu-link">Categories</a></li>
+            <li class="pure-menu-item"><a href="/tags" class="pure-menu-link">Tags</a></li>
 
         </ul>
-      </nav>
-
-      <ul class="social">
-          <li>
-            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-      </ul>
     </div>
 
-  </aside>
-  <main>
 
-    <nav>
-      <a href="">Home</a>
-
-      <a href="/archives">archives</a>
-      <a href="/categories">categories</a>
-      <a href="/tags">tags</a>
+<div class="main-container">
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-lg-2-3">
 
 
-    </nav>
+<div class="post">
+    <div class="post-meta pure-g">
 
+        <div class="pure-u">
+            <img src="https://developer.android.com/images/brand/Android_Robot_200.png" class="post-avatar" alt="Android">
+        </div>
 
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/android.html" class="category">Android</a><br />
 
-<article>
-  <header>
-    <h2><a href="/blog/2020/07/08/current-activity/#current-activity">Androidで現在起動中のActivityを知る方法</a></h2>
-    <p>
-      Posted on 水 08 7月 2020 in <a href="/category/android.html">Android</a>
-
-          &#8226; Tagged with
-              <a href="/tag/android.html">Android</a>,              <a href="/tag/debug.html">debug</a>
-    </p>
-  </header>
-  <div>
-      <p>Android開発にて Activity, Fragment での画面遷移が入り乱れる実装をしていると、現在動かしている画面のActivityが何なのか知りたくなることがある。</p>
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2020-07-08T22:36:00+09:00">水 08 7月 2020</abbr>
+</div>    </div>
+    <h2><a href="/blog/2020/07/08/current-activity/" rel="bookmark" title="Permalink to Androidで現在起動中のActivityを知る方法">Androidで現在起動中のActivityを知る方法</a></h2>
+    <div class="post-content">
+        <p>Android開発にて Activity, Fragment での画面遷移が入り乱れる実装をしていると、現在動かしている画面のActivityが何なのか知りたくなることがある。</p>
 <p>昔の LayoutInspector や adb でも調べることができるけど、ログに出力する方法を書き残す。</p>
 <p>ActivityLifecycleCallbacks を使って、activityがアクティブになった段階でログを出力すれば良い。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MainApplication</span> <span class="p">:</span> <span class="n">Application</span><span class="p">()</span> <span class="p">{</span>
@@ -139,25 +61,28 @@
         <span class="p">}</span>
 
         <span class="k">override</span> <span class="k">fun</span> <span class="nf">onActivityPaused</span><span class="p">(</span><span class="n">activity</span><span class="p">:</span> <span class="n">Activity …</span></code></pre></div>
-        <br>
-        <a class="btn"
-           href="/blog/2020/07/08/current-activity/#current-activity">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/blog/2018/12/16/flutter_dogs/#flutter_dogs">犬のためのアプリを作っている</a></h2>
-    <p>
-      Posted on 日 16 12月 2018 in <a href="/category/articles.html">articles</a>
+    </div>
+    <div class="post-footer">
+        <a href="/blog/2020/07/08/current-activity/">Read more</a>
+    </div>
+</div>
+<div class="post">
+    <div class="post-meta pure-g">
 
+        <div class="pure-u">
+            <img src="https://developer.android.com/images/brand/Android_Robot_200.png" class="post-avatar" alt="Android">
+        </div>
 
-    </p>
-  </header>
-  <div>
-      <p>ZOZOテクノロジーズの愉快なエンジニア AdventCalendar その2、16日目です。12月も半分過ぎました。やばいですね。</p>
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/android.html" class="category">Android</a><br />
+
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2018-12-16T14:00:00+09:00">日 16 12月 2018</abbr>
+</div>    </div>
+    <a href="/blog/2018/12/16/flutter_dogs/"><img src="https://pbs.twimg.com/profile_images/976974808213733376/XL-QI99V_400x400.jpg" alt="犬のためのアプリを作っている" class="post-image"/></a>
+    <h2><a href="/blog/2018/12/16/flutter_dogs/" rel="bookmark" title="Permalink to 犬のためのアプリを作っている">犬のためのアプリを作っている</a></h2>
+    <div class="post-content">
+        <p>ZOZOテクノロジーズの愉快なエンジニア AdventCalendar その2、16日目です。12月も半分過ぎました。やばいですね。</p>
 <p>ZOZOのAdventCalendarですが完全にZOZOとは関係ない、個人的趣味な記事になります。</p>
 <p><em>いぬをささえるぎじゅつ</em> と題して、趣味レベルでコツコツ作っている犬のアプリについて書きます。</p>
 <h2>なぜ いぬをささえるぎじゅつ なのか</h2>
@@ -176,25 +101,24 @@
 最近では膀胱炎にもなりました。薬を飲むと体に負担がかかり、数週間つらい思いをしていました。</p>
 <p>そんな自分が欲しかった <em>愛犬の健康を管理する</em> アプリを作っています。
 王道ですが …</p>
-        <br>
-        <a class="btn"
-           href="/blog/2018/12/16/flutter_dogs/#flutter_dogs">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/blog/2018/08/24/flutter_mvvm/#flutter_mvvm">Flutter で MVVM をやる</a></h2>
-    <p>
-      Posted on 金 24 8月 2018 in <a href="/category/articles.html">articles</a>
+    </div>
+    <div class="post-footer">
+        <a href="/blog/2018/12/16/flutter_dogs/">Read more</a>
+    </div>
+</div>
+<div class="post">
+    <div class="post-meta pure-g">
 
 
-    </p>
-  </header>
-  <div>
-      <p>趣味で flutter を始めました。MVVMを書く時どうしたらいいのか調べてみました。
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/flutter.html" class="category">Flutter</a><br />
+
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2018-08-24T00:45:00+09:00">金 24 8月 2018</abbr>
+</div>    </div>
+    <h2><a href="/blog/2018/08/24/flutter_mvvm/" rel="bookmark" title="Permalink to Flutter で MVVM をやる">Flutter で MVVM をやる</a></h2>
+    <div class="post-content">
+        <p>趣味で flutter を始めました。MVVMを書く時どうしたらいいのか調べてみました。
 この記事を参考にやってみました。</p>
 <p><a href="https://quickbirdstudios.com/blog/mvvm-in-flutter/">App architecture: MVVM in Flutter using Dart Streams - QuickBird Studios Blog</a>
 <img alt="" src="https://quickbirdstudios.com/blog/wp-content/uploads/2018/06/comic_mvvm_flutter-768x591.jpg"></p>
@@ -211,25 +135,27 @@
 <h2>ViewModelの書き方</h2>
 <p>Flutter は標準で Stream があります。これを使うとreactive programing っぽい事ができます。※別途rxDartもありますがここでは紹介しません。</p>
 <p>まずは ViewModel の Interface を定義します。Dartは暗黙的にInterfaceが定義されているので、abstract class で作ります …</p>
-        <br>
-        <a class="btn"
-           href="/blog/2018/08/24/flutter_mvvm/#flutter_mvvm">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/2017/09/27/toothpick/#toothpick">Android の DI を Dagger から ToothPick に代えた</a></h2>
-    <p>
-      Posted on 水 27 9月 2017 in <a href="/category/articles.html">articles</a>
+    </div>
+    <div class="post-footer">
+        <a href="/blog/2018/08/24/flutter_mvvm/">Read more</a>
+    </div>
+</div>
+<div class="post">
+    <div class="post-meta pure-g">
 
+        <div class="pure-u">
+            <img src="https://developer.android.com/images/brand/Android_Robot_200.png" class="post-avatar" alt="Android">
+        </div>
 
-    </p>
-  </header>
-  <div>
-      <p><img alt="" src="https://camo.githubusercontent.com/24ff6ae4cd9e20cddbaf1c027651e1545b912724/68747470733a2f2f7261772e6769746875622e636f6d2f7374657068616e656e69636f6c61732f746f6f74687069636b2f6d61737465722f6173736574732f6c6f676f2e6a7067"></p>
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/android.html" class="category">Android</a><br />
+
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2017-09-27T19:31:00+09:00">水 27 9月 2017</abbr>
+</div>    </div>
+    <h2><a href="/2017/09/27/toothpick/" rel="bookmark" title="Permalink to Android の DI を Dagger から ToothPick に代えた">Android の DI を Dagger から ToothPick に代えた</a></h2>
+    <div class="post-content">
+        <p><img alt="" src="https://camo.githubusercontent.com/24ff6ae4cd9e20cddbaf1c027651e1545b912724/68747470733a2f2f7261772e6769746875622e636f6d2f7374657068616e656e69636f6c61732f746f6f74687069636b2f6d61737465722f6173736574732f6c6f676f2e6a7067"></p>
 <p>Dagger2 がほんとに辛い。
 公式サイト見たり、先駆者の皆さんのブログを見ながらやってみるけど、ややこしくて自分で改善するのはかなり辛い。使っているというより、言われたとおりに設定するだけで精一杯。</p>
 <p>そんなことをぼやいてたら Realm と ウフィカ の中の人 <a href="https://twitter.com/zaki50">@zaki50</a> さんから</p>
@@ -243,25 +169,24 @@
 <h2>Toothpick とは</h2>
 <p>Java の DI です。 とはいえ、主に Android を対象にしてる気がします。
 ツリースコープなので、「Activity で Inject してたら Fragment …</p>
-        <br>
-        <a class="btn"
-           href="/2017/09/27/toothpick/#toothpick">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/2016/12/13/freelance/#freelance">フリーランス残酷物語 14日目</a></h2>
-    <p>
-      Posted on 水 14 12月 2016 in <a href="/category/articles.html">articles</a>
+    </div>
+    <div class="post-footer">
+        <a href="/2017/09/27/toothpick/">Read more</a>
+    </div>
+</div>
+<div class="post">
+    <div class="post-meta pure-g">
 
 
-    </p>
-  </header>
-  <div>
-      <p>この記事は「<a href="http://qiita.com/advent-calendar/2016/free_zankoku">フリーランス残酷物語 Advent Calendar 2016</a>」 14日目の記事です。</p>
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/articles.html" class="category">articles</a><br />
+
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2016-12-14T06:20:00+09:00">水 14 12月 2016</abbr>
+</div>    </div>
+    <h2><a href="/2016/12/13/freelance/" rel="bookmark" title="Permalink to フリーランス残酷物語 14日目">フリーランス残酷物語 14日目</a></h2>
+    <div class="post-content">
+        <p>この記事は「<a href="http://qiita.com/advent-calendar/2016/free_zankoku">フリーランス残酷物語 Advent Calendar 2016</a>」 14日目の記事です。</p>
 <p>気がつけばフリーランスになって6年経ちました。<a href="https://www.facebook.com/KojikayaShikajiro/?fref=ts">こじか屋</a>のしかじろうです。
 フリーランスとしては中の下くらいだと思ってます。かろうじて生きてます。
 受託だったり保守だったり講師だったり社員教育だったり趣味サービスやってます。</p>
@@ -291,25 +216,27 @@
 </ul>
 <p>上記は僕がやってる or やってたものです。複数の収入先を確保すると安定します。心にも余裕ができます。</p>
 <p>理想は不労所得です。寝ずに仕事すれば収入は増えますが長続きしません …</p>
-        <br>
-        <a class="btn"
-           href="/2016/12/13/freelance/#freelance">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/2016/08/09/androidunittestmd/#androidunittestmd">AndroidのTestまとめ</a></h2>
-    <p>
-      Posted on 水 10 8月 2016 in <a href="/category/articles.html">articles</a>
+    </div>
+    <div class="post-footer">
+        <a href="/2016/12/13/freelance/">Read more</a>
+    </div>
+</div>
+<div class="post">
+    <div class="post-meta pure-g">
 
+        <div class="pure-u">
+            <img src="https://developer.android.com/images/brand/Android_Robot_200.png" class="post-avatar" alt="Android">
+        </div>
 
-    </p>
-  </header>
-  <div>
-      <p>この記事をまとめるにあたって
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/android.html" class="category">Android</a><br />
+
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2016-08-10T06:20:00+09:00">水 10 8月 2016</abbr>
+</div>    </div>
+    <h2><a href="/2016/08/09/androidunittestmd/" rel="bookmark" title="Permalink to AndroidのTestまとめ">AndroidのTestまとめ</a></h2>
+    <div class="post-content">
+        <p>この記事をまとめるにあたって
 <a href="https://developer.android.com/training/testing/index.html">Best Practices for Testing | Android Developers</a> を主に参考にしています。</p>
 <p>Androidのテストは大きく分けて <code>Unit test</code> と <code>UI test</code> の２種類があり、実装方法や対象などで分けると5種類ある。</p>
 <table>
@@ -354,25 +281,24 @@
 <tr>
 <td></td>
 <td>multi app Test …</td></tr></tbody></table>
-        <br>
-        <a class="btn"
-           href="/2016/08/09/androidunittestmd/#androidunittestmd">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/fukuoka-it-slack-group.html#fukuoka-it-slack-group">Fukuoka IT Slack Group</a></h2>
-    <p>
-      Posted on 火 06 10月 2015 in <a href="/category/fukuoka.html">fukuoka</a>
+    </div>
+    <div class="post-footer">
+        <a href="/2016/08/09/androidunittestmd/">Read more</a>
+    </div>
+</div>
+<div class="post">
+    <div class="post-meta pure-g">
 
 
-    </p>
-  </header>
-  <div>
-      <p><img alt="image" src="/images/fukuokaitslack.png"></p>
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/fukuoka.html" class="category">Fukuoka</a><br />
+
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2015-10-06T14:53:00+09:00">火 06 10月 2015</abbr>
+</div>    </div>
+    <h2><a href="/fukuoka-it-slack-group.html" rel="bookmark" title="Permalink to Fukuoka IT Slack Group">Fukuoka IT Slack Group</a></h2>
+    <div class="post-content">
+        <p><img alt="image" src="/images/fukuokaitslack.png"></p>
 <p><a href="https://fukuokaitslack.herokuapp.com/">Fukuoka Slack Group</a></p>
 <h2>Fukuoka IT Slack Group とはなにか</h2>
 <p>福岡のIT系の人が集まるSlackグループです。</p>
@@ -399,21 +325,24 @@
 </ul>
 <p>などなど、チャンネルもカオスな感じになってきてます。
 参加もチャンネル作成も自由ですので、ご自由にどうぞー。</p>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/blog/2014/06/12/start-d3js/#start-d3js">D3.jsはじめ</a></h2>
-    <p>
-      Posted on 木 12 6月 2014 in <a href="/category/d3js.html">D3.js</a>
+    </div>
+    <div class="post-footer">
+        <a href="/fukuoka-it-slack-group.html">Read more</a>
+    </div>
+</div>
+<div class="post">
+    <div class="post-meta pure-g">
 
-          &#8226; Tagged with
-              <a href="/tag/d3js.html">D3.js</a>
-    </p>
-  </header>
-  <div>
-      <p>BigDataをグラフィカルに表現したい！</p>
+
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/d3js.html" class="category">D3.js</a><br />
+
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2014-06-12T00:00:00+09:00">木 12 6月 2014</abbr>
+</div>    </div>
+    <h2><a href="/blog/2014/06/12/start-d3js/" rel="bookmark" title="Permalink to D3.jsはじめ">D3.jsはじめ</a></h2>
+    <div class="post-content">
+        <p>BigDataをグラフィカルに表現したい！</p>
 <p>あふれた情報だけど、 D3.js を動かし始めるとこまでやってみる。
 フロントエンドが久々なので、最近のトレンドも踏まえながらやってみる。</p>
 <h2>環境構築</h2>
@@ -443,26 +372,27 @@
 <div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">hoge</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;#chart&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;svg&quot;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="nx">chart</span><span class="p">.</span><span class="nx">width</span><span class="p">())</span>
     <span class="p">.</span><span class="nx">attr …</span></code></pre></div>
-        <br>
-        <a class="btn"
-           href="/blog/2014/06/12/start-d3js/#start-d3js">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/blog/2014/04/10/android-jenkins/#android-jenkins">Gradleで管理されたAndroidProjectのEspressoテストをGenymotionを使ってjenkinsでぐるぐる回すまで(長い)</a></h2>
-    <p>
-      Posted on 木 10 4月 2014 in <a href="/category/android.html">Android</a>
+    </div>
+    <div class="post-footer">
+        <a href="/blog/2014/06/12/start-d3js/">Read more</a>
+    </div>
+</div>
+<div class="post">
+    <div class="post-meta pure-g">
 
-          &#8226; Tagged with
-              <a href="/tag/pelican.html">pelican</a>,              <a href="/tag/python.html">python</a>
-    </p>
-  </header>
-  <div>
-      <p><img alt="image" src="../images/menu.png"></p>
+        <div class="pure-u">
+            <img src="https://developer.android.com/images/brand/Android_Robot_200.png" class="post-avatar" alt="Android">
+        </div>
+
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/android.html" class="category">Android</a><br />
+
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2014-04-10T00:00:00+09:00">木 10 4月 2014</abbr>
+</div>    </div>
+    <h2><a href="/blog/2014/04/10/android-jenkins/" rel="bookmark" title="Permalink to Gradleで管理されたAndroidProjectのEspressoテストをGenymotionを使ってjenkinsでぐるぐる回すまで(長い)">Gradleで管理されたAndroidProjectのEspressoテストをGenymotionを使ってjenkinsでぐるぐる回すまで(長い)</a></h2>
+    <div class="post-content">
+        <p><img alt="image" src="../images/menu.png"></p>
 <p>Gradleで管理されたAndroidプロジェクトをJenkinsで動かすまで苦しんだのでまとめます。</p>
 <h2>環境</h2>
 <ul>
@@ -491,25 +421,27 @@
 <p>動くこともある。動かないこともある。不安定過ぎるのでエミュレーターを断念。</p>
 <h3>Genymotionで代用</h3>
 <p>エミュレーターをGenymotionに置き換えました。 以下Genymotionをjenkinsで呼び出す流れ …</p>
-        <br>
-        <a class="btn"
-           href="/blog/2014/04/10/android-jenkins/#android-jenkins">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/blog/2013/12/04/android-annotations-advent-calendar/#android-annotations-advent-calendar">とあるプログラマのAndroidAnnotations</a></h2>
-    <p>
-      Posted on 水 04 12月 2013 in <a href="/category/android-androidannotations.html">Android, AndroidAnnotations</a>
+    </div>
+    <div class="post-footer">
+        <a href="/blog/2014/04/10/android-jenkins/">Read more</a>
+    </div>
+</div>
+<div class="post">
+    <div class="post-meta pure-g">
 
+        <div class="pure-u">
+            <img src="https://developer.android.com/images/brand/Android_Robot_200.png" class="post-avatar" alt="Android">
+        </div>
 
-    </p>
-  </header>
-  <div>
-      <p><center>
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/android.html" class="category">Android</a><br />
+
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2013-12-04T23:23:00+09:00">水 04 12月 2013</abbr>
+</div>    </div>
+    <h2><a href="/blog/2013/12/04/android-annotations-advent-calendar/" rel="bookmark" title="Permalink to とあるプログラマのAndroidAnnotations">とあるプログラマのAndroidAnnotations</a></h2>
+    <div class="post-content">
+        <p><center>
 <img src="/images/cv_aa.png">
 </center></p>
 <p>※この記事は<a href="http://qiita.com/advent-calendar/2013/android">Android Advent Calendar 2013</a> 12/04担当として書いてます。</p>
@@ -540,48 +472,67 @@ Genymotionは 明日の mofmofneko さんが書くみたいだからやめてお
 <p>注意：ココ最近の情報は追っかけてません。</p>
 <h2>RestとBean</h2>
 <p>やっぱRestの処理がシンプルになるのがかなり嬉しい。一般的なWegAPIを叩くアプリなら、Interfaceの実装でほぼ終わってしまう。</p>
-<div class="gist">
-    <script src='https://gist.github.com/7789111.js'></script>
-    <noscript>
-        <pre><code>@EActivity
-public …</code></pre></noscript></div>
-        <br>
-        <a class="btn"
-           href="/blog/2013/12/04/android-annotations-advent-calendar/#android-annotations-advent-calendar">
-          Continue reading
-        </a>
-  </div>
-</article>
+<p>[gist:id …</p>
+    </div>
+    <div class="post-footer">
+        <a href="/blog/2013/12/04/android-annotations-advent-calendar/">Read more</a>
+    </div>
+</div>
 
-  <div class="pagination">
-    <a class="btn float-left" href="/index2.html">
-      <i class="fa fa-angle-left"></i> Older Posts
-    </a>
-  </div>
+<div class="pagination">
+    <div class="post-meta pure-g">
+        <div class="pure-u-1-2 left">
+        </div>
+        <div class="pure-u-1-2 right">
+            <a href="/index2.html">More articles</a>
+        </div>
+    </div>
+</div>
 
+        </div>
 
+        <div class="pure-u-1 pure-u-lg-1-3">
+            <div class="right-container">
+                <div class="right-bar">
+                    <div class="right-head">
+                         Tags
+                    </div>
+                    <div class="tags">
+                    <a href="/tag/android.html">Android</a>
+                    <a href="/tag/debug.html">debug</a>
+                    <a href="/tag/d3js.html">D3.js</a>
+                    <a href="/tag/pelican.html">pelican</a>
+                    <a href="/tag/python.html">python</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <footer>
-<p>&copy;  </p>
-<p>
-Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
-</p>    </footer>
-  </main>
-
-
-
-
-<script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "Blog",
-  "name": " shikajiro blog ",
-  "url" : "",
-  "image": "/images/shikajiro-icon.png",
-  "description": ""
-}
-</script>
+    </div>
+</div>
 
 
+
+    <footer class="index-footer">
+
+        <a href="/" title="shikajiro blog">shikajiro blog</a>
+        <a href="/profile">Profile</a></li>
+        <a href="/works">Works</a></li>
+        <a href="/archives">Archives</a></li>
+        <a href="/categories">Categories</a></li>
+        <a href="/tags">Tags</a></li>
+
+    </footer>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-389036-10', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 </body>
 </html>
