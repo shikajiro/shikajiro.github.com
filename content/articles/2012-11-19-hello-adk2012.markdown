@@ -3,7 +3,8 @@ layout: single
 title: adk2012を動かすとこまで
 date: 2012-11-19 14:12
 comments: true
-Category: android, arduino, adk, make
+Category: Android
+Authors: shikajiro
 slug: hello-adk2012
 ---
 

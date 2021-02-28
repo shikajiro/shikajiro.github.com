@@ -3,7 +3,8 @@ layout: single
 title: とあるプログラマのAndroidAnnotations
 date: 2013-12-04 23:23
 comments: true
-Category: Android, AndroidAnnotations
+Category: Android
+Authors: shikajiro
 slug: android-annotations-advent-calendar
 ---
 <center>

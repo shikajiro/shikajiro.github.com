@@ -3,7 +3,8 @@ layout: single
 title: Arduino Fioでスーパーマリオなノックシステム作った
 date: 2013-01-07 15:13
 comments: true
-Category:
+Category: Make
+Authors: shikajiro
 slug:mario-touch
 ---
 しかだよ。

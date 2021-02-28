@@ -3,7 +3,8 @@ layout: single
 title: EclipseでContent Assistの候補をctrl+N or P で選択したい
 date: 2012-11-19 17:12
 comments: true
-Category: eclipse
+Category: Eclipse
+Authors: shikajiro
 slug: eclipse-ctrlnp
 ---
 

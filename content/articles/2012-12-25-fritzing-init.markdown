@@ -3,7 +3,8 @@ layout: single
 title: fritzingに最初から入っているはずのパーツを使えるようにする
 date: 2012-12-25 19:27
 comments: true
-Category:
+Category: Make
+Authors: shikajiro
 slug: fritzing-init
 ---
 ![](http://fritzing.org/media/uploads/download_screenshot_jpg_versions/small_download_screenshot.jpg)

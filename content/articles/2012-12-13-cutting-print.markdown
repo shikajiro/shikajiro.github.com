@@ -3,7 +3,8 @@ layout: single
 title: カッティングプロッターを使ってmacbookの背面シールを作ってみた
 date: 2012-12-13 12:16
 comments: true
-Category: make, print, cutting printer
+Category: Make
+Authors: shikajiro
 slug:cutting-print
 ---
 ![](/images/cutting_printer/IMG_2013.jpg)

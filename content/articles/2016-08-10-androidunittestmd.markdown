@@ -4,6 +4,8 @@ title: AndroidのTestまとめ
 date: 2016-08-10 06:20
 slug: androidunittestmd
 url: 2016/08/09/androidunittestmd/
+Category: Android
+Authors: shikajiro
 save_as: 2016/08/09/androidunittestmd/index.html
 ---
 

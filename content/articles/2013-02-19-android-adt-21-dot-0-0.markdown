@@ -3,7 +3,8 @@ layout: single
 title: ADT 21.0.0新機能紹介
 date: 2013-02-19 00:28
 comments: true
-Category: Android, ADT
+Category: Android
+Authors: shikajiro
 slug: android-adt-21-dot-0-0
 ---
 しかだよ。

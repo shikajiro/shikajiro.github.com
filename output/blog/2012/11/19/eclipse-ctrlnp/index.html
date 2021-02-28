@@ -1,135 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
-
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-          href="/theme/pygments/github.min.css">
-
-
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
-
-
-
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
-
-<meta name="author" content="shikajiro" />
-<meta name="description" content="ctrl+nで選択したい Eclipse Juno (Eclipse Platform 4.2) から ctrl + n or pでContent Assistの候補一覧を選択できなくなった。ctrl + nすると、カーソルが動いちゃう。 キー設定確認 キー設定を見てみよう。 Line Down Line Up にキー設定されてるので、おかしくはない。 Eclipse 4.x の仕様かな。 Eclipseの設定ではどうしようもなさそう・・・。 OSのキー設定ごと変える KeyRemap4MacBook を使ってOSのカーソル操作そのものを設定することにした。 Control+PNBF to Up/Down/Left/Right In Eclipse にチェックを入れればいい感じになる。これで0.5%くらい開発効率が挙がったと思う。" />
-<meta name="keywords" content="">
-
-
-<meta property="og:site_name" content="shikajiro blog"/>
-<meta property="og:title" content="EclipseでContent Assistの候補をctrl+N or P で選択したい"/>
-<meta property="og:description" content="ctrl+nで選択したい Eclipse Juno (Eclipse Platform 4.2) から ctrl + n or pでContent Assistの候補一覧を選択できなくなった。ctrl + nすると、カーソルが動いちゃう。 キー設定確認 キー設定を見てみよう。 Line Down Line Up にキー設定されてるので、おかしくはない。 Eclipse 4.x の仕様かな。 Eclipseの設定ではどうしようもなさそう・・・。 OSのキー設定ごと変える KeyRemap4MacBook を使ってOSのカーソル操作そのものを設定することにした。 Control+PNBF to Up/Down/Left/Right In Eclipse にチェックを入れればいい感じになる。これで0.5%くらい開発効率が挙がったと思う。"/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="/blog/2012/11/19/eclipse-ctrlnp/"/>
-<meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2012-11-19 17:12:00+09:00"/>
-<meta property="article:modified_time" content=""/>
-<meta property="article:author" content="/author/shikajiro.html">
-<meta property="article:section" content="eclipse"/>
-<meta property="og:image" content="/images/shikajiro-icon.png">
-
-  <title>shikajiro blog &ndash; EclipseでContent Assistの候補をctrl+N or P で選択したい</title>
-
+        <title>EclipseでContent Assistの候補をctrl+N or P で選択したい</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
-<body class="light-theme">
-  <aside>
-    <div>
-      <a href="">
-        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
-      </a>
+<body>
 
-      <h1>
-        <a href="">shikajiro blog</a>
-      </h1>
-
-<p>Android App Programmer</p>
-
-      <nav>
-        <ul class="list">
-
-
-              <li>
-                <a target="_self"
-                   href="/profile/#profile">
-                  Profile
-                </a>
-              </li>
-              <li>
-                <a target="_self"
-                   href="/works/#works">
-                  Works
-                </a>
-              </li>
+    <div class="navigation pure-menu pure-menu-horizontal">
+        <a href="/" class="pure-menu-heading  pure-menu-link">shikajiro blog</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+            <li class="pure-menu-item"><a href="/profile" class="pure-menu-link">Profile</a></li>
+            <li class="pure-menu-item"><a href="/works" class="pure-menu-link">Works</a></li>
+            <li class="pure-menu-item"><a href="/archives" class="pure-menu-link">Archives</a></li>
+            <li class="pure-menu-item"><a href="/categories" class="pure-menu-link">Categories</a></li>
+            <li class="pure-menu-item"><a href="/tags" class="pure-menu-link">Tags</a></li>
 
         </ul>
-      </nav>
-
-      <ul class="social">
-          <li>
-            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-      </ul>
     </div>
 
-  </aside>
-  <main>
 
-    <nav>
-      <a href="">Home</a>
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/eclipse.html" class="category">Eclipse</a><br />
 
-      <a href="/archives">archives</a>
-      <a href="/categories">categories</a>
-      <a href="/tags">tags</a>
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2012-11-19T17:12:00+09:00">月 19 11月 2012</abbr>
+</div>        </div>
+    </div>
 
+    <div class="article-header-container">
+        <div class="background-image-container">
 
-    </nav>
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>EclipseでContent Assistの候補をctrl+N or P で選択したい</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<article class="single">
-  <header>
-      
-    <h1 id="eclipse-ctrlnp">EclipseでContent Assistの候補をctrl+N or P で選択したい</h1>
-    <p>
-      Posted on 月 19 11月 2012 in <a href="/category/eclipse.html">eclipse</a>
-
-    </p>
-  </header>
-
-
-  <div>
-    <h2>ctrl+nで選択したい</h2>
+    <div class="entry-content">
+        <h2>ctrl+nで選択したい</h2>
 <p>Eclipse Juno (Eclipse Platform 4.2) から ctrl + n or pでContent Assistの候補一覧を選択できなくなった。ctrl + nすると、カーソルが動いちゃう。</p>
 <p><img alt="assit" src="/images/eclipse/contentassist.png"></p>
 <h2>キー設定確認</h2>
@@ -150,39 +69,58 @@ Eclipseの設定ではどうしようもなさそう・・・。</p>
 <li>In Eclipse</li>
 </ul>
 <p>にチェックを入れればいい感じになる。これで0.5%くらい開発効率が挙がったと思う。</p>
-  </div>
-  <div class="tag-cloud">
-    <p>
-    </p>
-  </div>
-
-
-
-
-
-</article>
+    </div>
 
     <footer>
-<p>&copy;  </p>
-<p>
-Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
-</p>    </footer>
-  </main>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u">
+                        <a href="/author/shikajiro.html"><img src="https://pbs.twimg.com/profile_images/1111646061376921600/4HgO1Ojg_400x400.jpg" alt=""></a>
+                    </div>
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/author/shikajiro.html">shikajiro</a></h3>
+                        <p class="author-description">
+                          
+            Android App Freelance.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
 
 
 
-
-<script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "Blog",
-  "name": " shikajiro blog ",
-  "url" : "",
-  "image": "/images/shikajiro-icon.png",
-  "description": ""
-}
-</script>
+        </div>
 
 
+    </footer>
+
+
+</div>
+
+
+
+    <footer class="index-footer">
+
+        <a href="/" title="shikajiro blog">shikajiro blog</a>
+        <a href="/profile">Profile</a></li>
+        <a href="/works">Works</a></li>
+        <a href="/archives">Archives</a></li>
+        <a href="/categories">Categories</a></li>
+        <a href="/tags">Tags</a></li>
+
+    </footer>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-389036-10', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 </body>
 </html>

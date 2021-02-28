@@ -4,6 +4,7 @@ title: MapFragmentをTabの要素として表示したい
 date: 2013-02-14 23:04
 comments: true
 Category: Android
+Authors: shikajiro
 slug: android-mapfragment-list
 ---
 しかだよ。

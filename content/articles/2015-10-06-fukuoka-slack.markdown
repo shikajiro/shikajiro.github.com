@@ -3,11 +3,12 @@ layout: single
 title: Fukuoka IT Slack Group
 date: 2015-10-06 14:53
 comments: true
-Category: fukuoka
+Category: Fukuoka
 slug: fukuoka-it-slack-group
 url: fukuoka-it-slack-group.html
 save_as: fukuoka-it-slack-group.html
 permalink: fukuoka-it-slack-group.html
+Authors: shikajiro
 ---
 ![image](/images/fukuokaitslack.png)
 

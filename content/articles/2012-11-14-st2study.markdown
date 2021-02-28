@@ -3,7 +3,8 @@ layout: single
 title: SublimeText2勉強会@福岡
 date: 2012-11-14 19:29
 comments: true
-Category:
+Category: SublimeText
+Authors: shikajiro
 slug: st2study
 ---
 

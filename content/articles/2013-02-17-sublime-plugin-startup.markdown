@@ -3,8 +3,9 @@ layout: single
 title: SublimeTextのpluginの作り方
 date: 2013-02-17 01:19
 comments: true
-Category: sublimetext, python
+Category: SublimeText
 slug: sublime-plugin-startup
+Authors: shikajiro
 ---
 しかだよ。
 SublimeTextの簡単なプラグイン作成の依頼があったのでちょっと作ってみたよ。

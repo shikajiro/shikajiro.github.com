@@ -2,7 +2,11 @@
 layout: single
 title: 犬のためのアプリを作っている
 date: 2018-12-16 14:00
+Category: Android
 slug: flutter_dogs
+Authors: shikajiro
+Cover: https://pbs.twimg.com/profile_images/976974808213733376/XL-QI99V_400x400.jpg
+Thumbnail: https://pbs.twimg.com/profile_images/976974808213733376/XL-QI99V_400x400.jpg
 ---
 
 ZOZOテクノロジーズの愉快なエンジニア AdventCalendar その2、16日目です。12月も半分過ぎました。やばいですね。

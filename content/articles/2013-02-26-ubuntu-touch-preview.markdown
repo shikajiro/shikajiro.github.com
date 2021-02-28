@@ -3,7 +3,8 @@ layout: single
 title: Ubuntu Touch Developer Preview を Nexus7にインストールしてみた
 date: 2013-02-26 20:53
 comments: true
-Category: Android, Ubuntu, Nexus
+Category: Android
+Authors: shikajiro
 slug: ubuntu-touch-preview
 ---
 <center>

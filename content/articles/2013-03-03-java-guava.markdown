@@ -3,7 +3,8 @@ layout: single
 title: Google製Javaライブラリ Guavaを使ってみた。
 date: 2013-03-03 19:43
 comments: true
-Category:
+Category: Java
+Authors: shikajiro
 slug: java-guava
 ---
 <center>

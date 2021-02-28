@@ -1,135 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
-
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
-
-
-    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
-          href="/theme/pygments/github.min.css">
-
-
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
-  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
-
-
-
-
-
-<!-- Google Analytics -->
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-389036-10', 'auto');
-  ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
-
-<meta name="author" content="shikajiro" />
-<meta name="description" content="Dagger2 がほんとに辛い。 公式サイト見たり、先駆者の皆さんのブログを見ながらやってみるけど、ややこしくて自分で改善するのはかなり辛い。使っているというより、言われたとおりに設定するだけで精一杯。 そんなことをぼやいてたら Realm と ウフィカ の中の人 @zaki50 さんから toothpickためそ？— zaki50 (@zaki50) 2017年9月1日 とアドバイス頂いたので試してみました。 stephanenicolas/toothpick: A scope tree based Dependency Injection (DI) library for Java サイトを見て設定すれば動くんだけど、どうしても見落としがちなとことかあるので、簡単に紹介します。 Toothpick とは Java の DI です。 とはいえ、主に Android を対象にしてる気がします。 ツリースコープなので、「Activity で Inject してたら Fragment …" />
-<meta name="keywords" content="">
-
-
-<meta property="og:site_name" content="shikajiro blog"/>
-<meta property="og:title" content="Android の DI を Dagger から ToothPick に代えた"/>
-<meta property="og:description" content="Dagger2 がほんとに辛い。 公式サイト見たり、先駆者の皆さんのブログを見ながらやってみるけど、ややこしくて自分で改善するのはかなり辛い。使っているというより、言われたとおりに設定するだけで精一杯。 そんなことをぼやいてたら Realm と ウフィカ の中の人 @zaki50 さんから toothpickためそ？— zaki50 (@zaki50) 2017年9月1日 とアドバイス頂いたので試してみました。 stephanenicolas/toothpick: A scope tree based Dependency Injection (DI) library for Java サイトを見て設定すれば動くんだけど、どうしても見落としがちなとことかあるので、簡単に紹介します。 Toothpick とは Java の DI です。 とはいえ、主に Android を対象にしてる気がします。 ツリースコープなので、「Activity で Inject してたら Fragment …"/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="/2017/09/27/toothpick/"/>
-<meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2017-09-27 19:31:00+09:00"/>
-<meta property="article:modified_time" content=""/>
-<meta property="article:author" content="/author/shikajiro.html">
-<meta property="article:section" content="articles"/>
-<meta property="og:image" content="/images/shikajiro-icon.png">
-
-  <title>shikajiro blog &ndash; Android の DI を Dagger から ToothPick に代えた</title>
-
+        <title>Android の DI を Dagger から ToothPick に代えた</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
-<body class="light-theme">
-  <aside>
-    <div>
-      <a href="">
-        <img src="/images/shikajiro-icon.png" alt="shikajiro blog" title="shikajiro blog">
-      </a>
+<body>
 
-      <h1>
-        <a href="">shikajiro blog</a>
-      </h1>
-
-<p>Android App Programmer</p>
-
-      <nav>
-        <ul class="list">
-
-
-              <li>
-                <a target="_self"
-                   href="/profile/#profile">
-                  Profile
-                </a>
-              </li>
-              <li>
-                <a target="_self"
-                   href="/works/#works">
-                  Works
-                </a>
-              </li>
+    <div class="navigation pure-menu pure-menu-horizontal">
+        <a href="/" class="pure-menu-heading  pure-menu-link">shikajiro blog</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+            <li class="pure-menu-item"><a href="/profile" class="pure-menu-link">Profile</a></li>
+            <li class="pure-menu-item"><a href="/works" class="pure-menu-link">Works</a></li>
+            <li class="pure-menu-item"><a href="/archives" class="pure-menu-link">Archives</a></li>
+            <li class="pure-menu-item"><a href="/categories" class="pure-menu-link">Categories</a></li>
+            <li class="pure-menu-item"><a href="/tags" class="pure-menu-link">Tags</a></li>
 
         </ul>
-      </nav>
-
-      <ul class="social">
-          <li>
-            <a  class="sc-github" href="https://github.com/shikajiro" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a  class="sc-twitter" href="https://twitter.com/shikajiro" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-      </ul>
     </div>
 
-  </aside>
-  <main>
 
-    <nav>
-      <a href="">Home</a>
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+            <div class="pure-u">
+                <a href="/category/android.html"><img src="https://developer.android.com/images/brand/Android_Robot_200.png " class="post-avatar" alt="Android"></a>
+            </div>
+<div class="pure-u-3-4 meta-data">
+    <a href="/category/android.html" class="category">Android</a><br />
 
-      <a href="/archives">archives</a>
-      <a href="/categories">categories</a>
-      <a href="/tags">tags</a>
+    <a class="author" href="/author/shikajiro.html">shikajiro</a>
+    &mdash; <abbr title="2017-09-27T19:31:00+09:00">水 27 9月 2017</abbr>
+</div>        </div>
+    </div>
 
+    <div class="article-header-container">
+        <div class="background-image-container">
 
-    </nav>
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Android の DI を Dagger から ToothPick に代えた</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<article class="single">
-  <header>
-      
-    <h1 id="toothpick">Android の DI を Dagger から ToothPick に代えた</h1>
-    <p>
-      Posted on 水 27 9月 2017 in <a href="/category/articles.html">articles</a>
-
-    </p>
-  </header>
-
-
-  <div>
-    <p><img alt="" src="https://camo.githubusercontent.com/24ff6ae4cd9e20cddbaf1c027651e1545b912724/68747470733a2f2f7261772e6769746875622e636f6d2f7374657068616e656e69636f6c61732f746f6f74687069636b2f6d61737465722f6173736574732f6c6f676f2e6a7067"></p>
+    <div class="entry-content">
+        <p><img alt="" src="https://camo.githubusercontent.com/24ff6ae4cd9e20cddbaf1c027651e1545b912724/68747470733a2f2f7261772e6769746875622e636f6d2f7374657068616e656e69636f6c61732f746f6f74687069636b2f6d61737465722f6173736574732f6c6f676f2e6a7067"></p>
 <p>Dagger2 がほんとに辛い。
 公式サイト見たり、先駆者の皆さんのブログを見ながらやってみるけど、ややこしくて自分で改善するのはかなり辛い。使っているというより、言われたとおりに設定するだけで精一杯。</p>
 <p>そんなことをぼやいてたら Realm と ウフィカ の中の人 <a href="https://twitter.com/zaki50">@zaki50</a> さんから</p>
@@ -172,95 +94,16 @@ Fragment 1
 <p>本題です。実際に使えるようになるまでのソースを抜粋して紹介します。バージョンは日々進化してるので、基本公式サイトを信用してください。
 また、ここではkotlinを使ってる場合の例になります。</p>
 <h3>builg.gradle</h3>
-<div class="gist">
-    <script src='https://gist.github.com/f3348df6476f5633fea30b86ba3ffff6.js?file=build.gradle'></script>
-    <noscript>
-        <pre><code>kapt {
-  generateStubs = true
-  arguments {
-    arg('toothpick_registry_package_name', "${android.defaultConfig.applicationId}.toothpick")
-  }
-}
-
-dependencies {
-  compile "com.github.stephanenicolas.toothpick:toothpick-runtime:$toothpick_ver"
-  kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpick_ver"
-}</code></pre>
-    </noscript>
-</div>
+<p>[gist:id=f3348df6476f5633fea30b86ba3ffff6,file=build.gradle]</p>
 <p>kapt で <code>toothpick_registry_package_name</code> を設定する必要があります。ここで指定したパッケージのソースが自動生成されます。ここ大事。</p>
 <h3>MainApplication.kt</h3>
-<div class="gist">
-    <script src='https://gist.github.com/f3348df6476f5633fea30b86ba3ffff6.js?file=MainApplication.kt'></script>
-    <noscript>
-        <pre><code>import your.application.package.toothpick.FactoryRegistry
-import your.application.package.toothpick.MemberInjectorRegistry
-
-class MainApplication : Application() {
-
-  override fun onCreate() {
-    super.onCreate()
-
-    Toothpick.setConfiguration(Configuration.forProduction().disableReflection())
-    //この２つの引数は、自動生成されたRegistryを渡す。toothPickにあるRegistryを渡しても駄目
-    MemberInjectorRegistryLocator.setRootRegistry(MemberInjectorRegistry())
-    FactoryRegistryLocator.setRootRegistry(FactoryRegistry())
-
-    Toothpick.openScope(this).installModules(ApplicationModule(this))
-  }
-  
-  override fun onTerminate() {
-    super.onTerminate()
-
-    Toothpick.closeScope(this)
-  }
-
-}</code></pre>
-    </noscript>
-</div>
+<p>[gist:id=f3348df6476f5633fea30b86ba3ffff6,file=MainApplication.kt]</p>
 <p>Applicationを継承したクラスが必須になります。</p>
 <p><code>MemberInjectorRegistryLocator</code> と <code>FactoryRegistryLocator</code> に set する Registry が大事なところです。
 ここには、 kapt で指定したパッケージに生成される <code>MemberInjectorRegistry</code> と <code>FactoryRegistry</code> を指定してください。ToothPick自体にもこの２つのクラスは存在するので、そちらを指定しないように気をつけてください。</p>
 <p>もし自動生成しない場合は、エラーになってもいいので rebuild や Make Project すると生成するかもしれません。がんばろう。</p>
 <h3>Module.kt</h3>
-<div class="gist">
-    <script src='https://gist.github.com/f3348df6476f5633fea30b86ba3ffff6.js?file=Module.kt'></script>
-    <noscript>
-        <pre><code>class ApplicationModule(val application: Application) : Module() {
-  val local = LocalCache(application)
-
-  init {
-    bindModelRepository()
-  }
-
-  private fun bindModelRepository() {
-    val webApi = WebApi(BuildConfig.API_BASE_URL, local)
-    val repository = ModelRepositoryImp(webApi, local)
-    bind(ModelRepository::class.java).toInstance(repository)
-  }
-}
-
-class ActivityModule(val activity: Activity) : Module(){
-  init {
-    bindNavigator()
-    bindDialog()
-  }
-
-  private fun bindNavigator(){
-    bind(Navigator::class.java).toInstance(Navigator(activity))
-  }
-
-  private fun bindDialog(){
-    bind(DialogDelegation::class.java).toInstance(DialogDelegationImpl(activity))
-  }
-}
-class FragmentModule(val fragment: Fragment) : Module(){
-}
-class ViewModelModule(val viewModel: ViewModel) : Module(){
-}
-</code></pre>
-    </noscript>
-</div>
+<p>[gist:id=f3348df6476f5633fea30b86ba3ffff6,file=Module.kt]</p>
 <p>DIの設定をするところです。<code>bind</code>メソッドで型とインスタンスを紐付けます。scope毎にModule (ApplicationModule, ActivityModule, FragmentModule, ViewModelModule) を作っています。</p>
 <h3>SplashActivity.kt</h3>
 <p>[gist:id=f3348df6476f5633fea30b86ba3ffff6,SplashActivity.kt]</p>
@@ -268,27 +111,7 @@ class ViewModelModule(val viewModel: ViewModel) : Module(){
 <p>onCreate の前で scope に ActivityModule インストールしています。これでActivityからActivityModuleの中でbindしたインスタンスを Inject 出来るようになります。さらに、MainApplicationModuleの中でbindしたインスタンスもInjectできます。それは、ツリー構造でApplicationと紐付いているからです。(後述)</p>
 <p>onCreate の後で <code>Toohpick.inject</code> することで @Inject が書かれたメンバ変数にインスタンスが代入されます。</p>
 <h3>HomeFragment.kt</h3>
-<div class="gist">
-    <script src='https://gist.github.com/f3348df6476f5633fea30b86ba3ffff6.js?file=HomeFragment.kt'></script>
-    <noscript>
-        <pre><code>
-class HomeFragment : Fragment() {
-
-  private lateinit var scope: Scope
-  private lateinit var vm: HomeViewModel
-  @Inject lateinit var dialogDelegation: DialogDelegation
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    scope = Toothpick.openScopes(activity.application, activity, this)
-    scope.installModules(FragmentModule(this))
-    super.onCreate(savedInstanceState)
-    Toothpick.inject(this, scope)
-    vm = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-  }
-}
-</code></pre>
-    </noscript>
-</div>
+<p>[gist:id=f3348df6476f5633fea30b86ba3ffff6,file=HomeFragment.kt]</p>
 <h3>HomeViewModel.kt</h3>
 <p>[gist:id=f3348df6476f5633fea30b86ba3ffff6,HomeViewModel.kt]</p>
 <h3>Scope</h3>
@@ -321,39 +144,73 @@ HomeFragment
 <h2>まとめ</h2>
 <p>ToothpickでDIできたはずです。できたよね。うんよかった。</p>
 <p>感想としてはDagger2よりシンプルで使いやすいです。もっと依存関係が複雑になるとどうなるかわかりませんが、複雑になったらDagger2は僕には辛いですし、複雑にならないように頑張りたいです。</p>
-  </div>
-  <div class="tag-cloud">
-    <p>
-    </p>
-  </div>
-
-
-
-
-
-</article>
+    </div>
 
     <footer>
-<p>&copy;  </p>
-<p>
-Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
-</p>    </footer>
-  </main>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u">
+                        <a href="/author/shikajiro.html"><img src="https://pbs.twimg.com/profile_images/1111646061376921600/4HgO1Ojg_400x400.jpg" alt=""></a>
+                    </div>
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/author/shikajiro.html">shikajiro</a></h3>
+                        <p class="author-description">
+                          
+            Android App Freelance.
+        
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pure-u-1 pure-u-md-1-2">
+
+                <div class="pure-g post-category-info">
+                    <div class="pure-u">
+                        <a href="/category/android.html"><img src="https://developer.android.com/images/brand/Android_Robot_200.png" alt=""></a>
+                    </div>
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="/category/android.html">Android</a></h3>
+                        <p class="author-description">
+                          Android
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </footer>
+
+
+</div>
 
 
 
+    <footer class="index-footer">
 
-<script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "Blog",
-  "name": " shikajiro blog ",
-  "url" : "",
-  "image": "/images/shikajiro-icon.png",
-  "description": ""
-}
-</script>
+        <a href="/" title="shikajiro blog">shikajiro blog</a>
+        <a href="/profile">Profile</a></li>
+        <a href="/works">Works</a></li>
+        <a href="/archives">Archives</a></li>
+        <a href="/categories">Categories</a></li>
+        <a href="/tags">Tags</a></li>
 
+    </footer>
 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-389036-10', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 </body>
 </html>

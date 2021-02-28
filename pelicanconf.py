@@ -26,12 +26,33 @@ AUTHOR_FEED_RSS = None
 # LINKS = (('Profile', '/profile'),)
 
 MAIN_MENU = True
+DISPLAY_CATEGORIES_ON_MENU = False
+DISPLAY_PAGES_ON_MENU = False
 MENUITEMS = (
-('archives','/archives'),
-('categories','/categories'),
-('tags','/tags'),
+    ('Profile', '/profile'),
+    ('Works', '/works'),
+    ('Archives', '/archives'),
+    ('Categories', '/categories'),
+    ('Tags', '/tags'),
 )
-
+MEDIUS_CATEGORIES = {
+    'Android': {
+        'description': 'Android',
+        'logo': 'https://developer.android.com/images/brand/Android_Robot.png',
+        'thumbnail': 'https://developer.android.com/images/brand/Android_Robot_200.png'
+    }
+}
+MEDIUS_AUTHORS = {
+    'shikajiro': {
+        'description': """
+            Android App Freelance.
+        """,
+        'cover': 'https://pbs.twimg.com/profile_banners/5497592/1549893196/1500x500',
+        'image': 'https://pbs.twimg.com/profile_images/1111646061376921600/4HgO1Ojg_400x400.jpg',
+        'links': (('github', 'https://github.com/shikajiro'),
+                  ('twitter-square', 'https://twitter.com/shikajiro')),
+    }
+}
 # Social widget
 SOCIAL = (('github', 'https://github.com/shikajiro'),
           ('twitter', 'https://twitter.com/shikajiro'),)
@@ -39,10 +60,10 @@ SOCIAL = (('github', 'https://github.com/shikajiro'),
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
-THEME = "pelican-themes/Flex"
-PLUGINS = ["pelican_gist"]
+THEME = "pelican-themes/medius"
+PLUGINS = []
 
 ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'

@@ -4,7 +4,9 @@ title: Android の DI を Dagger から ToothPick に代えた
 date: 2017-09-27 19:31
 slug: toothpick
 url: 2017/09/27/toothpick/
+Category: Android
 save_as: 2017/09/27/toothpick/index.html
+Authors: shikajiro
 ---
 
 ![](https://camo.githubusercontent.com/24ff6ae4cd9e20cddbaf1c027651e1545b912724/68747470733a2f2f7261772e6769746875622e636f6d2f7374657068616e656e69636f6c61732f746f6f74687069636b2f6d61737465722f6173736574732f6c6f676f2e6a7067)
