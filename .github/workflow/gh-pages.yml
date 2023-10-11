@@ -1,0 +1,51 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - source
+
+concurrency:
+  group: gh-pages
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/cache@v3
+        id: poetry_cache_id
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: install dependencies
+        if: steps.poetry_cache_id.outputs.cache-hit != 'true'
+        run: |
+          poetry install
+
+      - name: Build content
+        run: |
+          poetry run pelican content
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my_site
+          path: output
+
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: output
+
+      - uses: actions/deploy-pages@v1
+        id: deployment
