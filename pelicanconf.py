@@ -45,8 +45,8 @@ MEDIUS_AUTHORS = {
         'description': """
             Android App Freelance.
         """,
-        'cover': 'https://pbs.twimg.com/profile_banners/5497592/1549893196/1500x500',
-        'image': 'https://pbs.twimg.com/profile_images/1111646061376921600/4HgO1Ojg_400x400.jpg',
+        'cover': '/images/shikajiro_1500_500.png',
+        'image': '/images/shikajiro-icon.png',
         'links': (('github', 'https://github.com/shikajiro'),
                   ('twitter-square', 'https://twitter.com/shikajiro')),
     }
