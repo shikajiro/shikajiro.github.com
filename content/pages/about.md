@@ -72,7 +72,7 @@ Android/Flutter開発を中心に、Python/Goを使ったWebAPI開発、terrafor
 ## やりたいこと
 
 犬が好きすぎるので「犬を幸せにする」仕事をしていきたい
-![monaka.jpg](images/monaka.jpg)
+![monaka.jpg](/images/monaka.jpg)
 
 ## 働き方
 
