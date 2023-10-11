@@ -9,6 +9,7 @@ pelican content
 
 # gh-pages branch に テキストを書き出す
 ghp-import output
+特に反応はない
 
 # repository に push する
 git push -f origin gh-pages:master
