@@ -1,0 +1,3 @@
+[submodule "pelican-themes/medius"]
+	path = pelican-themes/medius
+	url = git@github.com:onur/medius.git
