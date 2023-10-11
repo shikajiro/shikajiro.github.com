@@ -147,16 +147,6 @@ files = [
 pytz = ">=0a"
 
 [[package]]
-name = "ghp-import"
-version = "0.5.5"
-description = "Copy your docs directly to the gh-pages branch."
-optional = false
-python-versions = "*"
-files = [
-    {file = "ghp-import-0.5.5.tar.gz", hash = "sha256:3e924ea720e4e1f82d56753db2154bfb86067472c5830732159c3a4c4fbc75d7"},
-]
-
-[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -535,4 +525,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "d02e4b4eb09ec5284a3b30bd0f749ca8500c7702fce38b18da134cbe30b67e12"
+content-hash = "9efd24dc0bef1a11c76191729289bdf582f0078ce83666e983a3f72e7c0e9e25"
