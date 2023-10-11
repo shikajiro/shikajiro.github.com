@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*- #
 
 SITETITLE = "shikajiro blog"
-SITESUBTITLE = "Android App Programmer"
+SITESUBTITLE = "Freelance FullStack Programmer"
 
 AUTHOR = 'shikajiro'
 SITELOGO = "/images/shikajiro-icon.png"
 SITENAME = 'shikajiro blog'
-SITEURL = 'https://shikajiro.github.io/'
+SITEURL = 'https://shikajiro.github.io'
 
 PATH = 'content'
 
@@ -29,7 +29,6 @@ DISPLAY_CATEGORIES_ON_MENU = False
 DISPLAY_PAGES_ON_MENU = False
 MENUITEMS = (
     ('Profile', '/profile'),
-    ('Works', '/works'),
     ('Archives', '/archives'),
     ('Categories', '/categories'),
     ('Tags', '/tags'),
