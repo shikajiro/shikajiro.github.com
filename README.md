@@ -1,4 +1,4 @@
-https://shikajiro.github.io/
+https://blog.shikajiro.com/
 
 # メモ
 ## 開発

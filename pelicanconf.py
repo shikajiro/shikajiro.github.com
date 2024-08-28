@@ -7,7 +7,7 @@ SITESUBTITLE = "Freelance FullStack Programmer"
 AUTHOR = 'shikajiro'
 SITELOGO = "/images/shikajiro-icon.png"
 SITENAME = 'shikajiro blog'
-SITEURL = 'https://shikajiro.github.io'
+SITEURL = 'https://blog.shikajiro.com'
 
 PATH = 'content'
 
